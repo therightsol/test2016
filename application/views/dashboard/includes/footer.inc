@@ -1,6 +1,6 @@
 <div class="footer">
     <div class="footer-inner">
-        2013 &copy; Save a soul by keenthemes.
+        2013 &copy; Metronic by keenthemes.
     </div>
     <div class="footer-tools">
 		<span class="go-top">

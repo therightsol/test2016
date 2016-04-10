@@ -14,8 +14,6 @@
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
 
-
-
 <body>
 <div class="page-wrapper">
  	

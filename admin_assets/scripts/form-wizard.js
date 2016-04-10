@@ -34,21 +34,12 @@ var FormWizard = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 rules: {
                     //account
-                    username: {
-                        minlength: 5,
+                    name: {
+                        minlength: 3,
                         required: true
                     },
-                    password: {
-                        minlength: 5,
-                        required: true
-                    },
-                    rpassword: {
-                        minlength: 5,
-                        required: true,
-                        equalTo: "#submit_form_password"
-                    },
-                    //profile
-                    fullname: {
+                    qualification: {
+                        minlength: 3,
                         required: true
                     },
                     email: {
@@ -70,34 +61,14 @@ var FormWizard = function () {
                     country: {
                         required: true
                     },
-                    //payment
-                    card_name: {
-                        required: true
-                    },
-                    card_number: {
-                        minlength: 16,
-                        maxlength: 16,
-                        required: true
-                    },
-                    card_cvc: {
-                        digits: true,
-                        required: true,
-                        minlength: 3,
-                        maxlength: 4
-                    },
-                    card_expiry_date: {
-                        required: true
-                    },
-                    'payment[]': {
-                        required: true,
-                        minlength: 1
+                    userfile:{
+                        extension: "png|jpeg|gif"
                     }
                 },
 
                 messages: { // custom messages for radio buttons and checkboxes
-                    'payment[]': {
-                        required: "Please select at least one option",
-                        minlength: jQuery.format("Please select at least one option")
+                    'userfile': {
+                        extension:'Png, jpeg, gif images allowed'
                     }
                 },
 
@@ -142,6 +113,7 @@ var FormWizard = function () {
                 submitHandler: function (form) {
                     success.show();
                     error.hide();
+                    form.submit();
                     //add here some ajax code to submit your form or just call form.submit() if you want to submit the form without ajax
                 }
 
@@ -164,7 +136,7 @@ var FormWizard = function () {
                         $(this).html(payment.join("<br>"));
                     }
                 });
-            }
+            };
 
             var handleTitle = function(tab, navigation, index) {
                 var total = navigation.find('li').length;
@@ -193,7 +165,7 @@ var FormWizard = function () {
                     $('#form_wizard_1').find('.button-submit').hide();
                 }
                 App.scrollTo($('.page-title'));
-            }
+            };
 
             // default form wizard
             $('#form_wizard_1').bootstrapWizard({
@@ -233,10 +205,8 @@ var FormWizard = function () {
                 }
             });
 
-            $('#form_wizard_1').find('.button-previous').hide();
-            $('#form_wizard_1 .button-submit').click(function () {
-                alert('Finished! Hope you like it :)');
-            }).hide();
+            $('#form_wizard_1').find('.button-previous, .button-submit').hide();
+
         }
 
     };

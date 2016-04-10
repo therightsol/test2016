@@ -19,7 +19,7 @@ class Profile extends CI_Controller {
             $data['profile_record'] = $this->user->getSpecificColumnRec(false, $rec);
             $user_id = $data['profile_record'][0]['uid'];
             $this->load->model('user_meta');
-            $data['bank_rec'] = $this->user_meta->getRecord($user_id, 'uid', true);
+            $data['bank_rec'] = $this->user_meta->getRecord($user_id, 'fk_uid', true);
 
         }else{
             die('you are not allowed');

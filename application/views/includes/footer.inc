@@ -159,7 +159,8 @@
         cache:true,
         success: function(result){
             var logo = result[0]['company_logo_header'];
-            $('.logo img').attr('src', logo);
+            var base_url = "<?php echo $root; ?>";
+            $('.logo img').attr('src', base_url+logo);
             $('#header_mail').attr('href', 'mailto:'+result[0]['contact_email_header']).html(result[0]['contact_email_header']);
             $('.facebook').attr('href',result[0]['facebook_url_header']);
             $('.twitter').attr('href',result[0]['twitter_url_header']);

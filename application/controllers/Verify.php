@@ -50,7 +50,8 @@ class Verify extends CI_Controller {
                 if ($un_found == 'yes') {
                     // update
                     $updateData = array(
-                        'is_email_verified' => 1
+                        'is_email_verified' => 1,
+                        'is_approved_by_admin' => 1
                     );
 
                     $isSuccess = $this->user->updateRecord('username', $updateData, $plain_username);

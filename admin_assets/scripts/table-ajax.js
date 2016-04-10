@@ -4,7 +4,7 @@ var TableAjax = function () {
 
         //main function to initiate the module
         init: function () {
-
+            
             if (!jQuery().dataTable) {
                 return;
             }
@@ -18,7 +18,7 @@ var TableAjax = function () {
                 ],
                 "bProcessing": true,
                 "bServerSide": true,
-                "sAjaxSource": "datatable_data",
+                "sAjaxSource": "demo/table_ajax.php",
                 // set the initial value
                 "iDisplayLength": 10,
                 "sPaginationType": "bootstrap_full_number",

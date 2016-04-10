@@ -877,11 +877,12 @@ var App = function () {
             handleFixedSidebar(); // reinitialize fixed sidebar
             handleFixedSidebarHoverable(); // reinitialize fixed sidebar hover effect
         }
-
+        var getUrl = window.location;
+        var baseUrl = getUrl .protocol + "//" + getUrl.host + "/myelaaj/admin_assets/css/themes/";
         // handle theme colors
         var setColor = function (color) {
             var color_ = (App.isRTL() ? color + '-rtl' : color);
-            $('#style_color').attr("href", "assets/css/themes/" + color_ + ".css");
+            $('#style_color').attr("href", baseUrl + color_ + ".css");
             $.cookie('style_color', color);
         }
 

@@ -8,8 +8,7 @@ class Login extends CI_Controller {
         $this->load->helper('form');
     }
   public function index() {
-      $data['activemenu'] = 'Login';
-      $this->load->view('login', $data);
+      redirect('login/login_member');
 }
     public function Login_member() {
         $data['activeMenu'] = 'login';

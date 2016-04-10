@@ -19,7 +19,7 @@
 <link href="<?php echo $root; ?>assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="favicon.ico"><!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
-<link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $root; ?>assets/plugins/select2/select2_metro.css">
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
 <link href="<?php echo $root; ?>assets/css/style-metronic.css" rel="stylesheet" type="text/css">

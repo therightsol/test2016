@@ -113,9 +113,9 @@ class Register_member extends CI_Controller {
 									$this->user->email = $uemail;
 									$this->user->password = $hashedPassword;
 									
-									$this->user->phone_number = $phone; 
-									
-									// b) saving into DB
+									$this->user->phone_number = $phone;
+                            $this->user->joining_date = time();
+                            // b) saving into DB
 									
 									$this->user->insertRecord();
 							

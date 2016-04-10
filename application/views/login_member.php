@@ -88,12 +88,14 @@ include 'includes/header.inc';
 
 
             </div>
-                      <div class="col-sm-6 col-sm-offset-4">
+                      <div class="col-sm-8 col-sm-offset-4">
 
             <div class="form-actions">
                 <button type="submit" class="btn" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Login</button>
             </div>
+
             </div>
+            <a class="" href="<?php echo base_url('reset_password') ?>">Forget Password?</a>
         </form>
         <!-- END FORM-->
     </div>

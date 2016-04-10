@@ -113,6 +113,7 @@ class Register_organization extends CI_Controller {
 
                             $this->user->email = $uemail;
                             $this->user->password = $hashedPassword;
+                            $this->user->joining_date = time();
                             $this->user->is_email_verified = 1;
                             $this->user->phone_number = $phone;
 
@@ -131,37 +132,37 @@ class Register_organization extends CI_Controller {
 
                                 $bnk_array = array(
                                     array(
-                                        'uid' => $org_id,
+                                        'fk_uid' => $org_id,
                                         'um_key' => $bnk_num,
                                         'um_title' => 'bank_number',
                                         'um_value' => $bnk_num
                                     ),
                                     array(
-                                        'uid' => $org_id,
+                                        'fk_uid' => $org_id,
                                         'um_key' => $bnk_num,
                                         'um_title' => 'bank_title',
                                         'um_value' => $bnk_title
                                     ),
                                     array(
-                                        'uid' => $org_id,
+                                        'fk_uid' => $org_id,
                                         'um_key' => $bnk_num,
                                         'um_title' => 'bank_name',
                                         'um_value' => $bnk_name
                                     ),
                                     array(
-                                        'uid' => $org_id,
+                                        'fk_uid' => $org_id,
                                         'um_key' => $bnk_num,
                                         'um_title' => 'bank_code',
                                         'um_value' => $bnk_code
                                     ),
                                     array(
-                                        'uid' => $org_id,
+                                        'fk_uid' => $org_id,
                                         'um_key' => $bnk_num,
                                         'um_title' => 'bank_address',
                                         'um_value' => $bnk_address
                                     ),
                                     array(
-                                        'uid' => $org_id,
+                                        'fk_uid' => $org_id,
                                         'um_key' => $bnk_num,
                                         'um_title' => 'bank_swift',
                                         'um_value' => $bnk_swift
