@@ -76,7 +76,6 @@ include 'includes/header.inc';
                                             <?php if ($not_found == 'yes') { ?>
                                                 <div class="help-block">
                                                     Provided email is not registered. <br />
-                                                    If you want to registered then <a href="<?php echo $root; ?>register" >Click Here</a> <br />
                                                 </div>
                                             <?php } ?> 
                                     </div> 

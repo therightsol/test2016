@@ -55,6 +55,7 @@
     <link rel="stylesheet" href="<?php echo $root; ?>admin_assets/plugins/froala/css/plugins/video.css">
     <!-- END THEME STYLES -->
     <link href="<?php echo $root; ?>admin_assets/css/xeditable.min.css" rel="stylesheet">
+    <link href="<?php echo $root; ?>admin_assets/css/prettyPhoto.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>assets/css/picedit.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">

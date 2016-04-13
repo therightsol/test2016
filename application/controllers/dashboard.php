@@ -77,6 +77,75 @@ class Dashboard extends CI_Controller {
 
 
     }
+    public function all_users()
+    {
+        if(empty($this->session->userdata('admin_dashboard'))){
+            redirect('dashboard/login');exit;
+
+        }
+        $data['activeMenu'] = '';
+
+        $this->load->model('user');
+        $rec = array('is_organization' => 1);
+        $data['all'] = $this->user->getRecord();
+        //echo '<pre>' . var_export($data['member'], true) . '</pre>';exit;
+        $this->load->library('form_validation');
+        if(filter_input_array(INPUT_POST)){
+            $uid = $this->input->post('pk', true);
+            $value = $this->input->post('value', true);
+            if($value == 'is_member'){
+                $updating_data = array(
+                    'is_organization' => 0,
+                    'is_member' => 1,
+                    'is_admin' => 0,
+                    'is_approved_by_admin' => 1,
+                );
+                $success = $this->user->updateRecord('uid', $updating_data, $uid);
+            }elseif($value == 'is_organization'){
+                $updating_data = array(
+                    'is_organization' => 1,
+                    'is_member' => 0,
+                    'is_admin' => 0,
+                    'is_approved_by_admin' => 1,
+                );
+                $success = $this->user->updateRecord('uid', $updating_data, $uid);
+            }elseif($value == 'is_admin'){
+                $updating_data = array(
+                    'is_organization' => 0,
+                    'is_member' => 0,
+                    'is_admin' => 1,
+                    'is_approved_by_admin' => 1,
+                );
+                $success = $this->user->updateRecord('uid', $updating_data, $uid);
+            }elseif($value == 'banned'){
+                $updating_data = array(
+                    'is_organization' => 0,
+                    'is_member' => 0,
+                    'is_admin' => 0,
+                    'is_approved_by_admin' => 2,
+                );
+                $success = $this->user->updateRecord('uid', $updating_data, $uid);
+            }
+
+
+            if($success){
+                header("HTTP/1.1 200 OK");
+                //echo 'updated';
+            }else{
+                header('HTTP/1.0 400 Bad Request', true, 400);
+                echo 'Error! try again';
+            }
+        }else {
+            $this->load->view('dashboard/all_users', $data);
+        }
+
+
+    }
+    public function notification(){
+        $this->load->model('user');
+        $count = $this->user->record_count(false, array('is_approved_by_admin' => 0));
+        echo $count;
+    }
     public function logout()
     {
         $this->session->unset_userdata('admin_dashboard');
@@ -512,6 +581,8 @@ class Dashboard extends CI_Controller {
 				if($admin_data){
                     if ($admin_data[0]['username'] == $username and password_verify($plain_pass, $admin_data[0]['password'])) {
                         $this->session->set_userdata('admin_dashboard', 'approve');
+                        $this->session->set_userdata('username', $username);
+                        $this->session->set_userdata('loggedInUser', 'admin');
                         redirect('dashboard/general');
                     } else {
                         $data['wrong'] = 'yes';

@@ -10,7 +10,7 @@ include 'includes/header.inc';
 
                 <div class="portlet-title">
                     <div class="caption" style="background-color">
-                        <span style="color:#eb5310;font-size: 2em;"> Register Here As an organization </span>
+                        <span style="color:#eb5310;font-size: 2em;"> Profile </span>
                     </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"></a>
@@ -23,7 +23,7 @@ include 'includes/header.inc';
                     <div class="row">
                         <?php if($loggedInUser == 'is_member'){ ?>
                         <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                            <A href="#" >Edit Profile</A>
+
 
                             <br>
 
@@ -39,7 +39,7 @@ include 'includes/header.inc';
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-12 " align="center" id="img_div">
+                                        <div class="col-md-3" align="center" id="img_div">
                                             <img alt="User Pic" src="
                                                     <?php
                                             if($profile_record[0]['profile_image_path'] == ''){
@@ -86,7 +86,7 @@ include 'includes/header.inc';
                         <?php }elseif($loggedInUser == 'is_organization'){  ?>
 
                             <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                                <A href="#" >Edit Profile</A>
+
 
                                 <br>
 
@@ -108,7 +108,7 @@ include 'includes/header.inc';
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-md-3 col-lg-3 " align="center" style="min-height: 450px;">
-                                                <div class="" align="center" style="min-height: 109px;" id="img_div">
+                                                <div class="" align="center" style="min-height: 132px;" id="img_div">
                                                     <img alt="User Pic" src="
                                                     <?php
                                                     if($profile_record[0]['profile_image_path'] == ''){
@@ -140,7 +140,10 @@ include 'includes/header.inc';
                                                             <tr>
                                                                 <td>Phone No</td>
                                                                 <td>
-                                                                    <?php echo $profile_record[0]['phone_number'] ?>
+
+                                                                    <a class="phn" data-name="phone_number" data-pk="<?php echo $profile_record[0]['uid']; ?>" >
+                                                                        <?php echo $profile_record[0]['phone_number'] ?>
+                                                                    </a>
                                                                 </td>
 
                                                             </tr>
@@ -350,13 +353,12 @@ include 'includes/header.inc';
             $(this).find('.edit').hide();
         });
 
-        $('.edit').click(function(){
-            $(this).parent().find('.edit-text').editable({
-                url: '<?php echo $root; ?>editable_kafeel/update',
-                success: function(response, newValue){
-                    if(response.status == 'error') return response.msg;
-                }
-            });
+        $('.phn').editable({
+            type: 'text',
+            url: '<?php echo $root; ?>dashboard/editable/user/uid',
+            success: function(response, newValue){
+                if(response.status == 'error') return response.msg;
+            }
         });
 
         $('#image').picEdit();

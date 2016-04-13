@@ -41,7 +41,11 @@ include 'includes/header.inc';
                                         </span></strong>
                             <?php }
 
-                            if ($is_email_approved != '') { ?>
+                            if ($is_banned != '') { ?>
+                                <div class="alert alert-danger">
+                                    You are banned by admin
+                                </div>
+                            <?php }elseif ($is_email_approved != '') { ?>
                                 <div class="alert alert-info">
                                     Sorry! Your Email Address is not verified <br>
                                     Kindly Verify you email address!

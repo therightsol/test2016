@@ -29,6 +29,7 @@
 <link href="<?php echo $root; ?>assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color">
 <link href="<?php echo $root; ?>assets/css/custom.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>assets/css/picedit.min.css" />
+    <link href="<?php echo $root; ?>admin_assets/css/xeditable.min.css" rel="stylesheet">
 
 <!-- END THEME STYLES -->
 

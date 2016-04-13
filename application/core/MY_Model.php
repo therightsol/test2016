@@ -80,8 +80,13 @@ class MY_Model extends CI_Model {
     /*
      * countRow('isApproved', 1);
      */
-    public function record_count($like = false) {
-        $this->db->like($like);
+    public function record_count($like = false, $where = false) {
+        if($like){
+            $this->db->like($like);
+        }
+        if($where){
+            $this->db->where($where);
+        }
         $this->db->from($this::DB_TableName);
         return $this->db->count_all_results();
     }

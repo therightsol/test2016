@@ -104,9 +104,12 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <?php if($loggedInUser == 'is_member' || $loggedInUser == 'is_organization'){ ?>
+                                <li class=""><a href="<?php echo $root; ?>profile">Profile</a>
+                                <?php } ?>
                                 <?php if($loggedInUser){ ?>
                                     <li class=""><a href="<?php echo $root; ?>logout">Logout</a>
-                                    <li class=""><a href="<?php echo $root; ?>profile">Profile</a>
+
                                     </li>
                                 <?php }else{ ?>
                                     <li class="dropdown"><a href="#">Register</a>

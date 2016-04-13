@@ -46,7 +46,7 @@ class Register_member extends CI_Controller {
                 
                 // 1) cheking username . 
                 $un = strtolower($this->input->post('username', TRUE));
-                
+
                 $this->load->model('user');
                 $db_usernames = $this->user->getRecord(FALSE, 'username');
                 

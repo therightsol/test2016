@@ -391,31 +391,6 @@
 
                                         </td>
                                     </tr>
-                                    <div id="myModal" class="modal fade in" role="dialog">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title">Upload Image</h4>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <form id="upload" enctype="multipart/form-data  " action="<?php echo $root; ?>upload_pic/do_upload" method="post">
-                                                                <p>Chose image</p>
-                                                                <input type="hidden" value="<?php echo $generals[0]['gid']; ?>" name="id">
-                                                                <div class="col-md-12 text-center">
-                                                                    <input type="file" name="userfile" id="image">
-                                                                </div>
-                                                                <div class="col-md-6 col-md-offset-5">
-                                                                    <input type="submit" name="submit" value="upload" class="btn btn-default">
-                                                                </div>
-                                                            </form>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 <?php }else{
                                     echo 'no Record found';
                                 } ?>
@@ -555,6 +530,32 @@
 	</div>
 	<!-- END CONTENT -->
 </div>
+<div id="myModal" class="modal fade in" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload Image</h4>
+                <div class="modal-body">
+                    <div class="row">
+                        <form action="<?php echo $root; ?>upload_pic/do_upload" method="post">
+                            <p>Chose image</p>
+                            <input type="hidden" value="<?php echo $generals[0]['gid']; ?>" name="id">
+                            <div class="col-md-12 text-center">
+                                <input type="file" name="userfile" id="image">
+                            </div>
+                            <div class="col-md-6 col-md-offset-5">
+                                <input type="submit" name="submit" value="upload" class="btn btn-default">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 <?php include 'includes/footer.inc'; ?>

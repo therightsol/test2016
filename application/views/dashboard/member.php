@@ -222,7 +222,9 @@
                                             <?php echo $value['username']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $value['email']; ?>
+                                            <a class="phn" data-name="email" data-pk="<?php echo $value['uid']; ?>" >
+                                                <?php echo $value['email']; ?>
+                                            </a>
                                         </td>
                                         <td>
                                             <a class="phn" data-name="phone_number" data-pk="<?php echo $value['uid']; ?>" >

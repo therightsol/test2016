@@ -13,6 +13,7 @@ class Login extends CI_Controller {
     public function Login_member() {
         $data['activeMenu'] = 'login';
         $data['pagename'] = 'Login';
+        $data['is_banned'] = '';
         $data['is_admin_approved'] = '';
         $data['record_found'] = '';
         $data['is_email_approved'] = '';
@@ -48,7 +49,11 @@ class Login extends CI_Controller {
                 $email_verify = '';
                 if($db_record){
 
-                    if($db_record[0]['is_approved_by_admin'] != 1){
+                    if($db_record[0]['is_approved_by_admin'] == 2){
+
+                        $data['is_banned'] = 'yes';
+
+                    }elseif($db_record[0]['is_approved_by_admin'] != 1){
 
                         $data['is_admin_approved'] = 'no';
 
@@ -127,6 +132,7 @@ public function Login_organization()
     $data['is_admin_approved'] = '';
     $data['record_found'] = '';
     $data['is_email_approved'] = '';
+    $data['is_banned'] = '';
 
     if(filter_input_array(INPUT_POST)){
         $this->load->helper('security');
@@ -159,7 +165,11 @@ public function Login_organization()
             $email_verify = '';
             if($db_record){
 
-                if($db_record[0]['is_approved_by_admin'] != 1){
+                if($db_record[0]['is_approved_by_admin'] == 2){
+
+                    $data['is_banned'] = 'yes';
+
+                }elseif($db_record[0]['is_approved_by_admin'] != 1){
 
                     $data['is_admin_approved'] = 'no';
 

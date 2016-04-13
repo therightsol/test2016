@@ -27,8 +27,6 @@ class Profile extends CI_Controller {
 
         //echo '<pre>'.var_export($data['bank_rec'], true).'</pre>';exit;
         if(filter_input_array(INPUT_POST)){
-            $org_id = '';
-            $org_id = $this->user->insertRecord();
             $bnk_num = $this->input->post('bnk_num', TRUE);
             $bnk_title = $this->input->post('bnk_title', TRUE);
             $bnk_name = $this->input->post('bnk_name', TRUE);
@@ -41,37 +39,37 @@ class Profile extends CI_Controller {
 
                 $bnk_array = array(
                     array(
-                        'uid' => $user_id,
+                        'fk_uid' => $user_id,
                         'um_key' => $bnk_num,
                         'um_title' => 'bank_number',
                         'um_value' => $bnk_num
                     ),
                     array(
-                        'uid' => $user_id,
+                        'fk_uid' => $user_id,
                         'um_key' => $bnk_num,
                         'um_title' => 'bank_title',
                         'um_value' => $bnk_title
                     ),
                     array(
-                        'uid' => $user_id,
+                        'fk_uid' => $user_id,
                         'um_key' => $bnk_num,
                         'um_title' => 'bank_name',
                         'um_value' => $bnk_name
                     ),
                     array(
-                        'uid' => $user_id,
+                        'fk_uid' => $user_id,
                         'um_key' => $bnk_num,
                         'um_title' => 'bank_code',
                         'um_value' => $bnk_code
                     ),
                     array(
-                        'uid' => $user_id,
+                        'fk_uid' => $user_id,
                         'um_key' => $bnk_num,
                         'um_title' => 'bank_address',
                         'um_value' => $bnk_address
                     ),
                     array(
-                        'uid' => $user_id,
+                        'fk_uid' => $user_id,
                         'um_key' => $bnk_num,
                         'um_title' => 'bank_swift',
                         'um_value' => $bnk_swift
@@ -80,11 +78,14 @@ class Profile extends CI_Controller {
 
                 //4) show success message / load view page
                 $this->user_meta->insertBatch($bnk_array);
-                $this->load->view('profile', $data);
+                redirect('profile');
         }
         }else{
             $this->load->view('profile' , $data);
         }
-
+//        foreach($result as $res){
+//            $asso['name'] = $res['username'];
+//            $asso['bank_detail'][$res['um_key']] = $res['um_title'];
+//        }
     }
 }

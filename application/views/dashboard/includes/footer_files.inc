@@ -6,6 +6,7 @@
 <script src="<?php echo $root; ?>admin_assets/plugins/excanvas.min.js"></script>
 <![endif]-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/js/picedit.min.js"></script>
 <script src="<?php echo $root; ?>admin_assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <script src="<?php echo $root; ?>admin_assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo $root; ?>admin_assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -31,7 +32,6 @@
 <!-- END PAGE LEVEL SCRIPTS -->
 <script src="<?php echo $root; ?>admin_assets/scripts/xeditable.min.js" type="text/javascript"></script>
 <!-- END BODY -->
-<link href="<?php echo $root; ?>admin_assets/css/xeditable.min.css" rel="stylesheet">
 
 
 <script type="text/javascript" src="<?php echo $root; ?>admin_assets/plugins/froala/js/froala_editor.min.js"></script>
@@ -69,13 +69,29 @@
 
 <!-- Include Language file if we want to use it. -->
 <script type="text/javascript" src="<?php echo $root; ?>admin_assets/plugins/froala/js/languages/ro.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>admin_assets/plugins/jquery.prettyPhoto.js"></script>
 
-<script type="text/javascript" src="<?php echo $root; ?>assets/js/picedit.min.js"></script>
+
+
 <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.0.2/js/responsive.bootstrap.min.js"></script>
 
+<script>
+    setInterval(function() {
+        $.ajax({
+            url:  "<?php echo $root; ?>dashboard/notification",
+            type: 'get',
+            success : function(resp){
+                if(resp){
+                    $('#unapproved').html('').append(resp);
 
+                }
+            },
+            error : function(resp){ console.log(resp) }
+        });
+    }, 1000);
+</script>
 
 <!-- Mirrored from www.keenthemes.com/preview/metronic_admin/login.html by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 18 Dec 2013 10:45:26 GMT -->
 </html>

@@ -52,9 +52,16 @@
             <li>
                 <a href="<?php echo $root; ?>dashboard/organization">
 
-								Organization
+                    Organization
 
-                    </a>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo $root; ?>dashboard/all_users">
+
+                    All
+
+                </a>
             </li>
             <li>
                 <a  href="javascript:;">

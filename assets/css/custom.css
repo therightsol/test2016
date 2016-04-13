@@ -1,3 +1,6 @@
 .error{
     color: red;
 }
+.picedit_control.ico-picedit-camera{
+    display: none !important;
+}

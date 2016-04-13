@@ -152,6 +152,8 @@
 <script src="<?php echo $root; ?>assets/js/wow.js"></script>
 <script src="<?php echo $root; ?>assets/js/script.js"></script>
 <script type="text/javascript" src="<?php echo $root; ?>assets/js/picedit.min.js"></script>
+<script src="<?php echo $root; ?>admin_assets/scripts/xeditable.min.js" type="text/javascript"></script>
+
 <script>
     $.ajax({
         url: "<?php echo $root; ?>generals",
