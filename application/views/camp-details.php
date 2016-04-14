@@ -1,17 +1,15 @@
-    <?php 
+<?php 
         include 'includes/head.inc';
-        
         include 'includes/header.inc';
         ?>
-    
     
     
     <!--Page Title-->
     <section class="page-title" style="background-image:url(<?php echo $root; ?>assets/images/background/page-title-bg.jpg);">
     	<div class="auto-container">
         	<div class="sec-title">
-                <h1>Event <span class="normal-font">Details</span></h1>
-                <div class="bread-crumb"><a href="#">Home</a> / <a href="#" class="current">Single Event</a></div>
+                <h1>Campaign <span class="normal-font">Details</span></h1>
+                <div class="bread-crumb"><a href="#">Home</a> / <a href="#" class="current">campaign</a></div>
             </div>
         </div>
     </section>
@@ -19,97 +17,51 @@
     
     <!--Sidebar Page-->
     <div class="sidebar-page">
-    	<div class="auto-container">
-        	<div class="row clearfix">
+    	<div class="auto-container" >
+        	<div class="row clearfix" >
             	
                 <!--Content Side-->	
                 <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                
-                    <!--Events Details Section-->
-    				<section class="events-section event-details no-padd-bottom no-padd-top">
-                
+                    
+                    <!--Causes Details Section-->
+                    <section class="causes-section cause-details no-padd-bottom no-padd-top">
+                                
                         <!--Cause Column-->
-                        <div class="column event-column padd-right-20">
+                        <div class="column cause-column padd-right-20" style="text-align:center" >
                             <article class="inner-box">
                                 <figure class="image-box">
-                                    <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-26.jpg" alt=""></a>
+                                    <a href="#"><img src="<?php echo $root.$rec['campaign_image_path']; ?> " alt=""></a>
                                 </figure>
                                 <div class="content-box">
-                                	<div class="row clearfix">
-                                        <div class="col-md-6 col-sm-12">
-                                            <h3><a href="#">Clean Water for Children</a></h3>
-                                    		<div class="event-info">13-14 Feb in Sanfransico, CA</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-12 pull-right text-right padd-top-20"><a href="#" class="theme-btn btn-style-one">Join With Us</a></div>
+                                   
+                                    
+                                    
+                                  
+                                    <div class="sec-title margin-bott-20">
+                                        <h2><?php echo $rec['campaign_title']; ?></h2>
                                     </div>
-                                    
-                                    <hr>
-                                    
+                                    <hr /> 
                                     <div class="bigger-text">
-                                        <p>Lorem ipsum dolor sit amet, quo odio atqui tamquam eu, duo ex amet elitr. <strong>Ne essent feugiat vim, et soluta reprimique instructior mel</strong>, ne nonumes deserunt. Vix in dico vivendum forensibus. <strong>Munere tamquam referrentur ad duo</strong>, ei tibique dissentias.</p>
+                                        <p><?php echo $rec['campaign_short_description']; ?></p>
                                         <br>
                                     </div>
-                                    
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, et electram comprehensam sit. Quo an splendide siniferman vix sententiae instructior laudem corrumpit dolor amet.</p>
-                                        <p>alienum corrumpit ullamcorper. Vel ea fabulas instructior, agam falli sit an.Ad cum amet graeco consequat, sed ei veri novum appellantur. Qui in quod ubique euismod, consul seo noster disputationi eos no, nec te latine repudiare. Te pro dolor volutpat.</p>
-                                    	    
+                                   
+                                    <div class="text" >
+                                        <p><?php echo $rec['campaign_long_description']; ?></p>
+                                        
+                                    	<br>    
                                     </div>
                                     
-                                    <ul class="styled-list-one">
-                                        <li>Lorem ipsum dolor sit amet, usu an quem augue admodum. </li>
-                                        <li>Lorem ipsum dolor sit amet, usu an quem augue admodum. </li>
-                                        <li>Lorem ipsum dolor sit amet, usu an quem augue admodum. </li>
-                                        <li>Lorem ipsum dolor sit amet, usu an quem augue admodum. </li>
-                                    </ul>
-                                    
+                                    <div class="col-sm-7  text-right padd-top-20">
+                                       <a href="#" class="theme-btn btn-style-two">Contact Us</a></div>
+                                    <br />
+                                <br/><br />
+                                <br/>
                                 </div>
+                                
                             </article>
                         </div>
-                    </section>
-                    
-                    
-                    <!--Events Section-->
-                    <section class="events-section no-padd-bottom padd-top-40 padd-right-20">
-                        
-                        <div class="sec-title margin-bott-30">
-                            <h2>Related <span class="normal-font">Events</span></h2>
-                        </div>
-                        
-                        <div class="row clearfix">
-            
-                            <!--Cause Column-->
-                            <div class="column event-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <article class="inner-box">
-                                    <figure class="image-box">
-                                        <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-7.jpg" alt=""></a>
-                                    </figure>
-                                    <div class="content-box">
-                                        <h3><a href="#">Clean Water for Children</a></h3>
-                                        <div class="event-info">13-14 Feb in Sanfransico, CA</div>
-                                        <div class="text">Lorem ipsum dolor sit amet, eu qui modo expeten dis reformidans, ex sit appetere sententiae seo eum in simul homero. Duo consul probatus no qu alterum sit at no simple dummy.</div>
-                                        <a href="#" class="theme-btn btn-style-two">Read More</a>
-                                    </div>
-                                </article>
-                            </div>
                             
-                            <!--Cause Column-->
-                            <div class="column event-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <article class="inner-box">
-                                    <figure class="image-box">
-                                        <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-8.jpg" alt=""></a>
-                                    </figure>
-                                    <div class="content-box">
-                                        <h3><a href="#">Clean Water for Children</a></h3>
-                                        <div class="event-info">13-14 Feb in Sanfransico, CA</div>
-                                        <div class="text">Lorem ipsum dolor sit amet, eu qui modo expeten dis reformidans, ex sit appetere sententiae seo eum in simul homero. Duo consul probatus no qu alterum sit at no simple dummy.</div>
-                                        <a href="#" class="theme-btn btn-style-two">Read More</a>
-                                    </div>
-                                </article>
-                            </div>
-                            
-                            
-                        </div>
                     </section>
                 
                     
@@ -123,7 +75,7 @@
                         <!-- Search Form -->
                         <div class="widget search-box">
                             
-                            <form method="post" action="http://wp1.themexlab.com/html/giving-hands/index.html">
+                            <form method="post" action="#">
                                 <div class="form-group">
                                     <input type="search" name="search-field" value="" placeholder="Search">
                                     <button type="submit"><span class="icon flaticon-tool"></span></button>
@@ -154,45 +106,10 @@
                             
                         </div>
                         
-                        <!-- Popular Categories -->
-                        <div class="widget popular-categories wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="sidebar-title"><h3>Categories</h3></div>
-                            
-                            <ul class="list">
-                            	<li><a class="clearfix" href="#">Internet Marketing</a></li>
-                                <li><a class="clearfix" href="#">Search Engine Optimization</a></li>
-                                <li><a class="clearfix" href="#">Webdevelopement</a></li>
-                                <li><a class="clearfix" href="#">Creative Strategies</a></li>
-                                <li><a class="clearfix" href="#">Webhosting Services</a></li>
-                            </ul>
-                            
-                        </div>
+                      
                         
-                        <!-- Archives -->
-                        <div class="widget archives-list wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="sidebar-title"><h3>Archives</h3></div>
-                            
-                            <ul class="list">
-                            	<li><a class="clearfix" href="#"><span class="txt pull-left">2016 </span> <span class="count pull-right">(85)</span></a></li>
-                                <li><a class="clearfix" href="#"><span class="txt pull-left">2015</span> <span class="count pull-right">(280)</span></a></li>
-                                <li><a class="clearfix" href="#"><span class="txt pull-left">2014</span> <span class="count pull-right">(191)</span></a></li>
-                                <li><a class="clearfix" href="#"><span class="txt pull-left">2013</span> <span class="count pull-right">(233)</span></a></li>
-                                <li><a class="clearfix" href="#"><span class="txt pull-left">2012</span> <span class="count pull-right">(369)</span></a></li>
-                            </ul>
-                            
-                        </div>
                         
-                        <!-- Popular Tags -->
-                        <div class="widget popular-tags">
-                            <div class="sidebar-title"><h3>KeyWords</h3></div>
-                            
-                            <a href="#">Child</a>
-                            <a href="#">Water</a>
-                            <a href="#">Donate</a>
-                            <a href="#">Money</a>
-                            <a href="#">Volunteer</a>
-                            
-                        </div>
+                        
                                 
                     </aside>
                 
@@ -205,6 +122,59 @@
         </div>
     </div>
     
+    
+    <!--Default Section-->
+    <section class="default-section no-padd-top">
+    	<div class="auto-container">
+        
+        	<div class="sec-title margin-bott-30">
+            	<h2><span class="text-capitalize">How can you <span class="normal-font">help us ?</span></span></h2>
+            </div>
+        	<div class="row clearfix">
+                
+                <!--Column-->
+                <div class="column col-md-4 col-sm-6 col-xs-12">
+                	<!--Icon Box-->
+                    <div class="icon-heading-column">
+                        <article class="inner-box">
+                        	<div class="column-count">01</div>
+                            <h3><span class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-4.png" alt=""></span> Donator</h3>
+                            <p>Lorem ipsum dolor sit amet amet audiam copiosaei  mei purto time am mea ne ei <a href="#" class="read-more">Read More</a></p>
+                            
+                        </article>
+                    </div>
+                </div>
+                
+                <!--Column-->
+                <div class="column col-md-4 col-sm-6 col-xs-12">
+                	<!--Icon Box-->
+                    <div class="icon-heading-column">
+                        <article class="inner-box">
+                        	<div class="column-count">02</div>
+                            <h3><span class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-5.png" alt=""></span> Fundrising</h3>
+                            <p>Lorem ipsum dolor sit amet amet audiam copiosaei  mei purto time am mea ne ei <a href="#" class="read-more">Read More</a></p>
+                            
+                        </article>
+                    </div>
+                </div>
+                
+                <!--Column-->
+                <div class="column col-md-4 col-sm-6 col-xs-12">
+                	<!--Icon Box-->
+                    <div class="icon-heading-column">
+                        <article class="inner-box">
+                        	<div class="column-count">03</div>
+                            <h3><span class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-6.png" alt=""></span> Volunteer</h3>
+                            <p>Lorem ipsum dolor sit amet amet audiam copiosaei  mei purto time am mea ne ei <a href="#" class="read-more">Read More</a></p>
+                            
+                        </article>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
     
     
     <!--Intro Section-->

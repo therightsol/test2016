@@ -1,15 +1,14 @@
-<?php 
+    <?php 
         include 'includes/head.inc';
+        
         include 'includes/header.inc';
         ?>
-    
-    
-    <!--Page Title-->
+<!--Page Title-->
     <section class="page-title" style="background-image:url(<?php echo $root; ?>assets/images/background/page-title-bg.jpg);">
     	<div class="auto-container">
         	<div class="sec-title">
-                <h1>Recent <span class="normal-font">Causes</span></h1>
-                <div class="bread-crumb"><a href="<?php echo $root;?>Home">Home</a> / <a href="#" class="current">Recent Causes</a></div>
+                <h1>Recent <span class="normal-font">Campaign</span></h1>
+                <div class="bread-crumb"><a href="<?php echo $root;?>Home">Home</a> / <a href="#" class="current">Your campaigns</a></div>
             </div>
         </div>
         <!--Down Arrow-->
@@ -26,25 +25,21 @@
                 
                 <!--Cause Column-->
                  <?php 
-        foreach($viewcause as $key => $value){ ?>
+        foreach($viewcamp as $key => $value){ ?>
                 <div class="column cause-column col-md-3 col-sm-6 col-xs-12" >
                    
-                	<article class="inner-box text-center hvr-bounce-in" style="height:520px;">
+                	<article class="inner-box text-center hvr-bounce-in" style="height:500px;">
                 		<figure class="image-box">
-                        	<a href="#"><img src="<?php echo $root.$value['cause_image_path']; ?>" alt="" class="img-responsive"></a>
-                            <div class="cause-title"><?php echo $value['cause_title']; ?></div>
+                        	<a href="#"><img src="<?php echo $root.$value['campaign_image_path']; ?>" alt=""></a>
+                            <div class="cause-title"><?php echo $value['campaign_title']; ?></div>
                         </figure>
                         <div class="content-box">
-                        	<div class="donation-progress-box">
-                            	<div class="donation-values">
-                                	Donation :  <span class="value">$68,214</span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
-                                </div>
-                                <div class="donation-progress-bar">
-                                	<div class="inner-bar" data-value-collected="68214" data-value-total="85870"></div>
-                                </div>
-                            </div>
-                            <div class="text"><?php echo $value['cause_short_description']; ?></div>
-                            <a href="<?php echo $root; ?>Donation_form/donation/<?php echo $value['cause_id']; ?>" class="theme-btn btn-style-two" style=";color:#eb5310 !important">Donate</a>
+                        	
+                            <div class="text"><?php echo $value['campaign_short_description']; ?></div>
+                            <a href="<?php echo $root; ?>Campaign_update/update/<?php echo $value['campaign_id']; ?>" class="theme-btn btn-style-two" style=";color:#eb5310 !important">Update</a>
+                            <br />
+                            <br />
+                            <a href="<?php echo $root; ?>Campaign_update/delete_campaign/<?php echo $value['campaign_id']; ?>" class="theme-btn btn-style-two" style=";color:#eb5310 !important"> Delete</a>
                         </div>
                     </article>
                 </div>
@@ -75,7 +70,7 @@
     </section>
     
     <!--Urgent Cause Section-->
-    <section class="urgent-cause" style="background-image:url(<?php echo $root; ?>assets/images/parallax/image-1.jpg);">
+    <section class="urgent-cause" style="background-image:url(images/parallax/image-1.jpg);">
     	<div class="auto-container">
         	<div class="row clearfix">
                 
@@ -116,8 +111,7 @@
             </div>
         </div>
     </section>
-    
-    <?php
+     <?php
     include 'includes/footer.inc';
     ?>
-</html>
+
