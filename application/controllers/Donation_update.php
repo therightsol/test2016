@@ -6,6 +6,8 @@ class Donation_update extends CI_Controller{
          $data['pagename'] = 'donationupdate';
          $this->load->model('Donation');
         $data['viewdonation'] = $this->Donation->getRecord();
+
+        //echo '<pre>'.var_export($data['viewdonation'], true).'</pre>';exit;
         $this->load->view('donation_update' , $data);
         
     }
@@ -78,8 +80,6 @@ class Donation_update extends CI_Controller{
                     if ($success) {
                         //echo 'dat saved successfully';
                        $data['data_saved'] = 'yes';
-                       $url = base_url() . 'Home';
-                            header( "refresh:3; url=$url" );
                        $this->load->view('update_form_donation', $data);
                     }else{
                         echo 'date not saved';

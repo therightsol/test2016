@@ -63,6 +63,13 @@ class Donation_adds extends CI_Controller {
                     $this->Donation->donation_last_date = $fdate;
                     $this->Donation->donation_insert_date = $cdate;
                     $success = $this->Donation->insertRecord();
+
+                 $username = $this->session->userdata('username');
+                 $this->load->model('donations_meta');
+                 $this->donations_meta->donation_id = $success;
+                 $this->donations_meta->dm_key = 'username';
+                 $this->donations_meta->dm_value = $username;
+                 $this->donations_meta->insertRecord();
                     if ($success) {
                         // echo var_dump($success);
                         $data['data_saved'] = 'yes';

@@ -1,3 +1,4 @@
+<?php $loggedInUser = $this->session->userdata('loggedInUser'); ?>
 
 
 
@@ -52,15 +53,15 @@
         <!-- Header Lower -->
         <div class="header-lower">
         	<div class="auto-container clearfix">
-            	
+
                 <!--Outer Box-->
                 <div class="outer-box clearfix">
-                
+
                     <!--Search Box-->
                     <div class="search-box">
                     	<!--Toggle Btn-->
                     	<div class="search-box-toggle"><span class="fa fa-search"></span></div>
-                        
+
                     	<form method="post" action="#">
                         	<div class="form-group">
                             	<input type="search" name="search-field" value="" placeholder="Search here...">
@@ -68,23 +69,27 @@
                             </div>
                         </form>
                     </div>
-                    
+
                     <!-- Main Menu -->
                     <nav class="main-menu">
-                        
+
                         <div class="navbar-header">
-                            <!-- Toggle Button -->    	
+                            <!-- Toggle Button -->
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-                        
+
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation">
-                            
-                                <li ><a href="<?php echo $root; ?>Home">Home</a></li>
+                                <li class="current"><a href="<?php echo $root; ?>Home">Home</a></li>
+
+
+
+                                <li><a href="<?php echo $root; ?>contact">Contact Us</a></li>
+
                                   <li class="dropdown" class="current" ><a href="<?php echo $root; ?>Campaigns_view">Campaign</a>
                                     <ul class="submenu-dropdown">
                                         <li><a href="<?php echo $root; ?>Campaign_add">Add new Campaign</a></li>
@@ -104,12 +109,17 @@
                                     <ul class="submenu-dropdown">
                                         <li><a href="<?php echo $root; ?>Donation_adds">Add Donations Ads</a></li>
                                         <li><a href="<?php echo $root; ?>Donation_update">Update/Delete My donation Ads</a></li>
-                                        
-                                        
-                                        <li></li>
-                                        
+
                                     </ul>
                                 </li>
+                                <?php if($loggedInUser == 'is_member' || $loggedInUser == 'is_organization'){ ?>
+                                <li class=""><a href="<?php echo $root; ?>profile">Profile</a>
+                                    <?php } ?>
+                                    <?php if($loggedInUser){ ?>
+                                <li class=""><a href="<?php echo $root; ?>logout">Logout</a>
+
+                                </li>
+                            <?php }else{ ?>
                                 <li class="dropdown"><a href="#">Register</a>
                                     <ul class="submenu-dropdown">
                                         <li><a href="<?php echo $root; ?>Register_member">Register as member</a></li>
@@ -122,9 +132,8 @@
                                         <li><a href="<?php echo $root; ?>Login/Login_member">Login as member</a></li>
                                     </ul>
                                 </li>
-                               
-                                
-                                <li><a href="#">Contact Us</a></li>
+                            <?php } ?>
+
                             </ul>
                         </div>
                     </nav><!-- Main Menu End-->

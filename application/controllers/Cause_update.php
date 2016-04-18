@@ -5,7 +5,17 @@ class Cause_update extends CI_Controller{
     public function index (){
          $data['pagename'] = 'causes';
          $this->load->model('cause');
-        $data['viewcause'] = $this->cause->getRecord();
+        $this->load->model('causes_meta');
+        $username = $this->session->userdata('username');
+        $join_wher = array(
+            'causes' => 'causes.cause_id = causes_meta.cause_id'
+        );
+
+        $where = array(
+            'cm_key' => 'username',
+            'cm_value' => $username
+        );
+        $data['viewcause'] = $this->causes_meta->sql_join_multi($where, $join_wher);
         $this->load->view('causes_update' , $data);
         
     }

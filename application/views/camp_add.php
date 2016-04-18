@@ -42,7 +42,7 @@
         <br />
         <br />
         
-        <form action="<?php echo $root; ?>Campaing_add" method="post"  enctype="multipart/form-data" id="upload">
+        <form action="<?php echo $root; ?>Campaign_add" method="post"  enctype="multipart/form-data" id="upload">
            
             <div class="form-body">
                 <div class="form-group  ">

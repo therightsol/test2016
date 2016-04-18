@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Campaing_add extends CI_Controller{
+class Campaign_add extends CI_Controller{
     public function index (){
         
         $data['pagename'] = 'addcamp';
@@ -56,11 +56,17 @@ class Campaing_add extends CI_Controller{
                     $this->campaign->campaign_last_date = $fdate;
                     $this->campaign->campaign_insert_date = $cdate;
                     $success = $this->campaign->insertRecord();
+
+                 $this->load->model('campaign_meta');
+                $username = $this->session->userdata('username');
+
+                 $this->campaign_meta->campaign_id = $success;
+                 $this->campaign_meta->cmp_key = 'username';
+                 $this->campaign_meta->cmp_value = $username;
+                 $this->campaign_meta->insertRecord();
                     if ($success) {
                         // echo var_dump($success);
                         $data['data_saved'] = 'yes';
-                        $url = base_url() . 'campaings';
-                            header( "refresh:3; url=$url" );
                         $this->load->view('camp_add', $data);
                     }else{
                         echo 'some internal error 404 please try again';

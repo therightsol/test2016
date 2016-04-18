@@ -4,8 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Campaign_update extends CI_Controller{
     public function index (){
          $data['pagename'] = 'campupdate';
-         $this->load->model('Campaign');
-        $data['viewcamp'] = $this->Campaign->getRecord();
+        $this->load->model('campaign_meta');
+        $username = $this->session->userdata('username');
+        $join_wher = array(
+            'campaign_ads' => 'campaign_ads.campaign_id = campaign_meta.campaign_id'
+        );
+
+        $where = array(
+            'cmp_key' => 'username',
+            'cmp_value' => $username
+        );
+        $data['viewcamp'] = $this->campaign_meta->sql_join_multi($where, $join_wher);
         $this->load->view('Campaign_update' , $data);
         
     }
@@ -74,7 +83,7 @@ class Campaign_update extends CI_Controller{
                     if ($success) {
                         //echo 'dat saved successfully';
                        $data['data_saved'] = 'yes';
-                       $url = base_url() . 'Campaigns_view';
+                       $url = base_url() . 'Campaign_update';
                             header( "refresh:3; url=$url" );
                        $this->load->view('update_form_campaign', $data);
                     }else{

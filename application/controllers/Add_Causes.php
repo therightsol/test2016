@@ -60,6 +60,12 @@ class Add_Causes extends CI_Controller{
                     $this->cause->cause_last_date = $fdate;
                     $this->cause->cause_insert_date = $cdate;
                     $success = $this->cause->insertRecord();
+                 $username = $this->session->userdata('username');
+                 $this->load->model('causes_meta');
+                 $this->causes_meta->cause_id = $success;
+                 $this->causes_meta->cm_key = 'username';
+                 $this->causes_meta->cm_value = $username;
+                 $this->causes_meta->insertRecord();
                     if ($success) {
                         // echo var_dump($success);
                         $data['data_saved'] = 'yes';
