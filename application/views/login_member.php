@@ -41,8 +41,11 @@ include 'includes/header.inc';
                                         </span></strong>
                 <?php }
 
-
+                
+              
                 if ($is_email_approved != '') { ?>
+                <br />
+                <br />
                     <div class="alert alert-info">
                         Sorry! Your Email Address is not verified <br>
                         Kindly Verify you email address!

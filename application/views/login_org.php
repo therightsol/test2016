@@ -34,7 +34,10 @@ include 'includes/header.inc';
                     <!-- BEGIN FORM-->
                     <form action="<?php echo $root; ?>Login/Login_organization" id="reg" method="post">
                         <?php if($loggedInUser  == ''){ ?>
+                        <br />
+                        <br />
                         <div class="form-body">
+                            
                             <?php if ($record_found != '') { ?>
                                 <strong> <span class=" text-danger">
                                                 Sorry! User name or password is Incorrect. Please try again

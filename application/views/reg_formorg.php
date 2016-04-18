@@ -29,9 +29,11 @@ include 'includes/header.inc';
         <!-- BEGIN FORM-->
         <br />
         <br />
-        
+        <br />
         <form action="<?php echo $root; ?>Register_organization" id="validate" method="post">
             <?php if($data_saved == ''){ ?>
+            <br />
+            <br />
             <div class="form-body">
                 <?php
 
@@ -154,7 +156,9 @@ include 'includes/header.inc';
             </div>
             </div>
             <?php }else{ ?>
+            <br /> <br />
                 <div class="alert-info">
+                    <br />
                     <div class="alert alert-success">
                         Your account has been successfully created. Kindly check your email to continue. <br />
                     </div>
@@ -162,7 +166,9 @@ include 'includes/header.inc';
                         Your request will not continue until you confirm your account.
                     </div>
                 </div>
+            <br /> <br />
             <?php } ?>
+            
         </form>
         <!-- END FORM-->
     </div>

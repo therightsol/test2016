@@ -344,99 +344,39 @@ include 'includes/header.inc';
                     <div class="text">Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
                 </div>
                 <div class="pull-right padd-top-20">
-                    <a href="#" class="theme-btn btn-style-two">See all causes</a>
+                    <a href="<?php echo $root ?>Causes" class="theme-btn btn-style-two">See all causes</a>
                 </div>
             </div>
             <div class="row clearfix">
 
                 <!--Cause Column-->
+                <?php 
+        foreach($viewcause as $key => $value){ ?>
                 <div class="column cause-column col-md-3 col-sm-6 col-xs-12 wow zoomInStable" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <article class="inner-box text-center hvr-bounce-in">
                         <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-2.jpg" alt=""></a>
-                            <div class="cause-title">Child Education Help</div>
+                            <a href="#"><img src="<?php echo $root.$value['cause_image_path']; ?>" alt=""></a>
+                            <div class="cause-title"><?php echo $value['cause_title']; ?></div>
                         </figure>
                         <div class="content-box">
                             <div class="donation-progress-box">
                                 <div class="donation-values">
-                                    Donation :  <span class="value">$68,214</span> / <span class="value">$85,870</span>
+                                    Donation :  <span class="value">$68,214</span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
                                 </div>
                                 <div class="donation-progress-bar">
                                     <div class="inner-bar" data-value-collected="68214" data-value-total="85870"></div>
                                 </div>
                             </div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-two">Donate</a>
+                            <div class="text"><?php echo $value['cause_short_description']; ?></div>
+                            <a href="<?php echo $root; ?>Donation_form/donation/<?php echo $value['cause_id']; ?>" class="theme-btn btn-style-two">Donate</a>
                         </div>
                     </article>
                 </div>
 
-                <!--Cause Column-->
-                <div class="column cause-column col-md-3 col-sm-6 col-xs-12 wow zoomInStable" data-wow-delay="500ms" data-wow-duration="1500ms">
-                    <article class="inner-box text-center hvr-bounce-in">
-                        <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-3.jpg" alt=""></a>
-                            <div class="cause-title">Child Education Help</div>
-                        </figure>
-                        <div class="content-box">
-                            <div class="donation-progress-box">
-                                <div class="donation-values">
-                                    Donation :  <span class="value">$38,214</span> / <span class="value">$65,870</span>
-                                </div>
-                                <div class="donation-progress-bar">
-                                    <div class="inner-bar" data-value-collected="38214" data-value-total="65870"></div>
-                                </div>
-                            </div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-two">Donate</a>
-                        </div>
-                    </article>
-                </div>
+               <?php } ?>
 
-                <!--Cause Column-->
-                <div class="column cause-column col-md-3 col-sm-6 col-xs-12 wow zoomInStable" data-wow-delay="1000ms" data-wow-duration="1500ms">
-                    <article class="inner-box text-center hvr-bounce-in">
-                        <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-4.jpg" alt=""></a>
-                            <div class="cause-title">Child Education Help</div>
-                        </figure>
-                        <div class="content-box">
-                            <div class="donation-progress-box">
-                                <div class="donation-values">
-                                    Donation :  <span class="value">$28,214</span> / <span class="value">$54,870</span>
-                                </div>
-                                <div class="donation-progress-bar">
-                                    <div class="inner-bar" data-value-collected="28214" data-value-total="54870"></div>
-                                </div>
-                            </div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-two">Donate</a>
-                        </div>
-                    </article>
-                </div>
-
-                <!--Cause Column-->
-                <div class="column cause-column col-md-3 col-sm-6 col-xs-12 wow zoomInStable" data-wow-delay="1500ms" data-wow-duration="1500ms">
-                    <article class="inner-box text-center hvr-bounce-in">
-                        <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-5.jpg" alt=""></a>
-                            <div class="cause-title">Child Education Help</div>
-                        </figure>
-                        <div class="content-box">
-                            <div class="donation-progress-box">
-                                <div class="donation-values">
-                                    Donation :  <span class="value">$81,214</span> / <span class="value">$115,870</span>
-                                </div>
-                                <div class="donation-progress-bar">
-                                    <div class="inner-bar" data-value-collected="81214" data-value-total="115870"></div>
-                                </div>
-                            </div>
-                            <div class="text">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne.</div>
-                            <a href="#" class="theme-btn btn-style-two">Donate</a>
-                        </div>
-                    </article>
-                </div>
-
+                
+                
 
             </div>
         </div>
@@ -455,7 +395,7 @@ include 'includes/header.inc';
                 <div class="content-box">
                     <h2>BEcome a Volunteer <br><span class="normal-font">We can Change everything togather</span></h2>
                     <div class="text">When a community gets access to clean water, it can change just about everything. It can improve health increase access to food, grow local sio economies, and help kids.</div>
-                    <a href="#" class="theme-btn btn-style-three">JOIN WITH US</a>
+                    <a href="<?php echo $root ?>Campaigns_view" class="theme-btn btn-style-three">JOIN WITH US</a>
                 </div>
             </article>
 
@@ -466,7 +406,7 @@ include 'includes/header.inc';
     </section>
 
 
-    <!--Events Section-->
+    <!--Events Section
     <section class="events-section upcoming-events">
         <div class="auto-container">
 
@@ -476,11 +416,11 @@ include 'includes/header.inc';
             </div>
             <div class="row clearfix">
 
-                <!--Cause Column-->
+                
                 <div class="column event-column col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <article class="inner-box">
                         <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-7.jpg" alt=""></a>
+                            <a href="#"><img src="<?php //echo $root; ?>assets/images/resource/featured-image-7.jpg" alt=""></a>
                         </figure>
                         <div class="content-box">
                             <h3><a href="#">Clean Water for Children</a></h3>
@@ -491,11 +431,11 @@ include 'includes/header.inc';
                     </article>
                 </div>
 
-                <!--Cause Column-->
+               
                 <div class="column event-column col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <article class="inner-box">
                         <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-8.jpg" alt=""></a>
+                            <a href="#"><img src="<?php //echo $root; ?>assets/images/resource/featured-image-8.jpg" alt=""></a>
                         </figure>
                         <div class="content-box">
                             <h3><a href="#">Clean Water for Children</a></h3>
@@ -506,7 +446,7 @@ include 'includes/header.inc';
                     </article>
                 </div>
 
-                <!--Cause Column-->
+                
                 <div class="column event-column links-column col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <article class="inner-box">
                         <div class="vertical-links-outer">
@@ -523,7 +463,7 @@ include 'includes/header.inc';
         </div>
     </section>
 
-
+ -->
     <!--Two Column Fluid -->
     <section class="two-column-fluid">
 
@@ -575,8 +515,8 @@ include 'includes/header.inc';
                     <h3>Sponsor This Project</h3>
                     <h2>Help us to create  shelter for homeless  childrean on Africa</h2>
                     <div class="text">We’re extremely proud of what we’ve achieved together with charities, individuals, philanthropists and schools since the Big Give was founded in 2007, and here are some fact from our achivemnet.</div>
-                    <a href="#" class="theme-btn btn-style-one">View details</a>
-                    <a href="#" class="theme-btn btn-style-three">Other Projects</a>
+                    <a href="<?php echo $root; ?>Campaigns_view" class="theme-btn btn-style-one">View Campaign</a>
+                    <a href="<?php echo $root ?>Donations" class="theme-btn btn-style-three">Donation Ads</a>
                 </div>
 
                 <div class="clearfix"></div>

@@ -33,6 +33,8 @@ include 'includes/header.inc';
         <form action="<?php echo $root; ?>register_member" id="reg" method="post" >
            <?php if($data_saved == ''){ ?>
             <div class="form-body">
+                <br />
+        <br />
                 <?php
 
                     if($user_found != ''){?>
@@ -92,11 +94,14 @@ include 'includes/header.inc';
                <div class="alert-info">
                    <div class="alert alert-success">
                        Your account has been successfully created. Kindly check your email to continue. <br />
+                       <br />
                    </div>
                    <div class="alert alert-warning">
                        Your request will not continue until you confirm your account.
+                       <br />
                    </div>
                </div>
+            <br /> <br />
             <?php } ?>
         </form>
         <!-- END FORM-->
