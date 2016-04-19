@@ -6,6 +6,7 @@
 <!--Page Title-->
     <section class="page-title" style="background-image:url(<?php echo $root; ?>assets/images/background/page-title-bg.jpg);">
     	<div class="auto-container">
+            
         	<div class="sec-title">
                 <h1>Recent <span class="normal-font">Causes</span></h1>
                 <div class="bread-crumb"><a href="<?php echo $root;?>Home">Home</a> / <a href="#" class="current">Recent Causes</a></div>
@@ -15,12 +16,13 @@
         <div class="down-arrow scroll-to-target" data-target=".scroll-to-this"></div>
     </section>
     
-    
+  
     <!--Causes Section-->
     
     <section class="causes-section grid-view">
     	<div class="auto-container">
-        	
+        	   <?php $username = $this->session->userdata('username');
+                                         if (!empty($username)) { ?>
         	<div class="row clearfix">
                 
                 <!--Cause Column-->
@@ -117,7 +119,19 @@
                 
             </div>
         </div>
+                                         <?php } else{ ?>
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="alert alert-danger" style="text-align: center">
+                
+                <strong>  You do not have sufficient permissions to access this page </strong><br />
+                
+            </div>
+      </div>
+            <br /><br />
+            <br />
+                  <?php }?>
     </section>
+    <br/>
      <?php
     include 'includes/footer.inc';
     ?>

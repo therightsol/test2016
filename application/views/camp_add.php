@@ -22,6 +22,8 @@
       <!-- page title end -->
       <div class="row">
           <div class="container">
+               <?php $username = $this->session->userdata('username');
+                                         if (!empty($username)) { ?>
               <div class="col-sm-7 col-sm-offset-3">
                           <br />
                            <br /> <br />
@@ -132,15 +134,25 @@
         </form>
        
 </div>
-        <?php } ?>
+                                         <?php } }else{?>
         <!-- END FORM-->
     </div>
                   
               </div>
           </div>
       </div>
-      <br />
+     
       <br /><br />
+      <div class="col-sm-6 col-sm-offset-3">
+            <div class="alert alert-danger" style="text-align: center">
+                
+                <strong>  You do not have sufficient permissions to access this page </strong><br />
+                
+            </div>
+      </div>
+            <br /><br />
+                  <?php }?>
+            <br /><br /><br />
     <?php
     include 'includes/footer.inc';
     ?>

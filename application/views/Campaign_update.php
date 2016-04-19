@@ -20,7 +20,8 @@
     
     <section class="causes-section grid-view">
     	<div class="auto-container">
-        	
+        	<?php $username = $this->session->userdata('username');
+                                         if (!empty($username)) { ?>
         	<div class="row clearfix">
                 
                 <!--Cause Column-->
@@ -110,7 +111,18 @@
                 
             </div>
         </div>
-    </section>
+    
+                                         <?php }else{ ?>
+    <div class="col-sm-6 col-sm-offset-3">
+            <div class="alert alert-danger" style="text-align: center">
+                
+                <strong>  You do not have sufficient permissions to access this page </strong><br />
+                
+            </div>
+      </div>
+            <br /><br /><br /><br />
+                  <?php }?>
+            </section>
      <?php
     include 'includes/footer.inc';
     ?>

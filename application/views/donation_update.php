@@ -8,7 +8,7 @@
     	<div class="auto-container">
         	<div class="sec-title">
                 <h1>Recent <span class="normal-font">Donation Ads</span></h1>
-                <div class="bread-crumb"><a href="<?php echo $root;?>Home">Home</a> / <a href="#" class="current">Donation Ads</a></div>
+                <div class="bread-crumb"><a href="<?php echo $root;?>Home">Home</a> / <a href="<?php echo $root; ?>Donations" class="current">Donation Ads</a></div>
             </div>
         </div>
         <!--Down Arrow-->
@@ -20,7 +20,9 @@
     
     <section class="causes-section grid-view">
     	<div class="auto-container">
-        	
+        	 <br />
+        <?php $username = $this->session->userdata('username');
+                                         if (!empty($username)) { ?>
         	<div class="row clearfix">
                 
                 <!--Cause Column-->
@@ -120,6 +122,17 @@
                 
             </div>
         </div>
+                                         <?php }else{ ?>
+         <div class="col-sm-6 col-sm-offset-3">
+            <div class="alert alert-danger" style="text-align: center">
+                
+                <strong>  You do not have sufficient permissions to access this page </strong><br />
+                
+            </div>
+      </div>
+            <br /><br />
+                  <?php }?>
+             <br /><br /> <br />
     </section>
      <?php
     include 'includes/footer.inc';

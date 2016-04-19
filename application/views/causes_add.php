@@ -11,6 +11,8 @@
                     <br />
         <br />
         <br />
+        <?php $username = $this->session->userdata('username');
+                                         if (!empty($username)) { ?>
         
       
                 <h1 style="font-weight:bold;">Cause</h1>
@@ -145,13 +147,25 @@
         </form>
        
 </div>
-        <?php } ?>
-        <!-- END FORM-->
-    </div>
+                                         <?php } }else{?>
+            
+            
+             </div>
                   
               </div>
           </div>
       </div>
+      <div class="col-sm-6 col-sm-offset-3">
+            <div class="alert alert-danger" style="text-align: center">
+                
+                <strong>  You do not have sufficient permissions to access this page </strong><br />
+                
+            </div>
+      </div>
+            <br /><br />
+                  <?php }?>
+        <!-- END FORM-->
+   
       <br />
       <br /><br />
     <?php
