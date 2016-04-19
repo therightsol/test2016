@@ -18,11 +18,11 @@
             </div>
         </div>
     </section>
-      <br /><br />
+      
       <!-- page title end -->
       <div class="row">
           <div class="container">
-              <br />
+              
               <?php $username = $this->session->userdata('username');
                                          if (!empty($username)) { ?>
               <div class="col-sm-7 col-sm-offset-3">
@@ -153,11 +153,13 @@
                 
             </div>
       </div>
-            <br /><br />
+            <br /><br /><br />
                   <?php }?>
       </div>
       <br />
       <br />
+</div>
+</div>
     <?php
     include 'includes/footer.inc';
     ?>

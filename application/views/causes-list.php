@@ -148,7 +148,7 @@
                         <h3 class="theme_color">Donate $45 now to feed a Syrian Children</h3>    
                         <p>Every individual has the right to eat at least one meal a day. Due to the on-going refugee crisis in Syria tens of thousands... </p>
                         <a href="#" class="theme-btn btn-style-one">Donate</a>
-                        <a href="#" class="theme-btn btn-style-two">View Details</a>
+                        
                     </article>
                 </div>
                 
@@ -180,8 +180,7 @@
     </section>
     </div>
          
-      <br />
-      <br /><br />
+  
     
  
     <?php

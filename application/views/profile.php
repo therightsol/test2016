@@ -310,7 +310,9 @@ include 'includes/header.inc';
     </div>
 <div class="clearfix"></div>
     <br />
-    <br /> <?php
+    <br /> 
+        </div>
+            <?php
     include 'includes/footer.inc';
     ?>
 

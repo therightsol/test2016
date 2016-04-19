@@ -130,7 +130,7 @@
             
             <div class="col-sm-6 col-sm-offset-4">
             <div class="form-actions">
-                <button type="submit" class="btn" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Update My cause</button>
+                <button type="submit" class="btn" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Update My Donation Ad</button>
                 
             </div>
             </div>
