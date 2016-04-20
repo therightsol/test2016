@@ -3,13 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Donation_update extends CI_Controller{
     public function index (){
-         $data['pagename'] = 'donationupdate';
-         $this->load->model('Donation');
-        $data['viewdonation'] = $this->Donation->getRecord();
+        $data['pagename'] = 'donationupdate';
+        $this->load->model('donation');
 
-        //echo '<pre>'.var_export($data['viewdonation'], true).'</pre>';exit;
+        $this->load->model('donations_meta');
+        $username = $this->session->userdata('username');
+        $join_wher = array(
+            'donation_ads' => 'donation_ads.donation_id = donations_meta.donation_id'
+        );
+
+        $where = array(
+            'dm_key' => 'username',
+            'dm_value' => $username
+        );
+        $data['viewdonation'] = $this->donations_meta->sql_join_multi($where, $join_wher);
+
+        //echo '<pre>'.var_export($data['viewdonation'], true).' </pre>';exit;
         $this->load->view('donation_update' , $data);
-        
+
     }
     public function update($id = '') {
         $data['pagename'] = 'update_donation'; 

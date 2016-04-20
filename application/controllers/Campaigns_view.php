@@ -7,7 +7,6 @@ class campaigns_view extends CI_Controller{
          $this->load->model('campaign');
         $data['viewcamp'] = $this->campaign->getRecord();
         $this->load->view('camp_view' , $data);
-        
     }
      public function view($id){
         $data['pagename'] = 'Campaings';
