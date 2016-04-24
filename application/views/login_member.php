@@ -17,14 +17,9 @@ include 'includes/header.inc';
     <div class="portlet-title">
           <div class="col-sm-10 col-sm-offset-1">
         <div class="caption" style="background-color">
-            <span style="color:#eb5310;font-size: 2em;">Login Here As a member</span>
+            <span style="color:#ffffff;font-size: 2em;">Login Here As a member</span>
         </div>
-        <div class="tools">
-            <a href="javascript:;" class="collapse"></a>
-            <a href="#portlet-config" data-toggle="modal" class="config"></a>
-            <a href="javascript:;" class="reload"></a>
-            <a href="javascript:;" class="remove"></a>
-        </div>
+       
           </div>
     </div>
 <br />
@@ -64,7 +59,7 @@ include 'includes/header.inc';
                     <?php
                     if($_POST){
                         if (form_error('username') != '') { ?>
-                            <span class="text-danger">
+                            <span  style="color:#ff0000">
                                                         <?php echo form_error('username'); ?>
                                                     </span>
                         <?php } }?>
@@ -76,7 +71,7 @@ include 'includes/header.inc';
                         <input class="form-control" placeholder="Password" type="password" name="password">
                     <?php if($_POST){
                         if (form_error('password') != '') { ?>
-                            <span class="text-danger">
+                            <span style="color:#ff0000">
                                                             <?php echo form_error('password'); ?>
                                                         </span>
                         <?php } }?>
@@ -91,7 +86,7 @@ include 'includes/header.inc';
 
 
             </div>
-                      <div class="col-sm-8 col-sm-offset-4">
+                      <div class="col-sm-8 col-sm-offset-5">
 
             <div class="form-actions">
                 <button type="submit" class="btn" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Login</button>

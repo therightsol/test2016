@@ -85,12 +85,12 @@
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation">
                                 <li><a href="<?php echo $root; ?>Home">Home</a></li>
-
+<?php $username = $this->session->userdata('username'); ?>
 
 
                                 <li><a href="<?php echo $root; ?>Contact">Contact Us</a></li>
 
-                                  <li class="dropdown" class="" ><a href="<?php echo $root; ?>Campaigns_view">Campaign</a>
+                                  <li <?php if (!empty($username)) { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>Campaigns_view">Campaign</a>
                                     <?php $username = $this->session->userdata('username');
                                          if (!empty($username)) { ?>
                                       <ul class="submenu-dropdown">
@@ -101,7 +101,7 @@
                                     <?php } ?>
                                 </li>
                                 
-                                <li class="dropdown"><a href="<?php echo $root; ?>Causes">Cause</a>
+                                <li <?php if (!empty($username)) { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>Causes">Cause</a>
                                     <?php $username = $this->session->userdata('username');
                                          if (!empty($username)) { ?>
                                     <ul class="submenu-dropdown">
@@ -111,7 +111,7 @@
                                     </ul>
                                          <?php } ?>
                                 </li>
-                                <li class="dropdown"><a href="<?php echo $root; ?>Donations">Donation</a>
+                                <li <?php if (!empty($username)) { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>Donations">Donation</a>
                                  <?php $username = $this->session->userdata('username');
                                  if (!empty($username)) { ?>
                                     <ul class="submenu-dropdown">

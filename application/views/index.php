@@ -220,18 +220,21 @@ include 'includes/header.inc';
     <section class="urgent-cause" style="background-image:url(<?php echo $root; ?>assets/images/parallax/image-1.jpg);">
         <div class="auto-container">
             <div class="row clearfix">
-
+                 <?php 
+            foreach($viewdon as $key => $value) 
+            foreach($viewcause as $key => $value)
+                ?>
                 <!--Column-->
                 <div class="column col-lg-6 col-md-6 col-xs-12">
                     <article class="inner-box">
                         <h2 class="text-uppercase">Urgent <span class="normal-font">Cause</span></h2>
-                        <h3 class="theme_color">Donate $45 now to feed a Syrian Children</h3>
-                        <p>Every individual has the right to eat at least one meal a day. Due to the on-going refugee crisis in Syria tens of thousands... </p>
-                        <a href="#" class="theme-btn btn-style-one">Donate</a>
-                        <a href="#" class="theme-btn btn-style-two">View Details</a>
+                        <h3 class="theme_color">Donate $45 now to <?php echo $value['cause_title']; ?></h3>
+                        <p><?php echo $value['cause_short_description']; ?></p>
+                        <a href="<?php echo $root; ?>Donation_form/donation/<?php echo $value['cause_id']; ?>" class="theme-btn btn-style-one">Donate</a>
+                        <a href="<?php echo $root ; ?>Causes" class="theme-btn btn-style-two">View More Causes</a>
                     </article>
                 </div>
-
+        
                 <!--Column-->
                 <div class="column circular-graph col-lg-3 col-md-6 col-xs-12">
                     <div class="inner-box">
@@ -248,10 +251,10 @@ include 'includes/header.inc';
                         <ul class="cause-list">
                             <li class="clearfix"><span class="pull-left">Dontators -</span> <strong class="pull-right">78</strong></li>
                             <li class="clearfix"><span class="pull-left">Cash -</span> <strong class="pull-right">$45,800</strong></li>
-                            <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right">$12,400</strong></li>
+                            <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right"><?php echo $value['amount_in_progress']; ?></strong></li>
                             <li class="clearfix"><span class="pull-left">Sponsor -</span> <strong class="pull-right">$85,000</strong></li>
                         </ul>
-                        <div class="total-collected">$1,25,850 <sub>Collected</sub></div>
+                        <div class="total-collected"><?php echo $value['amount_collected']; ?> <sub>Collected</sub></div>
                     </div>
                 </div>
 
@@ -269,9 +272,9 @@ include 'includes/header.inc';
                 <div class="column icon-left-column col-md-4 col-sm-6 col-xs-12">
                     <article class="inner-box">
                         <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-1.png" alt=""></div>
-                        <h3>Donator</h3>
-                        <p>Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <h3 style="color:#fa6628">Donator</h3>
+                        <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
+                     
                     </article>
                 </div>
 
@@ -279,9 +282,9 @@ include 'includes/header.inc';
                 <div class="column icon-left-column col-md-4 col-sm-6 col-xs-12">
                     <article class="inner-box">
                         <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-2.png" alt=""></div>
-                        <h3>Fundrising</h3>
-                        <p>Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <h3 style="color:#fa6628">Fundrising</h3>
+                        <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
+                        
                     </article>
                 </div>
 
@@ -289,9 +292,9 @@ include 'includes/header.inc';
                 <div class="column icon-left-column col-md-4 col-sm-6 col-xs-12">
                     <article class="inner-box">
                         <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-3.png" alt=""></div>
-                        <h3>Volunteer</h3>
-                        <p>Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
-                        <a href="#" class="read-more">Read More</a>
+                        <h3 style="color:#fa6628">Volunteer</h3>
+                        <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
+                     
                     </article>
                 </div>
 
@@ -318,14 +321,14 @@ include 'includes/header.inc';
                 <!--Column-->
                 <div class="column default-text-column with-margin col-md-6 col-sm-12 col-xs-12">
                     <article class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <h2>You can create a world <br><span class="normal-font">where no child goes to bed hungry</span></h2>
+                        <h2 style="color:#fa6628" >You can create a world <br><span class="normal-font">where no child goes to bed hungry</span></h2>
                         <p>Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel, vix an omnium eripuit mentitum eum.</p>
-                        <ul class="styled-list-one">
+                        <ul class="styled-list-one" style="color:#ffffff">
                             <li>Lorem ipsum dolor sit amet, usu an quem augue admodum.</li>
                             <li>Lorem ipsum dolor sit amet, duo in atqui omnesque praesent.</li>
                             <li>Lorem ipsum dolor sit amet, iuvaret ancillae id mea sint.</li>
                         </ul>
-                        <a href="#" class="theme-btn btn-style-one">Read More</a>
+                        
                     </article>
                 </div>
 
@@ -361,7 +364,7 @@ include 'includes/header.inc';
                         <div class="content-box">
                             <div class="donation-progress-box">
                                 <div class="donation-values">
-                                    Donation :  <span class="value">$68,214</span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
+                                    Donation :  <span class="value"><?php echo $value['amount_collected']; ?></span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
                                 </div>
                                 <div class="donation-progress-bar">
                                     <div class="inner-bar" data-value-collected="68214" data-value-total="85870"></div>
@@ -532,74 +535,41 @@ include 'includes/header.inc';
         <div class="auto-container">
 
             <div class="sec-title text-center">
-                <h2>Latest <span class="normal-font">News</span></h2>
-                <div class="text">Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
+                <h2 style="color:#fa6628">Latest <span class="normal-font">Campaign Ads</span></h2>
+                 <?php 
+            foreach($viewcamp as $key => $value) 
+            {
+                ?>
+                <div class="text" style="color:#ffffff" >Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
             </div>
             <div class="row clearfix">
 
                 <!--Cause Column-->
-                <div class="column blog-news-column col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="column blog-news-column col-lg-4 col-md-6 col-sm-6 col-xs-12" style="text-align:center">
                     <article class="inner-box">
                         <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-9.jpg" alt=""></a>
+                            <a href="#"><img src="<?php echo $root.$value['campaign_image_path']; ?>" alt=""></a>
                         </figure>
                         <div class="content-box">
                             <div class="post-info clearfix">
-                                <div class="post-time">Posted April 3, 2015</div>
+                                <div class="post-time" style="font-weight:bold;margin-left:20px;"><?php echo $value['campaign_insert_date']; ?></div>
                                 <div class="post-options clearfix">
-                                    <a href="#" class="comments-count"><span class="icon flaticon-interface-1"></span> 6</a>
-                                    <a href="#" class="fav-count"><span class="icon flaticon-favorite"></span> 14</a>
+                                    <a href="#" class="comments-count" ><span class="icon flaticon-interface-1"></span> 6</a>
+                                    <a href="#" class="fav-count" style="margin-right:20px;"><span class="icon flaticon-favorite"></span> 14</a>
                                 </div>
                             </div>
-                            <h3><a href="#">Clean Water for Children</a></h3>
-                            <div class="text">Lorem ipsum dolor sit amet, eu qui modo expeten dis reformidans, ex sit appetere sententiae seo eum in simul homero. Duo consul probatus no qu alterum sit at no simple dummy.</div>
-                            <a href="#" class="theme-btn btn-style-two">Read More</a>
+                            <h3><a href="<?php echo $root; ?>Campaigns_view"><?php echo $value['campaign_title']; ?></a></h3>
+                            <div class="text"><?php echo $value['campaign_short_description']; ?></div>
+                            <a href="<?php echo $root; ?>Campaigns_view/view/<?php echo $value['campaign_id']; ?>" class="theme-btn btn-style-two">Read More</a>
+                            <br />
+                            <br />
                         </div>
                     </article>
                 </div>
-
-                <!--Cause Column-->
-                <div class="column blog-news-column col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <article class="inner-box">
-                        <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-10.jpg" alt=""></a>
-                        </figure>
-                        <div class="content-box">
-                            <div class="post-info clearfix">
-                                <div class="post-time">Posted April 3, 2015</div>
-                                <div class="post-options clearfix">
-                                    <a href="#" class="comments-count"><span class="icon flaticon-interface-1"></span> 6</a>
-                                    <a href="#" class="fav-count"><span class="icon flaticon-favorite"></span> 14</a>
-                                </div>
-                            </div>
-                            <h3><a href="#">Security for Children</a></h3>
-                            <div class="text">Lorem ipsum dolor sit amet, eu qui modo expeten dis reformidans, ex sit appetere sententiae seo eum in simul homero. Duo consul probatus no qu alterum sit at no simple dummy.</div>
-                            <a href="#" class="theme-btn btn-style-two">Read More</a>
-                        </div>
-                    </article>
-                </div>
-
-                <!--Cause Column-->
-                <div class="column blog-news-column col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <article class="inner-box">
-                        <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root; ?>assets/images/resource/featured-image-11.jpg" alt=""></a>
-                        </figure>
-                        <div class="content-box">
-                            <div class="post-info clearfix">
-                                <div class="post-time">Posted April 3, 2015</div>
-                                <div class="post-options clearfix">
-                                    <a href="#" class="comments-count"><span class="icon flaticon-interface-1"></span> 6</a>
-                                    <a href="#" class="fav-count"><span class="icon flaticon-favorite"></span> 14</a>
-                                </div>
-                            </div>
-                            <h3><a href="#">Education for Children</a></h3>
-                            <div class="text">Lorem ipsum dolor sit amet, eu qui modo expeten dis reformidans, ex sit appetere sententiae seo eum in simul homero. Duo consul probatus no qu alterum sit at no simple dummy.</div>
-                            <a href="#" class="theme-btn btn-style-two">Read More</a>
-                        </div>
-                    </article>
-                </div>
-
+<?php } ?>
+                
+          
+               
 
             </div>
         </div>
@@ -607,84 +577,105 @@ include 'includes/header.inc';
 
 
     <!--Contact Section-->
-    <section class="contact-section" style="background-image:url(<?php echo $root; ?>assets/images/background/map-image.jpg);">
-        <div class="auto-container">
-            <div class="inner-container">
-
+    <?php
+    $loggedInUser = $this->session->userdata('loggedInUser');
+    ?>
+   
+    
+    
+    <!--Contact Section-->
+    <section class="contact-section extended" style="background-image:url(images/background/map-image.jpg);">
+    	<div class="auto-container">
+            
+			<div class="inner-container">
+                    	
+                <h1 style="text-align:center;font-weight:bold;">Contact <span>us</span></h1>
+                
+          
                 <div class="sec-title text-center">
-                    <h2>Contact <span class="normal-font">Us</span></h2>
-                    <div class="text">Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
+                    <div class="text">Lorem ipsum dolor sit amet, quas elitr voluptaria ei eos. Quo eu decore nusquam iudicabit, eos an aliquam maiorum. Ei eum simul integre, no eum quem fabellas, duo phaedrum consequat efficiantur ex. Ne vis nusquam. </div>
                 </div>
-
+                
                 <!--Contact Info-->
                 <div class="contact-info row clearfix">
-                    <!--Info COlumn-->
+                	<!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="icon"><span class="flaticon-location"></span></div>
+                    	<div class="inner-box">
+                        	<div class="icon"><span class="flaticon-location"></span></div>
                             <h4>ADDRESS</h4>
-                            <span id="com_address">
-                                Mirpur New Bazar Road,<br>
+                            Mirpur New Bazar Road,<br> 
                             Block-c, Dhaka-1210
-                            </span>
                         </div>
                     </div>
-
+                    
                     <!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="icon"><span class="flaticon-technology"></span></div>
+                    	<div class="inner-box">
+                        	<div class="icon"><span class="flaticon-technology"></span></div>
                             <h4>Phone</h4>
-                            <span id="com_phone">(732) 803-01 03, (732) 806-01 04, (880)172380129</span>
+                            (732) 803-01 03, (732) 806-01 04, (880)172380129
                         </div>
                     </div>
-
+                    
                     <!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="icon"><span class="flaticon-interface"></span></div>
+                    	<div class="inner-box">
+                        	<div class="icon"><span class="flaticon-interface"></span></div>
                             <h4>Email</h4>
-                            <span class="com_mail">
-                                <a href="mailto:info@companyname.com">info@companyname.com</a>,
+                            <a href="mailto:info@companyname.com">info@companyname.com</a>,
                             <a href="mailto:otheremail@gmail.com">otheremail@gmail.com</a>
-                            </span>
                         </div>
                     </div>
                 </div>
-
+                
                 <!--Form Container-->
-                <div class="contact-form-container wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+                <div class="contact-form-container wow zoomInStable" data-wow-delay="0ms" data-wow-duration="2500ms">
+                <?php if ($success == ''){ ?>
+                    <?php if ($error != ''){ ?>
+                        <div class="alert alert-danger">
+                            Temporary Error!<br>
+                            kindly try again
+                        </div>
+                    <?php } ?>
                     <form method="post" action="<?php echo $root; ?>contact" id="contact-form">
-
+                        
                         <div class="row clearfix">
                             <div class="column col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <input type="text" name="name" required value="" placeholder="Name">
+                            	<div class="form-group">
+                                	<input type="text" name="name" required value="" placeholder="Name">
+                                    <span style="color:#ff0000"><?php if($_POST){ if(form_error('name') ) { echo form_error('name'); } } ?></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" name="email" required value="" placeholder="Email">
+                                    <span style="color:#ff0000"><?php if($_POST){ if(form_error('email') ) { echo form_error('email'); } } ?></span>
                                 </div>
-
+                                
                                 <div class="form-group">
                                     <input type="text" name="number" value="" placeholder="Phone">
+                                    <span style="color:#ff0000"><?php if($_POST){ if(form_error('number') ) { echo form_error('number'); } } ?></span>
                                 </div>
                             </div>
-
+                            
                             <div class="column col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <textarea name="message" required placeholder="Your Message"></textarea>
+                                    <span style="color:#ff0000"><?php if($_POST){ if(form_error('message') ) { echo form_error('message'); } } ?></span>
                                 </div>
                             </div>
-
+                            
                             <div class="form-group col-md-12 col-xs-12">
-                                <div class="text-center"><button type="submit" name="submit" class="theme-btn btn-style-two">SEND Message</button></div>
+                                <div style="color:#ff0000"><button type="submit" name="submit" class="theme-btn btn-style-two">SEND Message</button></div>
                             </div>
-
+                        
                         </div>
+                        <?php }else{ ?>
+                            <div class="alert alert-success">
+                                Thank you for Contact us!
+                            </div>
+                        <?php } ?>
                     </form>
-
                 </div>
-
+                
             </div>
         </div>
     </section>

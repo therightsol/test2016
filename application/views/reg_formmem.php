@@ -14,27 +14,22 @@ include 'includes/header.inc';
 <div class="container">
     <div class="col-sm-6 col-sm-offset-3">
 <div class="portlet box red">
+    <br />
     <div class="portlet-title">
-        <div class="caption" style="background-color">
-            <span style="color:#eb5310;font-size: 2em;"> Register Here As a member </span>
+        <div class="caption" style="text-align: center;">
+            <span style="color:#ffffff;font-size: 2em;"> Register Here As a member </span>
         </div>
-        <div class="tools">
-            <a href="javascript:;" class="collapse"></a>
-            <a href="#portlet-config" data-toggle="modal" class="config"></a>
-            <a href="javascript:;" class="reload"></a>
-            <a href="javascript:;" class="remove"></a>
-        </div>
+        
     </div>
     <div class="portlet-body form">
         <!-- BEGIN FORM-->
         <br />
-        <br />
+       
         
         <form action="<?php echo $root; ?>register_member" id="reg" method="post" >
            <?php if($data_saved == ''){ ?>
             <div class="form-body">
-                <br />
-        <br />
+             
                 <?php
 
                     if($user_found != ''){?>
@@ -84,7 +79,7 @@ include 'includes/header.inc';
                 </div>-->
                 
             </div>
-            <div class="col-sm-6 col-sm-offset-4">
+            <div class="col-sm-6 col-sm-offset-5">
             <div class="form-actions">
                 <button type="submit" class="btn" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Submit</button>
                 

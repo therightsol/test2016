@@ -9,9 +9,7 @@
                 </div>
                 <!--Column-->
                 <div class="column col-md-3 col-sm-12 col-xs-12">
-                	<div class="text-right padd-top-20">
-                            <a href="<?php echo $root; ?>Home" class="theme-btn btn-style-three">Join Us Now</a>
-                    </div>
+                	
                 </div>
             </div>
         </div>
@@ -54,21 +52,7 @@
                             </div>
                             
                             <!--Footer Column-->
-                            <div class="col-lg-4 col-sm-6 col-xs-12 column">
-                                <h2>Our Project</h2>
-                                <div class="footer-widget links-widget">
-                                    <ul>
-                                        <li><a href="#">Water Surve</a></li>
-                                        <li><a href="#">Education for all</a></li>
-                                        <li><a href="#">Treatment</a></li>
-                                        <li><a href="#">Food Serving</a></li>
-                                        <li><a href="#">Cloth</a></li>
-                                        <li><a href="#">Selter Project</a></li>
-                                        <li><a href="#">Help Orphan</a></li>
-                                    </ul>
-        
-                                </div>
-                            </div>
+                          
                     	</div>
                     </div><!--Two 4th column End-->
                     
@@ -77,27 +61,7 @@
                     	<div class="row clearfix">
                     		<!--Footer Column-->
                         	<div class="col-lg-7 col-sm-6 col-xs-12 column">
-                            	<div class="footer-widget news-widget">
-                                	<h2>Latest News</h2>	
-                                    <div class="news-post">
-                                    	<div class="icon"></div>
-                                        <div class="news-content"><a href="#">If you need a crown or lorem an implant you will pay it gap it</a></div>
-                                        <div class="time">July 2, 2014</div>
-                                    </div>
-                                    
-                                    <div class="news-post">
-                                    	<div class="icon"></div>
-                                        <div class="news-content"><a href="#">If you need a crown or lorem an implant you will pay it gap it</a></div>
-                                        <div class="time">July 2, 2014</div>
-                                    </div>
-                                    
-                                    <div class="news-post">
-                                    	<div class="icon"></div>
-                                        <div class="news-content"><a href="#">If you need a crown or lorem an implant you will pay it gap it</a></div>
-                                        <div class="time">July 2, 2014</div>
-                                    </div>
-                                    
-                                </div>
+                         
                             </div>
                             
                             <!--Footer Column-->
@@ -105,13 +69,11 @@
                                 <div class="footer-widget links-widget">
                                 	<h2>Quick Links</h2>
                                     <ul>
-                                        <li><a href="#">Water Surve</a></li>
-                                        <li><a href="#">Education for all</a></li>
-                                        <li><a href="#">Treatment</a></li>
-                                        <li><a href="#">Food Serving</a></li>
-                                        <li><a href="#">Cloth</a></li>
-                                        <li><a href="#">Selter Project</a></li>
-                                        <li><a href="#">Help Orphan</a></li>
+                                        <li><a href="<?php echo $root ; ?>Donations">Donation Ads</a></li>
+                                        <li><a href="<?php echo $root ; ?>Campaigns_view">Campaign Ads</a></li>
+                                        <li><a href="<?php echo $root ; ?>Causes">Latest Causes</a></li>
+                                        
+                                        <li><a href="<?php echo $root ; ?>Contact">Contact US</a></li>
                                     </ul>
         
                                 </div>
