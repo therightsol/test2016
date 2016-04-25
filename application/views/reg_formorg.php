@@ -35,12 +35,12 @@ include 'includes/header.inc';
                 if($user_found != ''){?>
                     <div class="alert alert-danger">
                         Username Not available <br>
-                        Kindly Chose Other Username
+                        Kindly Choose Other Username
                     </div>
                 <?php } if($email_found != ''){ ?>
                     <div class="alert alert-danger">
-                        Email already Token <br>
-                        Kindly Chose Other Email Address
+                        Email already Taken <br>
+                        Kindly Choose Other Email Address
                     </div>
                 <?php } ?>
                 <div class="row">
@@ -86,13 +86,13 @@ include 'includes/header.inc';
                         </div>
                     </div>
                 </div>
-                <h2 style="color:white">Add bank account</h2>
+                <h2 style="color:white">Add Bank Account</h2>
                 <div id="bnk">
                     <div class="row">
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Back Account Number</label>
+                                <label class="control-label">Bank Account Number</label>
 
                                 <input class="form-control" placeholder="" type="number"  value="<?php if($_POST){ echo $_POST['bnk_num']; } ?>" name="bnk_num">
 
@@ -118,7 +118,7 @@ include 'includes/header.inc';
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Branck Code</label>
+                                <label class="control-label">Branch Code</label>
 
                                 <input class="form-control" placeholder="" type="number" value="<?php if($_POST){ echo $_POST['bnk_code']; } ?>" name="bnk_code">
 
@@ -126,7 +126,7 @@ include 'includes/header.inc';
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Bank Branch Address</label>
+                                <label class="control-label">Branch Address</label>
 
                                 <input class="form-control"  placeholder="" type="text" value="<?php if($_POST){ echo $_POST['bnk_address']; } ?>" name="bnk_address">
 

@@ -53,16 +53,28 @@
                             
                             <!--Footer Column-->
                           
+                   
+                     <!--Footer Column-->
+                            <div class="col-lg-4 col-sm-6 col-xs-12 column">
+                            <img src="<?php echo $root;?>assets/images/gallery/image-15.jpg" alt="mission img" width="180" style="padding-top: 70px;">
+                            </div>
                     	</div>
-                    </div><!--Two 4th column End-->
+                    </div><!--Two 4th column E
                     
                     <!--Two 4th column-->
                     <div class="col-md-6 col-sm-12 col-xs-12">
+                        
                     	<div class="row clearfix">
                     		<!--Footer Column-->
-                        	<div class="col-lg-7 col-sm-6 col-xs-12 column">
-                         
+                        	<div class="col-lg-7 col-sm-12 col-xs-12 column" style="padding-top: 40px;">
+                                    <h2> Our Mission </h2>
+                                     <p>
+                                    Lorem ipsum dolor sit amet, eu me seo 
+                                        laboramus, iudico dummy text.Lorem ipsum dolor sit amet, eu me seo 
+                                            laboramus, iudico dummy text.
+                                </p>
                             </div>
+                               
                             
                             <!--Footer Column-->
                             <div class="col-lg-5 col-sm-6 col-xs-12 column">
@@ -96,8 +108,6 @@
         
     </footer>    
     
-</div>
-<!--End pagewrapper-->
 
 
 <!--Scroll to top-->

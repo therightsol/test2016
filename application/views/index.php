@@ -14,7 +14,7 @@ include 'includes/header.inc';
             <div class="tp-banner">
                 <ul>
 
-                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="<?php echo $root; ?>assets/images/main-slider/1.jpg"  data-saveperformance="off"  data-title="Awesome Title Here">
+                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="<?php echo $root; ?>assets/images/main-slider/1.jpg"  data-saveperformance="off"  data-title="">
                         <img src="<?php echo $root; ?>assets/images/main-slider/1.jpg"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
 
@@ -78,7 +78,7 @@ include 'includes/header.inc';
                     </li>
 
 
-                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="<?php echo $root; ?>assets/images/main-slider/2.jpg"  data-saveperformance="off"  data-title="Awesome Title Here">
+                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="<?php echo $root; ?>assets/images/main-slider/2.jpg"  data-saveperformance="off"  data-title="">
                         <img src="<?php echo $root; ?>assets/images/main-slider/2.jpg"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
 
@@ -142,7 +142,7 @@ include 'includes/header.inc';
                     </li>
 
 
-                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="<?php echo $root; ?>assets/images/main-slider/3.jpg"  data-saveperformance="off"  data-title="Awesome Title Here">
+                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="<?php echo $root; ?>assets/images/main-slider/3.jpg"  data-saveperformance="off"  data-title="">
                         <img src="<?php echo $root; ?>assets/images/main-slider/3.jpg"  alt=""  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
 
