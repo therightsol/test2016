@@ -10,7 +10,6 @@ class MY_Model extends CI_Model {
         //if(isset($this->DB_TablePK)){ echo 'hiiiiiiii';};
         // echo '<tt><pre>' . var_export($this, True) . '</pre></tt>';
         $this->db->insert($this::DB_TableName, $this);
-        $this->{$this::DB_TablePK} = $this->db->insert_id();
         return $this->db->insert_id();
         //echo $this->{$this::DB_TablePK};
         //if(isset($this->{$this::DB_TablePK})){ echo 'hiissdfsfiiiiii';};

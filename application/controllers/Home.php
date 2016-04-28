@@ -7,8 +7,11 @@ class Home extends CI_Controller {
         $data['activeMenu'] = 'Home';
          $data['success'] = '';
         $data['error'] = '';
-         $this->load->model('cause');
+        $this->load->model('cause');
         $data['viewcause'] = $this->cause->getRecord();
+        $this->load->model('slide');
+        $data['slider'] = $this->slide->getRecord();
+        //print_r($data['slider']);exit;
          $this->load->model('Donation');
         $data['viewdon'] = $this->Donation->getRecord();
         $this->load->model('campaign');
@@ -17,5 +20,3 @@ class Home extends CI_Controller {
     }
 }
 ?>
-        
-        

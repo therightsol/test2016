@@ -122,7 +122,7 @@
 				<div class="col-md-12">
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-						Managed Organization <small>managed organizations</small>
+						Managed Data <small>managed members</small>
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li class="btn-group">
@@ -159,7 +159,7 @@
 							<i class="fa fa-angle-right"></i>
 						</li>
                         <li>
-                            <a href="#">organization</a>
+                            <a href="#">Member</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
 					</ul>
@@ -174,7 +174,7 @@
                     <div class="portlet box purple">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-cogs"></i>Organizations
+                                <i class="fa fa-cogs"></i>Members
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="collapse"></a>
@@ -183,7 +183,18 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <table  class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%" id="content">
+							<?php if($success == 'yes'){ ?>
+								<div class="alert alert-success" style="margin-top: 30px;">
+									<p class="text-center">Successfully Approved.</p>
+								</div>
+							<?php }
+							if($error != ''){ ?>
+								<div class="alert alert-danger" style="margin-top: 30px;">
+									<p class="text-center">Error! </p>
+								</div>
+							<?php } ?>
+							<form action="<?php echo base_url(); ?>dashboard/approve_donation" role="form" method="post">
+							<table class="table table-striped table-bordered table-hover" id="content">
                                 <thead>
                                 <tr>
                                     <th style="width1:8px;">
@@ -193,63 +204,85 @@
                                         Username
                                     </th>
                                     <th>
-                                        Email
+                                        Title
                                     </th>
                                     <th>
-                                        Phone Number
+                                        Description
                                     </th>
                                     <th>
-                                        Join Date
+                                        Required Amount
                                     </th>
                                     <th>
-                                        Profile
+                                        Inserted Date
                                     </th>
+									<td>
+										End Date
+									</td>
+									<td>
+										Image
+									</td>
 									<th>
-										Bank Accounts
+										Approved
 									</th>
-
-									<th>
+									<td>
 										Delete
-									</th>
+									</td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if($organizations){
+                                <?php if($donation){
                                     $i = 1;
-                                    foreach($organizations as $key => $value){
+                                    foreach($donation as $key => $value){
                                     ?>
                                     <tr class="odd gradeX">
                                         <td>
                                             <?php echo $i ?>
                                         </td>
                                         <td>
-                                            <?php echo $value['username']; ?>
+                                            <?php echo $value['dm_value']; ?>
                                         </td>
                                         <td>
-
-											<a class="phn" data-name="email" data-pk="<?php echo $value['uid']; ?>" >
-												<?php echo $value['email']; ?>
+											<a class="donation" data-name="donation_title" data-pk="<?php echo $value['donation_id']; ?>" >
+												<?php echo $value['donation_title']; ?>
 											</a>
                                         </td>
                                         <td>
-
-                                            <a class="phn" data-name="phone_number" data-pk="<?php echo $value['uid']; ?>" >
-                                                <?php echo $value['phone_number']; ?>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <?php echo date('d M Y', $value['joining_date']); ?>
-                                        </td>
-                                        <td>
-                                            <img style="height: 50px;" src="<?php echo base_url().$value['profile_image_path']; ?>">
+											<a class="donation" data-name="donation_short_description" data-pk="<?php echo $value['donation_id']; ?>" >
+												<?php echo $value['donation_short_description']; ?>
+											</a>
                                         </td>
 										<td>
-											<button  type="button" class="btn btn-primary btn-sm area_button" data-toggle="modal" data-uid="<?php echo $value['uid']; ?>"   data-target="#myModal">
-												View
-											</button>
+											<a class="donation" data-name="total_required_amount" data-pk="<?php echo $value['donation_id']; ?>" >
+												<?php echo $value['total_required_amount']; ?>
+											</a>
 										</td>
 										<td>
-											<a class="delete" data-id="<?php echo $value['uid']; ?>" data-column="uid" href="#"><i class="fa fa-close"></i> </a>
+											<a class="date" data-type="date" data-name="donation_insert_date" data-pk="<?php echo $value['donation_id']; ?>" >
+												<?php echo $value['donation_insert_date']; ?>
+											</a>
+										</td>
+										<td>
+											<a class="date" data-type="date" data-name="donation_last_date" data-pk="<?php echo $value['donation_id']; ?>" >
+												<?php echo $value['donation_last_date']; ?>
+											</a>
+										</td>
+                                        <td>
+												<a href="<?php echo base_url().$value['donation_image_path']; ?>" rel="prettyPhoto[unusual]" >
+													<img style="height: 50px;" src="<?php echo base_url().$value['donation_image_path']; ?>">
+
+												</a>
+                                        </td>
+
+
+										<td class="center">
+											<?php if($value['is_approved'] == 1){ ?>
+												Approved
+											<?php }else{ ?>
+												<input type="checkbox" name="donation_id[]" value="<?php echo $value['donation_id']; ?>" />
+											<?php } ?>
+										</td>
+										<td>
+											<a class="delete" data-id="<?php echo $value['donation_id']; ?>" data-column="donation_id" href="#"><i class="fa fa-close"></i> </a>
 										</td>
 
                                     </tr>
@@ -259,46 +292,12 @@
                                 } ?>
                                 </tbody>
                             </table>
+							<input type="submit" value="Approve" class="btn btn-primary btn-block" />
+							</form>
                         </div>
 
                     </div>
 					<!-- END EXAMPLE TABLE PORTLET-->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						<div class="modal-dialog modal-lg" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-								</div>
-								<div class="modal-body">
-
-									<div class="row">
-										<div class="col-md-12">
-											<h2>Banck Account Detail</h2>
-											<table class="table table-user-information" id="test">
-												<thead>
-												<tr>
-													<td>#</td>
-													<th>Bank Title</th>
-													<th>Bank Number</th>
-                                                    <th>Edit/view</th>
-                                                    <th>Add</th>
-												</tr>
-												</thead>
-												<tbody id="content">
-
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 			<!-- END PAGE CONTENT-->
@@ -319,21 +318,26 @@
 </script>
 <script>
 	$(document).ready(function(){
-		$('.area_button').click(function () {
-			$('#test').find('tbody').html('');
-			var uid = $(this).data('uid');
-			$.ajax({
-				url:  "<?php echo $root; ?>dashboard/organization",
-				type: 'post',
-				data: {'id': uid}, //for example {id:id,name:name}
-				success : function(resp){
-
-					$('#test').find('tbody').append(resp);
-
-				},
-				error : function(resp){ console.log(resp) }
-			});
+        $('.donation').editable({
+            type: 'text',
+            url: '<?php echo $root; ?>dashboard/editable/donation/donation_id',
+            success: function(response, newValue){
+                if(response.status == 'error') return response.msg;
+                location.reload();
+            }
+        });
+		$('.date').editable({
+			format: 'dd/MM/yyyy',
+			viewformat: 'dd/MM/yyyy',
+			datepicker: {
+				weekStart: 1
+			},
+			url: '<?php echo $root; ?>dashboard/editable/donation/donation_id',
+			success: function(response, newValue){
+				if(response.status == 'error') return response.msg;
+			}
 		});
+        $("a[rel^='prettyPhoto']").prettyPhoto();
 
 		$('.delete').click(function(){
 			var id = $(this).data('id');
@@ -341,7 +345,7 @@
 			var element = $(this);
 			if(confirm('are you sure')){
 				$.ajax({
-					url:  "<?php echo $root; ?>dashboard/delete/user/",
+					url:  "<?php echo $root; ?>dashboard/delete/donation/",
 					type: 'post',
 					data: {'id': id, 'column':column}, //for example {id:id,name:name}
 					success : function(resp){
@@ -354,25 +358,6 @@
 			}
 
 		});
-
-        $('#content').dataTable();
-
-        $('.phn').editable({
-            type: 'text',
-            url: '<?php echo $root; ?>dashboard/editable/user/uid',
-            success: function(response, newValue){
-                if(response.status == 'error') return response.msg;
-            }
-        });
-		$('.unapproved').editable({
-			type: 'text',
-			url: '<?php echo $root; ?>dashboard/editable/user/uid',
-			success: function(response, newValue){
-				if(response.status == 'error') return response.msg;
-				location.reload();
-			}
-		});
-
 
 	});
 </script>

@@ -70,12 +70,30 @@ class Dashboard extends CI_Controller {
             $uid = $this->input->post('id', true);
             $this->load->model('user_meta');
             $rec = $this->user_meta->getRecord($uid, 'fk_uid', true);
-           echo json_encode($rec);
+            $content = '';
+            $i = 1;
+            if($rec){
+                foreach($rec as $key => $value){
+                    if($value['um_title'] == 'bank_title'){
+                        $content .= "<tr><td>".$i."</td><td>".$value['um_value']."</td><td>".$value['um_key']."</td><td><a href=".base_url().'dashboard/bank/'.$value['um_id']."><i class='fa fa-eye'></i></a></td><td><a href=".base_url().'dashboard/bank/'.$value['um_id'].'/new'."><i class='fa fa-plus'></i></a></td></tr>";
+
+                    }
+                $i++;
+                }
+            }
+
+           echo $content;
         }else {
             $this->load->view('dashboard/organization', $data);
         }
 
 
+    }
+    public function bank($id, $status = ''){
+        $data['id'] = $id;
+        $data['status'] = $status;
+        $data['data_saved'] = '';
+        $this->load->view('dashboard/bank', $data);
     }
     public function all_users()
     {
@@ -641,6 +659,407 @@ class Dashboard extends CI_Controller {
         }
     }
 
+    public function approve_donation (){
+        $data['pagename'] = '';
+        $data['success'] = '';
+        $data['error'] = '';
+
+        $this->load->model('donations_meta');
+        $this->load->model('donation');
+        $join_wher = array(
+            'donation_ads' => 'donation_ads.donation_id = donations_meta.donation_id'
+        );
+
+        $where = array(
+            'dm_key' => 'username',
+        );
+        $data['donation'] = $this->donations_meta->sql_join_multi($where, $join_wher);
+
+        //echo '<pre>'.var_export($data['viewdonation'], true).' </pre>';exit;
+        if (isset($_POST['donation_id'])) {
+
+            $id = $this->input->post('donation_id', true);
+            $updating_data = array();
+            $i = 0;
+            foreach ($id as $k => $v){
+
+                $updating_data[$i]['donation_id'] = $id[$i];
+                $updating_data[$i]['is_approved'] = 1;
+                $i++;
+            }
+            //echo '<tt><pre>'.var_export($updating_data,TRUE). '</tt></pre>'; exit;
+            $insert_batch = $this->donation->updateBatch($updating_data, 'donation_id');
+            if ($insert_batch) {
+                $data['donation'] = $this->donations_meta->sql_join_multi($where, $join_wher);
+                $data['success'] = 'yes';
+                $this->load->view('dashboard/approve_donation' , $data);
+            }else{
+                $data['error'] = 'yes';
+                $this->load->view('dashboard/approve_donation' , $data);;
+            }
+        } else {
+            $this->load->view('dashboard/approve_donation' , $data);
+        }
+
+
+    }
+    public function add_donation(){
+
+
+        $data['pagename']   = '';
+
+
+        $data['data_saved'] = '';
+        if(filter_input_array(INPUT_POST)){
+
+            $this->load->helper('security');
+            $rules = array(
+                array(
+                    'field' => 'title',
+                    'label' => 'Donation Title',
+                    'rules' => 'required|trim'
+                ),
+                array(
+                    'field' => 'shdescription',
+                    'label' => 'Short Description',
+                    'rules' => 'required|max_length[100]'
+                ),
+                array(
+                    'field' => 'lgdescription',
+                    'label' => 'Full description',
+                    'rules' => 'required'
+                ),
+
+                array(
+                    'field' => 'amount',
+                    'label' => 'Amount',
+                    'rules' => 'required'
+                ),
+                array(
+                    'field' => 'date',
+                    'label' => 'Cause End Date',
+                    'rules' => 'required'
+                )
+            );
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($rules);
+            $this->image_upload();
+            // echo '<pre>'.var_export($this->upload->data(), true).'</pre>';exit;
+            if (!$this->form_validation->run($rules) == FALSE and $this->image_upload() == TRUE) {
+
+                $title = $this->input->post('title', TRUE);
+                $shdescription =  $this->input->post('shdescription', TRUE);
+                $lgdescription =  $this->input->post('lgdescription', TRUE);
+                $amount =  $this->input->post('amount', TRUE);
+                $fdate = $this->input->post('date', TRUE);
+                $cdate = date('d M Y', time());
+
+
+                $this->load->model('Donation');
+                $this->Donation->donation_image_path = 'uploads/causes/'.$this->upload->data('file_name');
+                $this->Donation->donation_title = $title;
+                $this->Donation->donation_short_description = $shdescription;
+                $this->Donation->donation_long_description = $lgdescription;
+                $this->Donation->total_required_amount = $amount;
+                $this->Donation->donation_last_date = $fdate;
+                $this->Donation->donation_insert_date = $cdate;
+                $success = $this->Donation->insertRecord();
+
+                $username = $this->session->userdata('username');
+                $this->load->model('donations_meta');
+                $this->donations_meta->donation_id = $success;
+                $this->donations_meta->dm_key = 'username';
+                $this->donations_meta->dm_value = $username;
+                $this->donations_meta->insertRecord();
+                if ($success) {
+                    // echo var_dump($success);
+                    $data['data_saved'] = 'yes';
+                    $this->load->view('dashboard/add_donation' , $data);
+                }else{
+                    echo 'some internal error 404 please try again';
+                }
+
+            }else{
+                //echo 'form not validate';
+                $this->load->view('dashboard/add_donation' , $data);
+
+            }
+
+
+
+        }  else {
+
+
+            $this->load->view('dashboard/add_donation' , $data);
+        }
+    }
+    public function slider_images(){
+        $this->load->model('slide');
+        $data['slider'] = $this->slide->getRecord();
+        $this->load->view('dashboard/slider_images', $data);
+    }
+
+    public function upload_slider()
+    {
+
+        $this->load->model('slide');
+        $name_array = array();
+            $count = count($_FILES['file']['name']);
+            //echo '<tt><pre>'.var_export($_FILES, true).'</tt></pre>';exit;
+            foreach ($_FILES as $key => $value) {
+                for ($s = 0; $s < $count; $s++) {
+                    $_FILES['file']['name'] = $value['name'][$s];
+                    $_FILES['file']['type'] = $value['type'][$s];
+                    $_FILES['file']['tmp_name'] = $value['tmp_name'][$s];
+                    $_FILES['file']['error'] = $value['error'][$s];
+                    $_FILES['file']['size'] = $value['size'][$s];
+                    $config['upload_path'] = './uploads/slider/';
+                    $config['allowed_types'] = 'gif|jpg|png';
+                    $config['max_size'] = '2048000';
+                    $config['overwrite'] = FALSE;
+                    $config['encrypt_name'] = TRUE;
+                    $this->load->library('upload', $config);
+
+                    if ($this->upload->do_upload('file')) {
+                        $data = $this->upload->data();
+                        $name_array = $data['file_name'];
+                        $this->slide->image_dimension = $name_array;
+                        $this->slide->insertRecord();
+                        echo $name_array;
+                    } else {
+                        echo $this->upload->display_errors();
+                    }
+                }
+            }
+
+
+
+
+    }
+    public function causes (){
+        $data['pagename'] = '';
+        $data['success'] = '';
+        $data['error'] = '';
+
+        $this->load->model('causes_meta');
+        $this->load->model('cause');
+        $join_wher = array(
+            'causes' => 'causes.cause_id = causes_meta.cause_id'
+        );
+        $where = array(
+            'cm_key' => 'username'
+        );
+
+        $data['causes'] = $this->causes_meta->sql_join_multi($where, $join_wher);
+
+        //echo '<pre>'.var_export($data['causes'], true).' </pre>';exit;
+
+            $this->load->view('dashboard/causes' , $data);
+
+
+    }
+    public function add_causes (){
+        $data['pagename'] = '';
+        $data['data_saved'] = '';
+        if(filter_input_array(INPUT_POST)){
+
+            $this->load->helper('security');
+            $rules = array(
+                array(
+                    'field' => 'title',
+                    'label' => 'Cause Title',
+                    'rules' => 'required|trim'
+                ),
+                array(
+                    'field' => 'shdescription',
+                    'label' => 'Short Description',
+                    'rules' => 'required|max_length[100]'
+                ),
+                array(
+                    'field' => 'lgdescription',
+                    'label' => 'Full description',
+                    'rules' => 'required'
+                ),
+
+                array(
+                    'field' => 'amount',
+                    'label' => 'Amount',
+                    'rules' => 'required'
+                ),
+                array(
+                    'field' => 'date',
+                    'label' => 'Cause End Date',
+                    'rules' => 'required'
+                )
+            );
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($rules);
+            $this->image_upload();
+            // echo '<pre>'.var_export($this->upload->data(), true).'</pre>';exit;
+            if (!$this->form_validation->run($rules) == FALSE and $this->image_upload() == TRUE) {
+
+                $title = $this->input->post('title', TRUE);
+                $shdescription =  $this->input->post('shdescription', TRUE);
+                $lgdescription =  $this->input->post('lgdescription', TRUE);
+                $amount =  $this->input->post('amount', TRUE);
+                $fdate = $this->input->post('date', TRUE);
+                $cdate = date('d M Y', time());
+
+
+                $this->load->model('cause');
+                $this->cause->cause_image_path = 'uploads/causes/'.$this->upload->data('file_name');
+                $this->cause->cause_title = $title;
+                $this->cause->cause_short_description = $shdescription;
+                $this->cause->cause_long_description = $lgdescription;
+                $this->cause->total_required_amount = $amount;
+                $this->cause->cause_last_date = $fdate;
+                $this->cause->cause_insert_date = $cdate;
+                $success = $this->cause->insertRecord();
+                $username = $this->session->userdata('username');
+                $this->load->model('causes_meta');
+                $this->causes_meta->cause_id = $success;
+                $this->causes_meta->cm_key = 'username';
+                $this->causes_meta->cm_value = $username;
+                $this->causes_meta->insertRecord();
+                if ($success) {
+                    // echo var_dump($success);
+                    $data['data_saved'] = 'yes';
+                    $this->load->view('dashboard/add_causes', $data);
+                }else{
+                    echo 'some internal error 404 please try again';
+                }
+
+            }else{
+                //echo 'form not validate';
+                $this->load->view('dashboard/add_causes' , $data);
+
+            }
+
+
+
+        }  else {
+            $this->load->view('dashboard/add_causes' , $data);
+        }
+
+
+    }
+    public function campaigns (){
+        $data['pagename'] = '';
+        $data['success'] = '';
+        $data['error'] = '';
+
+        $this->load->model('campaign_meta');
+        $this->load->model('campaign');
+        $join_wher = array(
+            'campaign_ads' => 'campaign_ads.campaign_id = campaign_meta.campaign_id'
+        );
+        $where = array(
+            'cmp_key' => 'username'
+        );
+
+        $data['campaign'] = $this->campaign_meta->sql_join_multi($where, $join_wher);
+
+        //echo '<pre>'.var_export($data['campaign'], true).' </pre>';exit;
+
+        $this->load->view('dashboard/campaigns' , $data);
+
+
+    }
+    public function add_campaigns (){
+        $data['pagename'] = '';
+        $data['data_saved'] = '';
+        if(filter_input_array(INPUT_POST)){
+
+
+            $this->load->helper('security');
+            $rules = array(
+                array(
+                    'field' => 'title',
+                    'label' => 'Cause Title',
+                    'rules' => 'required|trim'
+                ),
+                array(
+                    'field' => 'shdescription',
+                    'label' => 'Short Description',
+                    'rules' => 'required|max_length[100]'
+                ),
+                array(
+                    'field' => 'lgdescription',
+                    'label' => 'Full description',
+                    'rules' => 'required'
+                ),
+
+
+                array(
+                    'field' => 'date',
+                    'label' => 'Cause End Date',
+                    'rules' => 'required'
+                )
+            );
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($rules);
+            $this->image_upload();
+            // echo '<pre>'.var_export($this->upload->data(), true).'</pre>';exit;
+            if (!$this->form_validation->run($rules) == FALSE and $this->image_upload() == TRUE) {
+
+                $title = $this->input->post('title', TRUE);
+                $shdescription =  $this->input->post('shdescription', TRUE);
+                $lgdescription =  $this->input->post('lgdescription', TRUE);
+                $amount =  $this->input->post('amount', TRUE);
+                $fdate = $this->input->post('date', TRUE);
+                $cdate = date('d M Y', time());
+
+
+                $this->load->model('campaign');
+                $this->campaign->campaign_image_path = 'uploads/causes/'.$this->upload->data('file_name');
+                $this->campaign->campaign_title = $title;
+                $this->campaign->campaign_short_description = $shdescription;
+                $this->campaign->campaign_long_description = $lgdescription;
+
+                $this->campaign->campaign_last_date = $fdate;
+                $this->campaign->campaign_insert_date = $cdate;
+                $success = $this->campaign->insertRecord();
+
+                $this->load->model('campaign_meta');
+                $username = $this->session->userdata('username');
+
+                $this->campaign_meta->campaign_id = $success;
+                $this->campaign_meta->cmp_key = 'username';
+                $this->campaign_meta->cmp_value = $username;
+                $this->campaign_meta->insertRecord();
+                if ($success) {
+                    // echo var_dump($success);
+                    $data['data_saved'] = 'yes';
+                    $this->load->view('dashboard/add_campaigns', $data);
+                }else{
+                    echo 'some internal error 404 please try again';
+                }
+
+            }else{
+                //echo 'form not validate';
+                $this->load->view('dashboard/add_campaigns' , $data);
+
+            }
+
+
+        }  else {
+            $this->load->view('dashboard/add_campaigns' , $data);
+        }
+
+
+    }
+    public function delete_images()
+    {
+        $ds = DIRECTORY_SEPARATOR;  // Store directory separator (DIRECTORY_SEPARATOR) to a simple variable. This is just a personal preference as we hate to type long variable name.
+        $storeFolder = 'uploads/slider';
+
+        $fileList = $_POST['fileList'];
+
+
+        if(isset($fileList)){
+            unlink('uploads/slider/'.$fileList);
+        }
+    }
     public function delete($model)
     {
 
@@ -686,5 +1105,23 @@ class Dashboard extends CI_Controller {
         $this->load->model('Send_email');
         return $this->Send_email->send($userEmail, $message, 'Verify_email');
     }
+    public function image_upload() {
+        $config = array(
+            'upload_path' => "./uploads/causes/",
+            'allowed_types' => "gif|jpg|png|jpeg",
+            'max_size' => "2048000"
+        );
 
+        $config['overwrite'] = FALSE;
+        $config['encrypt_name'] = TRUE;
+        $this->load->library('upload', $config);
+//echo '<pre>'.var_export($_FILES, true).'</pre>';exit;
+        if ($this->upload->do_upload('file')) {
+
+            //  echo '<pre>'.var_export($this->upload->data(), true).'</pre>';exit;
+            return True;
+        } else {
+            return false;
+        }
+    }
 }

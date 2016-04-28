@@ -88,6 +88,80 @@
 
     </li>
     <li class="">
+        <a  href="javascript:;" >
+            <i class="fa fa-venus-double"></i>
+					<span class="title">
+						Donation
+					</span>
+            <span class="arrow ">
+					</span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo $root; ?>dashboard/approve_donation">
+                    Edit
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo $root; ?>dashboard/add_donation">
+                    Add
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
+        <a href="<?php echo $root; ?>dashboard/slider_images">
+            <i class="fa fa-image"></i>
+					<span class="title">
+						Slider Images
+					</span>
+        </a>
+    </li>
+    <li class="">
+        <a  href="javascript:;" >
+            <i class="fa fa-reddit-alien"></i>
+					<span class="title">
+						Causes
+					</span>
+            <span class="arrow ">
+					</span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo $root; ?>dashboard/causes">
+                    Update / Delte
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo $root; ?>dashboard/add_causes">
+                    Add
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
+        <a  href="javascript:;" >
+            <i class="fa fa-venus-double"></i>
+					<span class="title">
+						Campaign
+					</span>
+            <span class="arrow ">
+					</span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="<?php echo $root; ?>dashboard/campaigns">
+                    Update / Delte
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo $root; ?>dashboard/add_campaigns">
+                    Add
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
         <a href="<?php echo $root; ?>dashboard/logout">
             <i class="fa fa-clone"></i>
 					<span class="title">

@@ -122,7 +122,7 @@
 				<div class="col-md-12">
 					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 					<h3 class="page-title">
-						Managed Organization <small>managed organizations</small>
+						Managed Data <small>managed members</small>
 					</h3>
 					<ul class="page-breadcrumb breadcrumb">
 						<li class="btn-group">
@@ -159,7 +159,7 @@
 							<i class="fa fa-angle-right"></i>
 						</li>
                         <li>
-                            <a href="#">organization</a>
+                            <a href="#">Member</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
 					</ul>
@@ -174,7 +174,7 @@
                     <div class="portlet box purple">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-cogs"></i>Organizations
+                                <i class="fa fa-cogs"></i>Members
                             </div>
                             <div class="tools">
                                 <a href="javascript:;" class="collapse"></a>
@@ -183,122 +183,25 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <table  class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%" id="content">
-                                <thead>
-                                <tr>
-                                    <th style="width1:8px;">
-                                        S.No
-                                    </th>
-                                    <th>
-                                        Username
-                                    </th>
-                                    <th>
-                                        Email
-                                    </th>
-                                    <th>
-                                        Phone Number
-                                    </th>
-                                    <th>
-                                        Join Date
-                                    </th>
-                                    <th>
-                                        Profile
-                                    </th>
-									<th>
-										Bank Accounts
-									</th>
 
-									<th>
-										Delete
-									</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php if($organizations){
-                                    $i = 1;
-                                    foreach($organizations as $key => $value){
-                                    ?>
-                                    <tr class="odd gradeX">
-                                        <td>
-                                            <?php echo $i ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $value['username']; ?>
-                                        </td>
-                                        <td>
+							<div>
+								<?php foreach($slider as $key => $value){ ?>
+										<img class="img-responsive img-thumbnail" src="<?php echo $root.'uploads/slider/'.$value['image_dimension']; ?>" >
+								<?php } ?>
+							</div>
 
-											<a class="phn" data-name="email" data-pk="<?php echo $value['uid']; ?>" >
-												<?php echo $value['email']; ?>
-											</a>
-                                        </td>
-                                        <td>
+							<div id="respons" class="alert alert-info">
 
-                                            <a class="phn" data-name="phone_number" data-pk="<?php echo $value['uid']; ?>" >
-                                                <?php echo $value['phone_number']; ?>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <?php echo date('d M Y', $value['joining_date']); ?>
-                                        </td>
-                                        <td>
-                                            <img style="height: 50px;" src="<?php echo base_url().$value['profile_image_path']; ?>">
-                                        </td>
-										<td>
-											<button  type="button" class="btn btn-primary btn-sm area_button" data-toggle="modal" data-uid="<?php echo $value['uid']; ?>"   data-target="#myModal">
-												View
-											</button>
-										</td>
-										<td>
-											<a class="delete" data-id="<?php echo $value['uid']; ?>" data-column="uid" href="#"><i class="fa fa-close"></i> </a>
-										</td>
+							</div>
+							<form  id="slider" enctype="multipart/form-data" class="dropzone_style" >
+								<div class="dz-message" data-dz-message><span style="color: red; font-size: 20px;">Drop Images here to upload</span></div>
 
-                                    </tr>
+							</form>
 
-                                <?php $i++; } }else{
-                                    echo 'no Record found';
-                                } ?>
-                                </tbody>
-                            </table>
                         </div>
 
                     </div>
 					<!-- END EXAMPLE TABLE PORTLET-->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						<div class="modal-dialog modal-lg" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-								</div>
-								<div class="modal-body">
-
-									<div class="row">
-										<div class="col-md-12">
-											<h2>Banck Account Detail</h2>
-											<table class="table table-user-information" id="test">
-												<thead>
-												<tr>
-													<td>#</td>
-													<th>Bank Title</th>
-													<th>Bank Number</th>
-                                                    <th>Edit/view</th>
-                                                    <th>Add</th>
-												</tr>
-												</thead>
-												<tbody id="content">
-
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 			<!-- END PAGE CONTENT-->
@@ -319,60 +222,108 @@
 </script>
 <script>
 	$(document).ready(function(){
-		$('.area_button').click(function () {
-			$('#test').find('tbody').html('');
-			var uid = $(this).data('uid');
-			$.ajax({
-				url:  "<?php echo $root; ?>dashboard/organization",
-				type: 'post',
-				data: {'id': uid}, //for example {id:id,name:name}
-				success : function(resp){
-
-					$('#test').find('tbody').append(resp);
-
-				},
-				error : function(resp){ console.log(resp) }
-			});
-		});
-
-		$('.delete').click(function(){
-			var id = $(this).data('id');
-			var column = $(this).data('column');
-			var element = $(this);
-			if(confirm('are you sure')){
-				$.ajax({
-					url:  "<?php echo $root; ?>dashboard/delete/user/",
-					type: 'post',
-					data: {'id': id, 'column':column}, //for example {id:id,name:name}
-					success : function(resp){
-						if(resp == 'yes'){
-							$(element).parent('td').parent('tr').hide();
-						}
-					},
-					error : function(resp){}
-				});
-			}
-
-		});
-
-        $('#content').dataTable();
-
-        $('.phn').editable({
+        $('.unapproved').editable({
             type: 'text',
             url: '<?php echo $root; ?>dashboard/editable/user/uid',
             success: function(response, newValue){
                 if(response.status == 'error') return response.msg;
+                location.reload();
             }
         });
-		$('.unapproved').editable({
-			type: 'text',
-			url: '<?php echo $root; ?>dashboard/editable/user/uid',
+        $("a[rel^='prettyPhoto']").prettyPhoto();
+		$('.privilege').editable({
+			url: '<?php echo $root; ?>dashboard/all_users',
 			success: function(response, newValue){
 				if(response.status == 'error') return response.msg;
-				location.reload();
 			}
 		});
 
+	});
+</script>
+<!--<script>
+	$(document).ready(function(){
+		var fileList = new Array;
+		var i =0;
+		var myDropzone = new Dropzone(form1, {
+			uploadMultiple: true,
+			addRemoveLinks: true,
+			acceptedFiles: 'image/jpeg,image/png',
+			maxFilesize: 2,
+			success: function(file, serverFileName){
+				fileList[i] = {"serverFileName" : serverFileName, "fileName" : file.name,"fileId" : i };
+				console.log(fileList);
+				i++;
+				$('#respons').html(serverFileName)
+			},
+			removedfile: function(file) {
+				var rmvFile = "";
+				for(f=0;f<fileList.length;f++){
+
+					if(fileList[f].fileName == file.name)
+					{
+						rmvFile = fileList[f].serverFileName;
+
+					}
+
+				}
+
+				if (rmvFile){
+					$.ajax({
+						url: "<?php /*echo base_url().'/dashboard/delete_images'; */?>",
+						type: "POST",
+						data: { "fileList" : rmvFile },
+						success:function(response){
+							console.log(response);
+						}
+					});
+				}
+			}
+		});
+	});
+</script>-->
+<script>
+	$(document).ready(function() {
+		Dropzone.autoDiscover = false;
+		var fileList = new Array;
+		var i =0;
+		$("#slider").dropzone({
+			uploadMultiple: true,
+			addRemoveLinks: true,
+			init: function() {
+
+				// Hack: Add the dropzone class to the element
+				$(this.element).addClass("dropzone");
+
+				this.on("success", function(file, serverFileName) {
+					fileList[i] = {"serverFileName" : serverFileName, "fileName" : file.name,"fileId" : i };
+					//console.log(fileList);
+					i++;
+
+				});
+				this.on("removedfile", function(file) {
+					var rmvFile = "";
+					for(f=0;f<fileList.length;f++){
+
+						if(fileList[f].fileName == file.name)
+						{
+							rmvFile = fileList[f].serverFileName;
+
+						}
+
+					}
+
+					if (rmvFile){
+						$.ajax({
+							url: "<?php echo base_url().'/dashboard/delete_images'; ?>",
+							type: "POST",
+							data: { "fileList" : rmvFile }
+						});
+					}
+				});
+
+			},
+			url: "<?php echo base_url(); ?>dashboard/upload_slider"
+		});
 
 	});
 </script>

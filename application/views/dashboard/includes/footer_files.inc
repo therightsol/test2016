@@ -70,6 +70,7 @@
 <!-- Include Language file if we want to use it. -->
 <script type="text/javascript" src="<?php echo $root; ?>admin_assets/plugins/froala/js/languages/ro.js"></script>
 <script type="text/javascript" src="<?php echo $root; ?>admin_assets/plugins/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="<?php echo $root; ?>assets/dropzon/dropzone.js"></script>
 
 
 
@@ -90,7 +91,7 @@
             },
             error : function(resp){ console.log(resp) }
         });
-    }, 1000);
+    }, 10000);
 </script>
 
 <!-- Mirrored from www.keenthemes.com/preview/metronic_admin/login.html by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 18 Dec 2013 10:45:26 GMT -->
