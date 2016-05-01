@@ -50,7 +50,7 @@
     <section class="donation-section">
     	<div class="auto-container">
         	<div class="donation-form-outer">
-            	<form method="post" action="http://wp1.themexlab.com/html/giving-hands/contact.html">
+            	<form method="post" action="<?php echo $root; ?>donation_form/donate">
                 	
                     <!--Form Portlet-->
                     <div class="form-portlet">
@@ -60,27 +60,27 @@
                         	<div class="form-group col-lg-7 col-md-12 col-xs-12 clearfix">
                             	
                                 <div class="radio-select">
-                                	<input type="radio" name="sel-amount" id="amount-1">
+                                	<input type="radio" value="10" name="sel-amount" id="amount-1">
                                     <label for="amount-1">$10</label>
                                 </div>
                                 
                                 <div class="radio-select">
-                                	<input type="radio" name="sel-amount" id="amount-2" checked>
+                                	<input type="radio"  value="25" name="sel-amount" id="amount-2" checked>
                                     <label for="amount-2">$25</label>
                                 </div>
                                 
                                 <div class="radio-select">
-                                	<input type="radio" name="sel-amount" id="amount-3">
+                                	<input type="radio" value="50"  name="sel-amount" id="amount-3">
                                     <label for="amount-3">$50</label>
                                 </div>
                                 
                                 <div class="radio-select">
-                                	<input type="radio" name="sel-amount" id="amount-4">
+                                	<input type="radio" value="100"  name="sel-amount" id="amount-4">
                                     <label for="amount-4">$100</label>
                                 </div>
                                 
                                 <div class="radio-select">
-                                	<input type="radio" name="sel-amount" id="amount-5">
+                                	<input type="radio" value="150"  name="sel-amount" id="amount-5">
                                     <label for="amount-5">$150</label>
                                 </div>
                                 
@@ -190,6 +190,7 @@
                             
                             <div class="form-group col-lg-3 col-md-3 col-xs-12">
                             	<div class="field-label">Expire Date <span class="required">*</span></div>
+                                <label>Month</label>
                                 <select name="edate">
                                     <option value="01">01</option>
                                     <option value="02">02</option>
@@ -203,23 +204,32 @@
                                     <option value="10">10</option>
                                     <option value="11">11</option>
                                     <option value="12">12</option>
+
                                 </select>
                             </div>
                             
                             <div class="form-group col-lg-3 col-md-3 col-xs-12">
                             	<div class="field-label">&nbsp;</div>
+                                <label>Year</label>
                                 <select name="eyear">
                                     <option value="2016">2016</option>
                                     <option value="2017">2017</option>
                                     <option value="2018">2018</option>
                                     <option value="2019">2019</option>
                                     <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+
                                 </select>
                             </div>
                             
                             <div class="form-group col-lg-4 col-md-4 col-xs-12">
                             	<div class="field-label">Security Code (CVC) <span class="required">*</span></div>
-                                <input type="text" name="name" value="" placeholder="Security Code" required>
+                                <br />
+                                <input type="text" name="cvv" value="" placeholder="Security Code" required>
                             </div>
                             
                         </div>
