@@ -144,8 +144,8 @@
 
      <?php } }else{?>
       <br /><br />
-      <div class="col-sm-6 col-sm-offset-3">
-            <div class="alert alert-danger" style="text-align: center">
+      <div class="col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" style="text-align: center;font-size: 1.5em">
                 
                 <strong>  You do not have sufficient permissions to access this page </strong><br />
                 

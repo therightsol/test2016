@@ -30,10 +30,11 @@
                 <div class="column cause-column col-md-3 col-sm-6 col-xs-12" >
                    
                 	<article class="inner-box text-center hvr-bounce-in" style="height:520px;">
-                		<figure class="image-box">
-                        	<a href="#"><img src="<?php echo $root.$value['cause_image_path']; ?>" alt="" class="img-responsive"></a>
+                		 <figure class="image-box">
+                                        <a href="#"><img src="<?php echo $root.$value['cause_image_path']; ?>" alt=""></a>
+                                    </figure>
                             <div class="cause-title"><?php echo $value['cause_title']; ?></div>
-                        </figure>
+                       
                         <div class="content-box">
                         	<div class="donation-progress-box">
                             	<div class="donation-values">

@@ -69,49 +69,16 @@
                 <!--Content Side-->
                 
                 <!--Sidebar-->	
-                <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                    <aside class="sidebar">
-                    
-                        <!-- Search Form -->
-                        <div class="widget search-box">
-                            
-                            <form method="post" action="#">
-                                <div class="form-group">
-                                    <input type="search" name="search-field" value="" placeholder="Search">
-                                    <button type="submit"><span class="icon flaticon-tool"></span></button>
-                                </div>
-                            </form>
-                            
-                        </div>
-                        
+                
                         
                         <!-- Recent Posts -->
-                        <div class="widget recent-posts wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="sidebar-title"><h3>Latest Posts</h3></div>
-                            
-                            <div class="post">
-                                <h4><a href="#">Lorem ipsum dolor sit amet consetetur</a></h4>
-                                <div class="post-info"><span class="icon fa fa-clock-o"></span> 11/01/2015 </div>
-                            </div>
-                            
-                             <div class="post">
-                                <h4><a href="#">Lorem ipsum dolor sit amet consetetur</a></h4>
-                                <div class="post-info"><span class="icon fa fa-clock-o"></span> 11/01/2015 </div>
-                            </div>
-                            
-                             <div class="post">
-                                <h4><a href="#">Lorem ipsum dolor sit amet consetetur</a></h4>
-                                <div class="post-info"><span class="icon fa fa-clock-o"></span> 11/01/2015 </div>
-                            </div>
-                            
-                        </div>
+                       
                         
                       
                         
                         
                         
-                                
-                    </aside>
+                 
                 
                     
                 </div>
@@ -133,44 +100,24 @@
         	<div class="row clearfix">
                 
                 <!--Column-->
-                <div class="column col-md-4 col-sm-6 col-xs-12">
-                	<!--Icon Box-->
-                    <div class="icon-heading-column">
-                        <article class="inner-box">
-                        	<div class="column-count"></div>
-                            <h3 style="color:#ffffff"><span class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-4.png" alt=""></span> Donator</h3>
-                            <p>Lorem ipsum dolor sit amet amet audiam copiosaei  mei purto time am mea ne ei </p>
-                            
-                        </article>
-                    </div>
+                
+                   <div class="column icon-left-column col-md-8 col-sm-6 col-xs-12 col-md-offset-2">
+                    <article class="inner-box">
+                        <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-1.png" alt=""></div>
+                        <h3 style="color:#fa6628">Donator</h3>
+                        <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
+                      <div class="form-actions">
+                          <a href="<?php echo $root; ?>All_organization" class="btn pull-right" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Click To Donate</a>
+                            </div>
+                    </article>
                 </div>
+                
                 
                 <!--Column-->
-                <div class="column col-md-4 col-sm-6 col-xs-12">
-                	<!--Icon Box-->
-                    <div class="icon-heading-column">
-                        <article class="inner-box">
-                        	<div class="column-count"></div>
-                            <h3 style="color:#ffffff"><span class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-5.png" alt=""></span> Fundrising</h3>
-                            <p>Lorem ipsum dolor sit amet amet audiam copiosaei  mei purto time am mea ne ei </p>
-                            
-                        </article>
-                    </div>
-                </div>
+               
                 
                 <!--Column-->
-                <div class="column col-md-4 col-sm-6 col-xs-12">
-                	<!--Icon Box-->
-                    <div class="icon-heading-column">
-                        <article class="inner-box">
-                        	<div class="column-count"></div>
-                            <h3 style="color:#ffffff"><span class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-6.png" alt=""></span> Volunteer</h3>
-                            <p>Lorem ipsum dolor sit amet amet audiam copiosaei  mei purto time am mea ne ei </p>
-                            
-                        </article>
-                    </div>
-                </div>
-                
+              
                 
             </div>
         </div>
