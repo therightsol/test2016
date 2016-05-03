@@ -45,10 +45,10 @@
                                         <div class="cause-title"><?php echo $value['donation_title']; ?></div>
                                         <div class="donation-progress-box">
                                             <div class="donation-values">
-                                                Donation :  <span class="value">$68,214</span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
+                                                Donation :  <span class="value">$<?php echo $value['amount_collected']; ?></span> / <span class="value">$<?php echo $value['total_required_amount']; ?></span>
                                             </div>
                                             <div class="donation-progress-bar">
-                                                <div class="inner-bar" data-value-collected="68214" data-value-total="85870"></div>
+                                                <div class="inner-bar" data-value-collected="<?php echo $value['amount_collected']; ?>" data-value-total="<?php echo $value['total_required_amount']; ?>"></div>
                                             </div>
                                         </div>
                                         <div class="text"><?php echo $value['donation_short_description']; ?></div>
@@ -87,24 +87,13 @@
                 </div>
                 <!--Content Side-->
                 
-                <!--Sidebar-->	
+                <!--Sidebar	
                 <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
                     <aside class="sidebar">
-                    
+                    -->
                         <!-- Search Form -->
-                        <div class="widget search-box">
-                            
-                            <form method="post" action="http://wp1.themexlab.com/html/giving-hands/index.html">
-                                <div class="form-group">
-                                    <input type="search" name="search-field" value="" placeholder="Search">
-                                    <button type="submit"><span class="icon flaticon-tool"></span></button>
-                                </div>
-                            </form>
-                            
-                        </div>
                         
-                        
-                        <!-- Recent Posts -->
+                        <!-- Recent Posts 
                         <div class="widget recent-posts wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="sidebar-title"><h3>Latest Posts</h3></div>
                             
@@ -124,6 +113,7 @@
                             </div>
                             
                         </div>
+                       
                         
                        
                       
@@ -134,20 +124,24 @@
         </div>
     </div>
     
-    
-    
+    -->
+       </div>
+                </div>
+    </div>
     <!--Urgent Cause Section-->
     <section class="urgent-cause" style="background-image:url(<?php echo $root; ?>assests/images/parallax/image-1.jpg);">
     	<div class="auto-container">
         	<div class="row clearfix">
-                
+               <?php  foreach($viewdonation as $key => $value)
+                   ?>
+                   
                 <!--Column-->
                 <div class="column col-lg-6 col-md-6 col-xs-12">
                 	<article class="inner-box">
                 		<h2 class="text-uppercase">Urgent <span class="normal-font">Donation</span></h2>
-                        <h3 class="theme_color">Donate $45 now to feed a Syrian Children</h3>    
-                        <p>Every individual has the right to eat at least one meal a day. Due to the on-going refugee crisis in Syria tens of thousands... </p>
-                        <a href="#" class="theme-btn btn-style-one">Donate</a>
+                        <h3 class="theme_color">Donate now to <?php echo $value['donation_title']; ?></h3>    
+                        <p><?php echo $value['donation_short_description']; ?>... </p>
+                        <a href="<?php echo $root; ?>Donation_form/donation/<?php echo $value['donation_id']; ?>" class="theme-btn btn-style-one">Donate</a>
                         
                     </article>
                 </div>
@@ -156,8 +150,14 @@
                 <div class="column circular-graph col-lg-3 col-md-6 col-xs-12">
                     <div class="inner-box">
                         <div class="graph-outer">
-                            <input type="text" class="dial" data-fgColor="#fb5e1c" data-bgColor="none" data-width="220" data-height="220" data-linecap="round"  value="92">
-                            <div class="inner-text"><span class="exbold-font">92</span><sub>%</sub><br><span class="status">Completed</span></div>
+                            <?php $a =$value['total_required_amount'];
+                           
+                                  $b =$value['amount_collected'];
+                                   $c = 100;
+                                    $completed = ($b*$c)/$a;
+                            ?>
+                            <input type="text" class="dial" data-fgColor="#fb5e1c" data-bgColor="none" data-width="220" data-height="220" data-linecap="round"  value="<?php echo $completed ?>">
+                            <div class="inner-text"><span class="exbold-font"><?php //echo //$completed ?></span><sub>%</sub><br><span class="status">Completed</span></div>
                         </div>
                     </div>
                 </div>
@@ -166,19 +166,19 @@
                 <div class="column col-lg-3 col-md-12 col-xs-12">
                     <div class="inner-box">
                         <ul class="cause-list">
-                        	<li class="clearfix"><span class="pull-left">Dontators -</span> <strong class="pull-right">78</strong></li>
+                        	
                             <li class="clearfix"><span class="pull-left">Cash -</span> <strong class="pull-right">$45,800</strong></li>
-                            <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right">$12,400</strong></li>
+                            <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right">$<?php echo $value['amount_in_progress']; ?></strong></li>
                             <li class="clearfix"><span class="pull-left">Sponsor -</span> <strong class="pull-right">$85,000</strong></li>
                         </ul>
-                        <div class="total-collected">$1,25,850 <sub>Collected</sub></div>
+                        <div class="total-collected">$<?php echo $value['amount_collected']; ?> <sub>Collected</sub></div>
                     </div>
                 </div>
                 
             </div>
         </div>
     </section>
-    </div>
+
          
   
     

@@ -5,7 +5,8 @@
             	<!--Column-->
                 <div class="column col-md-9 col-sm-12 col-xs-12">
                 	<h2>Save A Soul</h2>
-                    There are many variations of passages of Lorem Ipsum available but the majority have 
+                    The value of life is not in its duration, but in its donation. You are not important because of how long you live, you are important because of how effective you live. 
+
                 </div>
                 <!--Column-->
                 <div class="column col-md-3 col-sm-12 col-xs-12">

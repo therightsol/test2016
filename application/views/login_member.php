@@ -31,7 +31,7 @@ include 'includes/header.inc';
             <?php if($loggedInUser  == ''){ ?>
             <div class="form-body">
                 <?php if ($record_found != '') { ?>
-                    <strong> <span class=" text-danger">
+                    <strong> <span style="color:#ff0000">
                                                 Sorry! User name or password is Incorrect. Please try again
                                         </span></strong>
                 <?php }
@@ -54,8 +54,8 @@ include 'includes/header.inc';
                     </div>
                 <?php }?>
                 <div class="form-group">
-                    <label class="control-label">User Name</label>
-                    <input class="form-control" placeholder="Enter Your Name" type="text" name="username">
+                    <label class="control-label" style="color:#ffffff">User Name</label>
+                    <input class="form-control" placeholder="Enter Your User Name" type="text" name="username">
                     <?php
                     if($_POST){
                         if (form_error('username') != '') { ?>
@@ -66,7 +66,7 @@ include 'includes/header.inc';
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Password</label>
+                    <label class="control-label" style="color:#ffffff">Password</label>
 
                         <input class="form-control" placeholder="Password" type="password" name="password">
                     <?php if($_POST){

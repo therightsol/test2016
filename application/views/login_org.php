@@ -32,13 +32,13 @@ include 'includes/header.inc';
                         <div class="form-body">
                             
                             <?php if ($record_found != '') { ?>
-                                <strong> <span class=" text-danger">
+                                <strong> <span style="color:#ff0000">
                                                 Sorry! User name or password is Incorrect. Please try again
                                         </span></strong>
                             <?php }
 
                             if ($is_banned != '') { ?>
-                                <div class="alert alert-danger">
+                                <div class="alert " style="color:#ff0000">
                                     You are banned by admin
                                 </div>
                             <?php }elseif ($is_email_approved != '') { ?>
@@ -55,8 +55,8 @@ include 'includes/header.inc';
                                 </div>
                             <?php } ?>
                             <div class="form-group">
-                                <label class="control-label">User Name</label>
-                                <input class="form-control" placeholder="Enter Your Name" type="text" name="username">
+                                <label class="control-label"   style="color:#ffffff;">User Name</label>
+                                <input class="form-control" placeholder="Enter Your User Name" type="text" name="username">
                                 <?php
                                 if($_POST){
                                     if (form_error('username') != '') { ?>
@@ -67,7 +67,7 @@ include 'includes/header.inc';
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label">Password</label>
+                                <label class="control-label" style="color:#ffffff;">Password</label>
 
                                 <input class="form-control" placeholder="Password" type="password" name="password">
                                 <?php if($_POST){
@@ -93,7 +93,7 @@ include 'includes/header.inc';
                                 <button type="submit" class="btn" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Login</button>
                             </div>
                         </div>
-                        <a class="" href="<?php echo base_url('reset_password') ?>">Forget Password?</a>
+                        <a class="" href="<?php echo base_url('reset_password') ?>" >Forget Password?</a>
 
                     </form>
                     <!-- END FORM-->

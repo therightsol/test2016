@@ -111,7 +111,13 @@ include 'includes/header.inc';
                 <div class="column circular-graph col-lg-3 col-md-6 col-xs-12">
                     <div class="inner-box">
                         <div class="graph-outer">
-                            <input type="text" class="dial" data-fgColor="#fb5e1c" data-bgColor="none" data-width="220" data-height="220" data-linecap="round"  value="92">
+                              <?php $a =$value['total_required_amount'];
+                           
+                                  $b =$value['amount_collected'];
+                                   $c = 100;
+                                    $completed = ($b*$c)/$a;
+                            ?>
+                            <input type="text" class="dial" data-fgColor="#fb5e1c" data-bgColor="none" data-width="220" data-height="220" data-linecap="round"  value="<?php echo $completed ?>">
                             <div class="inner-text"><span class="exbold-font">92</span><sub>%</sub><br><span class="status">Completed</span></div>
                         </div>
                     </div>
@@ -121,12 +127,12 @@ include 'includes/header.inc';
                 <div class="column col-lg-3 col-md-12 col-xs-12">
                     <div class="inner-box">
                         <ul class="cause-list">
-                            <li class="clearfix"><span class="pull-left">Dontators -</span> <strong class="pull-right">78</strong></li>
+           
                             <li class="clearfix"><span class="pull-left">Cash -</span> <strong class="pull-right">$45,800</strong></li>
                             <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right"><?php echo $value['amount_in_progress']; ?></strong></li>
                             <li class="clearfix"><span class="pull-left">Sponsor -</span> <strong class="pull-right">$85,000</strong></li>
                         </ul>
-                        <div class="total-collected"><?php echo $value['amount_collected']; ?> <sub>Collected</sub></div>
+                        <div class="total-collected">$<?php echo $value['amount_collected']; ?> <sub>Collected</sub></div>
                     </div>
                 </div>
 
@@ -141,34 +147,21 @@ include 'includes/header.inc';
             <div class="row clearfix">
 
                 <!--Column-->
-                <div class="column icon-left-column col-md-4 col-sm-6 col-xs-12">
+                <div class="column icon-left-column col-md-8 col-sm-6 col-xs-12 col-md-offset-2">
                     <article class="inner-box">
                         <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-1.png" alt=""></div>
                         <h3 style="color:#fa6628">Donator</h3>
                         <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
-                     
+                      <div class="form-actions">
+                          <a href="<?php echo $root; ?>All_organization" class="btn pull-right" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Click To Donate</a>
+                            </div>
                     </article>
                 </div>
 
                 <!--Column-->
-                <div class="column icon-left-column col-md-4 col-sm-6 col-xs-12">
-                    <article class="inner-box">
-                        <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-2.png" alt=""></div>
-                        <h3 style="color:#fa6628">Fundrising</h3>
-                        <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
-                        
-                    </article>
-                </div>
-
+                
                 <!--Column-->
-                <div class="column icon-left-column col-md-4 col-sm-6 col-xs-12">
-                    <article class="inner-box">
-                        <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-3.png" alt=""></div>
-                        <h3 style="color:#fa6628">Volunteer</h3>
-                        <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
-                     
-                    </article>
-                </div>
+                
 
             </div>
         </div>
@@ -176,37 +169,7 @@ include 'includes/header.inc';
 
 
     <!--Default Section-->
-    <section class="default-section no-padd-top">
-        <div class="auto-container">
-            <div class="row clearfix">
-
-                <!--Column-->
-                <div class="column image-column col-md-6 col-sm-12 col-xs-12">
-                    <article class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <figure class="image-box video-box">
-                            <img src="<?php echo $root ; ?>assets/images/resource/featured-image-1.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=OrJKD11Rmdg" class="lightbox-image video-link"><div class="icon-outer"><span class="img-circle fa fa-play"></span></div></a>
-                        </figure>
-                    </article>
-                </div>
-
-                <!--Column-->
-                <div class="column default-text-column with-margin col-md-6 col-sm-12 col-xs-12">
-                    <article class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <h2 style="color:#fa6628" >You can create a world <br><span class="normal-font">where no child goes to bed hungry</span></h2>
-                        <p>Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel, vix an omnium eripuit mentitum eum.</p>
-                        <ul class="styled-list-one" style="color:#ffffff">
-                            <li>Lorem ipsum dolor sit amet, usu an quem augue admodum.</li>
-                            <li>Lorem ipsum dolor sit amet, duo in atqui omnesque praesent.</li>
-                            <li>Lorem ipsum dolor sit amet, iuvaret ancillae id mea sint.</li>
-                        </ul>
-                        
-                    </article>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    
 
 
     <!--Causes Section-->
@@ -216,7 +179,7 @@ include 'includes/header.inc';
             <div class="sec-title clearfix">
                 <div class="pull-left">
                     <h2>RECENT <span class="normal-font">Causes</span></h2>
-                    <div class="text">Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
+                    
                 </div>
                 <div class="pull-right padd-top-20">
                     <a href="<?php echo $root ?>Causes" class="theme-btn btn-style-two">See all causes</a>
@@ -236,10 +199,10 @@ include 'includes/header.inc';
                         <div class="content-box">
                             <div class="donation-progress-box">
                                 <div class="donation-values">
-                                    Donation :  <span class="value"><?php echo $value['amount_collected']; ?></span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
+                                    Donation :  <span class="value">$<?php echo $value['amount_collected']; ?></span> / <span class="value">$<?php echo $value['total_required_amount']; ?></span>
                                 </div>
                                 <div class="donation-progress-bar">
-                                    <div class="inner-bar" data-value-collected="68214" data-value-total="85870"></div>
+                                    <div class="inner-bar" data-value-collected="<?php echo $value['amount_collected']; ?>" data-value-total="<?php echo $value['total_required_amount']; ?>"></div>
                                 </div>
                             </div>
                             <div class="text"><?php echo $value['cause_short_description']; ?></div>
@@ -258,26 +221,24 @@ include 'includes/header.inc';
     </section>
 
 
-    <!--Become Volunteer -->
-    <section class="become-volunteer">
-
-
-        <div class="outer clearfix">
-
-            <article class="column content-column clearfix" style="background-image:url(<?php echo $root; ?>assets/images/background/image-1.jpg);">
-                <div class="pattern-layer"></div>
-
-                <div class="content-box">
-                    <h2>BEcome a Volunteer <br><span class="normal-font">We can Change everything togather</span></h2>
-                    <div class="text">When a community gets access to clean water, it can change just about everything. It can improve health increase access to food, grow local sio economies, and help kids.</div>
-                    <a href="<?php echo $root ?>Campaigns_view" class="theme-btn btn-style-three">JOIN WITH US</a>
+<!--Intro Section-->
+<section class="subscribe-intro">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	<!--Column-->
+                <div class="column col-md-9 col-sm-12 col-xs-12">
+                	
+                   <p style="margin-left:200px;">
+                   It's not how much we give but how much love we put into giving.” 
+                   <h3 style="margin-left:200px;">― Mother Teresa </h3></p>
+                 
                 </div>
-            </article>
-
-            <article class="image-side" style="background-image:url(<?php echo $root; ?>assets/images/resource/featured-image-6.jpg);"></article>
-
+                <!--Column-->
+                <div class="column col-md-3 col-sm-12 col-xs-12">
+                	
+                </div>
+            </div>
         </div>
-
     </section>
 
 
@@ -412,7 +373,7 @@ include 'includes/header.inc';
             foreach($viewcamp as $key => $value) 
             {
                 ?>
-                <div class="text" style="color:#ffffff" >Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
+                
             </div>
             <div class="row clearfix">
 

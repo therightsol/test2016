@@ -48,7 +48,7 @@
            
             <div class="form-body">
                 <div class="form-group  ">
-                    <label class="control-label">Title</label>
+                    <label class="control-label" style="color:#ffffff">Title</label>
                     <input class="form-control" placeholder="Enter your Cause Title " type="text" name="title" value=" <?php echo $rec['cause_title']; ?> ">
                     
                 </div>
@@ -56,7 +56,7 @@
                 <?php
                     if($_POST){
                      if (form_error('title') != '') { ?>
-                                            <span   style="color:red !important ;">
+                                            <span  style="color:#ff0000 !important ;">
                                                 <?php echo form_error('title'); ?>
                                             </span>
                     
@@ -64,7 +64,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Short Description</label>
+                    <label class="control-label" style="color:#ffffff">Short Description</label>
                                           
                         <input class="form-control" type="text" placeholder = "Enter some lines Abut Your cause" name="shdescription" value=" <?php echo $rec['cause_short_description']; ?> "/>
                     
@@ -73,7 +73,7 @@
                 <?php
                     if($_POST){
                      if (form_error('shdescription') != '') { ?>
-                                            <span   style="color:red !important ;">
+                                            <span  style="color:#ff0000 !important ;">
                                                 <?php echo form_error('shdescription'); ?>
                                             </span>
                     
@@ -81,7 +81,7 @@
                 </div>
                
                 <div class="form-group ">
-                    <label class="control-label">Long Description</label>
+                    <label class="control-label" style="color:#ffffff">Long Description</label>
                     <br />
                     <textarea cols="75" rows="10" name="lgdescription"><?php echo $rec['cause_long_description']; ?></textarea>
                         
@@ -91,7 +91,7 @@
                 <?php
                     if($_POST){
                      if (form_error('lgdescription') != '') { ?>
-                                            <span   style="color:red !important ;">
+                                            <span  style="color:#ff0000 !important ;">
                                                 <?php echo form_error('lgdescription'); ?>
                                             </span>
                     
@@ -99,28 +99,28 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Amount Required</label>
+                    <label class="control-label" style="color:#ffffff">Amount Required</label>
                     
-                        <input class="form-control" placeholder="Type required Amount here" type="text" name="amount" value=" <?php echo $rec['total_required_amount']; ?>" >
+                        <input class="form-control" placeholder="Use integers only(20000)" type="text" name="amount" value=" <?php echo $rec['total_required_amount']; ?>" >
                     
                 </div>
                 <?php
                     if($_POST){
                      if (form_error('amount') != '') { ?>
-                                            <span   style="color:red !important ;">
+                                            <span   style="color:#ff0000 !important ;">
                                                 <?php echo form_error('amount'); ?>
                                             </span>
                     
                      <?php } }?>
                 <div class="form-group">
-                    <label class="control-label">Cause End Date</label>
+                    <label class="control-label" style="color:#fffffff">Cause End Date</label>
                     
                     <input name="date"   type="date" class="form-control" value="<?php echo $rec['cause_last_date']; ?>" >
                 </div>
                  <?php
                     if($_POST){
                      if (form_error('date') != '') { ?>
-                                            <span   style="color:red !important ;">
+                                            <span  style="color:#ff0000 !important ;">
                                                 <?php echo form_error('date'); ?>
                                             </span>
                     

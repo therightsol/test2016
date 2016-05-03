@@ -17,7 +17,7 @@ include 'includes/header.inc';
     <br />
     <div class="portlet-title">
         <div class="caption" style="text-align: center;">
-            <span style="color:#ffffff;font-size: 2em;"> Register Here As a member </span>
+            <span style="color:#eb5310;font-size: 2em;"> Register Here As a member </span>
         </div>
         
     </div>
@@ -33,45 +33,45 @@ include 'includes/header.inc';
                 <?php
 
                     if($user_found != ''){?>
-                        <div class="alert alert-danger">
+                        <div class="alert" style="color:#ff0000">
                             Username Not available <br>
                             Kindly Chose Other Username
                         </div>
                     <?php } if($email_found != ''){ ?>
-                    <div class="alert alert-danger">
+                    <div class="alert" style="color:#ff0000" >
                         Email already Token <br>
                         Kindly Chose Other Email Address
                     </div>
                  <?php } ?>
                 <div class="form-group  <?php if($_POST){ if (form_error('username') != '') { ?> has-error <?php } } ?> ">
-                    <label class="control-label">Username</label>
+                    <label class="control-label" style="color:#ffffff">Username</label>
                     <input class="form-control" minlength="4" required placeholder="Enter your Name " value="<?php if($_POST){ echo $_POST['username']; } ?>" type="text" name="username">
-                    <span class="text-danger"><?php if (form_error('username') ) { echo form_error('username'); } ?></span>
+                    <span style="color:#ff0000"><?php if (form_error('username') ) { echo form_error('username'); } ?></span>
 
                 </div>
 
                 <div class="form-group  <?php if($_POST){ if (form_error('emailadress') != '' || $email_found == 'no') { ?> has-error <?php } } ?> ">
-                    <label class="control-label">Email Address</label>
+                    <label class="control-label" style="color:#ffffff">Email Address</label>
                                           
                         <input class="form-control" required type="email" placeholder = "Someone@example.com" value="<?php if($_POST){ echo $_POST['emailadress']; } ?>" name="emailadress"/>
-                    <span class="text-danger"><?php if (form_error('emailadress') ) { echo form_error('emailadress'); } ?></span>
+                    <span style="color:#ff0000"><?php if (form_error('emailadress') ) { echo form_error('emailadress'); } ?></span>
 
                 </div>
 
                 <div class="form-group  <?php if($_POST){ if (form_error('password') != '' ) { ?> has-error <?php } } ?> ">
-                    <label class="control-label">Password</label>
+                    <label class="control-label" style="color:#ffffff">Password</label>
                     
                         <input class="form-control" minlength="6" required placeholder="Password" type="password" value="<?php if($_POST){ echo $_POST['password']; } ?>" name="password">
-                    <span class="text-danger"><?php if (form_error('password') ) { echo form_error('password'); } ?></span>
+                    <span style="color:#ff0000"><?php if (form_error('password') ) { echo form_error('password'); } ?></span>
 
 
                 </div>
                 
                 <div class="form-group  <?php if($_POST){ if (form_error('contact') != '' ) { ?> has-error <?php } } ?> ">
-                    <label class="control-label">Contact Number</label>
+                    <label class="control-label" style="color:#ffffff">Contact Number</label>
                     
                         <input class="form-control" minlength="8" required placeholder="+92-333-1234567" type="nu" value="<?php if($_POST){ echo $_POST['contact']; } ?>" name="contact">
-                    <span class="text-danger"><?php if (form_error('contact') ) { echo form_error('contact'); } ?></span>
+                    <span style="color:#ff0000"><?php if (form_error('contact') ) { echo form_error('contact'); } ?></span>
                 </div>
                 <!--<div class="form-group">
                     <label class="control-label">UPload Your profile image</label>

@@ -48,7 +48,7 @@
             <div class="form-body">
                 <div class="form-group  ">
                     
-                    <label class="control-label">Title</label>
+                    <label class="control-label" style="color:#ffffff">Title</label>
                     <input class="form-control" placeholder="Enter your Cause Title " type="text" name="title">
                     
                 </div>
@@ -64,7 +64,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Short Description</label>
+                    <label class="control-label" style="color:#ffffff">Short Description</label>
                                           
                         <input class="form-control" type="text" placeholder = "Enter some lines Abut Your cause" name="shdescription"/>
                     
@@ -81,7 +81,7 @@
                 </div>
                
                 <div class="form-group ">
-                    <label class="control-label">Long Description</label>
+                    <label class="control-label" style="color:#ffffff">Long Description</label>
                     <br />
                     <textarea cols="75" rows="10" name="lgdescription"></textarea>
                         
@@ -99,9 +99,9 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Amount Required</label>
+                    <label class="control-label" style="color:#ffffff">Amount Required</label>
                     
-                        <input class="form-control" placeholder="Type required Amount here" type="text" name="amount">
+                        <input class="form-control" placeholder="Use integers only(20000)" type="text" name="amount">
                     
                 </div>
                  <div>
@@ -115,7 +115,7 @@
                      <?php } }?>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Cause End Date</label>
+                    <label class="control-label" style="color:#ffffff">Cause End Date</label>
                     
                     <input name="date"   type="date" class="form-control">
                 </div>
@@ -130,7 +130,7 @@
                      <?php } }?>
                 </div>
                 <div class="form-group">
-                    <input type="file" name="file" id="image" />
+                    <input type="file" name="file" id="image" required="" />
                 </div>
                 
             
@@ -156,7 +156,7 @@
           </div>
       </div>
       <div class="col-sm-6 col-sm-offset-3">
-            <div class="alert alert-danger" style="text-align: center">
+            <div class="alert" style="text-align: center;color:#ff0000">
                 
                 <strong>  You do not have sufficient permissions to access this page </strong><br />
                 

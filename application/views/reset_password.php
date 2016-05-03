@@ -18,17 +18,12 @@ include 'includes/header.inc';
 
                     <div class="col-md-8 col-md-offset-2">
                         <div class="portlet-title">
-                            <div class="col-sm-12">
+                            <div class="col-sm-8">
                                 <br><br>
-                                <div class="caption" style="background-color">
+                                <div class="caption" ">
                                     <span style="color:#eb5310;font-size: 2em;">Reset Your Password</span>
                                 </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="collapse"></a>
-                                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
-                                    <a href="javascript:;" class="reload"></a>
-                                    <a href="javascript:;" class="remove"></a>
-                                </div>
+                                
                             </div>
                         </div>
                         <br />
@@ -51,11 +46,11 @@ include 'includes/header.inc';
                                 
                                 <!-- BEGIN FORM-->
                                 <?php $url = $root . 'reset_password'; echo form_open($url); ?> 
-
+                                        <div class="col-md-9 col-sm-12">
                                 <div class="form-body">
 
                                     <div class="form-group <?php if(form_error('email') != '' || $email_not_verified == 'yes' || $not_found == 'yes'){ ?> has-error <?php } ?>">
-                                        <label class="control-label bold" for="email">Your E-mail<i class="required glyphicon glyphicon-asterisk"></i></label>
+                                        <label class="control-label bold" for="email" style="color:#ffffff" >Your E-mail<i class="required glyphicon glyphicon-asterisk"></i></label>
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="fa fa-envelope"></i>
@@ -64,26 +59,28 @@ include 'includes/header.inc';
                                                        <?php if (filter_input_array(INPUT_POST)) { ?> value="<?php echo set_value('email'); ?>" <?php } ?> />
                                             </div>
                                             <?php if (form_error('email') != '') { ?>
-                                                <div class="help-block">
+                                                <div class="help-block"   style="color:#ff0000">
                                                     Enter a valid email address.
                                                 </div>
                                             <?php } ?>
                                             <?php if ($email_not_verified == 'yes') { ?>
-                                                <div class="help-block">
+                                                <div class="help-block" style="color:#ff0000">
                                                     Provided email is not verified.<br /> 
                                                 </div>
                                             <?php } ?>
                                             <?php if ($not_found == 'yes') { ?>
-                                                <div class="help-block">
+                                                <div class="help-block" style="color:#ff0000">
                                                     Provided email is not registered. <br />
                                                 </div>
                                             <?php } ?> 
                                     </div> 
                                 </div>
+                                      
                                 <div class="form-actions">
                                     <button type="submit" class="btn green_light">Send</button>
                                     <button type="reset" id="reset" class="btn default">Reset</button> 
                                 </div>
+                                              </div>
                                 <?php echo form_close(); ?>
                                 <!-- END FORM-->
                                 <?php }else{ ?>
@@ -131,7 +128,7 @@ include 'includes/header.inc';
                                 <div class="form-body">
                                     
                                     <div class="form-group <?php if(form_error('password') != ''){ ?> has-error <?php } ?>">
-                                        <label class="control-label bold" for="password">Password<i class="required glyphicon glyphicon-asterisk"></i></label>
+                                        <label class="control-label bold" for="password" style="color:#ffffff">Password<i class="required glyphicon glyphicon-asterisk"></i></label>
                                         <div class="input-group col-xs-12">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-star"></i>
@@ -142,18 +139,18 @@ include 'includes/header.inc';
                                         <?php if(form_error('password') != ''){ ?>
                                         <div class="help-block">
                                             <ul>
-                                                <li> Password should contains at least 8 characters.</li>
-                                                <li> Password should contains at least 1 number.</li>
-                                                <li> Password should contains at least 1 uppercase letter.</li>
-                                                <li> Password should contains at least 1 special character.</li>
-                                                <li> Password should matched with Re-type password field.</li>
+                                                <li style="color:#ff0000"> Password should contains at least 8 characters.</li>
+                                                <li style="color:#ff0000"> Password should contains at least 1 number.</li>
+                                                <li style="color:#ff0000"> Password should contains at least 1 uppercase letter.</li>
+                                                <li style="color:#ff0000"> Password should contains at least 1 special character.</li>
+                                                <li style="color:#ff0000"> Password should matched with Re-type password field.</li>
                                             </ul>
                                         </div>
                                         <?php } ?>
                                     </div>
 
                                     <div class="form-group <?php if(form_error('conf_password') != ''){ ?> has-error <?php } ?>">
-                                        <label class="control-label bold" for="conf_password">Re-type Password<i class="required glyphicon glyphicon-asterisk"></i></label>
+                                        <label class="control-label bold" for="conf_password" style="color:#ffffff">Re-type Password<i class="required glyphicon glyphicon-asterisk"></i></label>
                                         <div class="input-group col-xs-12">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-star"></i>
@@ -162,7 +159,7 @@ include 'includes/header.inc';
                                                    <?php if(filter_input_array(INPUT_POST)){ ?> value="<?php echo set_value('conf_password');?>" <?php } ?> /> 
                                         </div>
                                         <?php if(form_error('conf_password') != ''){ ?>
-                                        <div class="help-block">
+                                        <div class="help-block" style="color:#ff0000">
                                             Password and Re-type password should be matched.
                                         </div>
                                         <?php } ?>
@@ -193,14 +190,14 @@ include 'includes/header.inc';
                                 </div> 
                             <?php }  
                                 if($user_notfound == 'yes') { ?>
-                                <div class="alert alert-danger">
+                                <div class="alert" style="color:#ff0000">
                                     Password can not be updated because your account is not found. <br />
                                     It is because you might changed URL. <br />
                                     Internal Error. ERROR #1003
                                 </div>
                             <?php }  
                             if($user_token_error == 'yes'){ ?>
-                            <div class="alert alert-danger">
+                            <div class="alert" style="color:#ff0000">
                                 Password can not be updated because your account is not found. <br />
                                 It is because you might changed URL. <br />
                                 Internal Error. ERROR #1004
@@ -208,7 +205,7 @@ include 'includes/header.inc';
                             <?php }   
                             if($token_expired == 'yes'){ ?>
                             <div class="form-body">
-                                <div class="alert alert-danger">
+                                <div class="alert" style="color:#ff0000">
                                    Token has been expired.<br />
                                    If you want to reset your password. <br />
                                    Kindly click to <strong><a href="<?php echo $root; ?>reset_password">Reset</a></strong> and get new link in your email.
@@ -236,7 +233,7 @@ include 'includes/header.inc';
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <div class="alert alert-danger">
+                <div class="alert" style="color:#ff0000">
                     You are not authorized to access this page.
                     <br />
                     <strong> Reason : </strong>You are currently logged in. 

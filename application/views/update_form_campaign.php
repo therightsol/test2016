@@ -49,7 +49,7 @@
            
             <div class="form-body">
                 <div class="form-group  ">
-                    <label class="control-label">Title</label>
+                    <label class="control-label" style="color:#ffffff">Title</label>
                     <input class="form-control" placeholder="Enter your Campaign Title " type="text" name="title" value=" <?php echo $rec['campaign_title']; ?> ">
                     
                 </div>
@@ -65,7 +65,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Short Description</label>
+                    <label class="control-label" style="color:#ffffff">Short Description</label>
                                           
                         <input class="form-control" type="text" placeholder = "Enter some lines Abut Your Campaign Ad" name="shdescription" value=" <?php echo $rec['campaign_short_description']; ?> "/>
                     
@@ -82,7 +82,7 @@
                 </div>
                
                 <div class="form-group ">
-                    <label class="control-label">Long Description</label>
+                    <label class="control-label" style="color:#ffffff">Long Description</label>
                     <br />
                     <textarea cols="75" rows="10" style="resize:none" name="lgdescription"><?php echo $rec['campaign_long_description']; ?></textarea>
                         
@@ -101,7 +101,7 @@
                 
               
                 <div class="form-group">
-                    <label class="control-label">Campaign End Date</label>
+                    <label class="control-label" style="color:#ffffff">Campaign End Date</label>
                     
                     <input name="date"   type="date" class="form-control" value="<?php echo $rec['campaign_last_date']; ?>" >
                 </div>

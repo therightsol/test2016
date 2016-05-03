@@ -38,7 +38,7 @@
                         <div class="content-box">
                         	<div class="donation-progress-box">
                             	<div class="donation-values">
-                                	Donation :  <span class="value">$68,214</span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
+                                	Donation :  <span class="value"><?php echo $value['amount_collected']; ?></span> / <span class="value"><?php echo $value['total_required_amount']; ?></span>
                                 </div>
                                 
                                 	<div class="inner-bar" data-value-collected="68214" data-value-total="85870"></div>

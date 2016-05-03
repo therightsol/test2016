@@ -48,7 +48,7 @@
            
             <div class="form-body">
                 <div class="form-group  ">
-                    <label class="control-label">Title</label>
+                    <label class="control-label" style="color:#ffffff">Title</label>
                     <input class="form-control" placeholder="Enter your Donation Title " type="text" name="title" value=" <?php echo $rec['donation_title']; ?> ">
                     
                 </div>
@@ -64,7 +64,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Short Description</label>
+                    <label class="control-label" style="color:#ffffff">Short Description</label>
                                           
                         <input class="form-control" type="text" placeholder = "Enter some lines Abut Your Donation Ad" name="shdescription" value=" <?php echo $rec['donation_short_description']; ?> "/>
                     
@@ -81,7 +81,7 @@
                 </div>
                
                 <div class="form-group ">
-                    <label class="control-label">Long Description</label>
+                    <label class="control-label" style="color:#ffffff">Long Description</label>
                     <br />
                     <textarea cols="75" rows="10" style="resize:none" name="lgdescription"><?php echo $rec['donation_long_description']; ?></textarea>
                         
@@ -99,9 +99,9 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label">Amount Required</label>
+                    <label class="control-label" style="color:#ffffff">Amount Required</label>
                     
-                        <input class="form-control" placeholder="Type required Amount here" type="text" name="amount" value=" <?php echo $rec['total_required_amount']; ?>" >
+                        <input class="form-control" placeholder="Use integers only(20000)" type="text" name="amount" value=" <?php echo $rec['total_required_amount']; ?>" >
                     
                 </div>
                 <?php
@@ -113,7 +113,7 @@
                     
                      <?php } }?>
                 <div class="form-group">
-                    <label class="control-label">Cause End Date</label>
+                    <label class="control-label" style="color:#ffffff">Cause End Date</label>
                     
                     <input name="date"   type="date" class="form-control" value="<?php echo $rec['donation_last_date']; ?>" >
                 </div>

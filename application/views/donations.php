@@ -6,7 +6,7 @@
     
     
     <!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/page-title-bg.jpg);">
+    <section class="page-title" style="background-image:url(<?php echo $root; ?>assets/images/background/page-title-bg.jpg);">
     	<div class="auto-container">
         	<div class="sec-title">
                 <h1>Donat<span class="normal-font">ion</span></h1>
@@ -16,34 +16,7 @@
     </section>
     
     
-    <!--Default Section-->
-    <section class="default-section">
-    	<div class="auto-container">
-        	<div class="row clearfix">
-                
-                
-                <!--Column-->
-                <div class="column default-text-column with-margin col-md-6 col-sm-12 col-xs-12">
-                	<article class="inner-box padd-right-20">
-                		<h2 style="color:#fa6628">YOU can deliver <br><span class="normal-font text-lowercase">Health and Hope to the World</span></h2>
-                        <p style="color:#ffffff">Project C.U.R.E. meets global health challenges at the community level every day by delivering critical medical supplies to hospitals, rural clinics and community health centers in need in developing countries. Your gift will give the most vulnerable patients, families and children around the world access to healthcare and access to hope.</p>
-                        <p>Please complete your secure donation below. Have questions or need help? Call <strong><a href="#">720-490-4011</a></strong> or email <strong><a href="mailto:give@projectcure.org">give@projectcure.org</a></strong>.</p>
-                    </article>
-                </div>
-                
-                
-                <!--Column-->
-                <div class="column image-column col-md-6 col-sm-12 col-xs-12">
-                	<article class="inner-box">
-                		<figure class="image-box">
-                        	<img src="<?php echo $root; ?>assets/images/resource/featured-image-1.jpg" alt="">
-                        </figure>
-                    </article>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+  
     
     
     <!--Donation Section-->

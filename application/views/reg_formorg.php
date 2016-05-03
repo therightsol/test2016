@@ -16,7 +16,7 @@ include 'includes/header.inc';
 <div class="portlet box red">
     <div class="portlet-title">
         <div class="caption" style="background-color">
-            <span style="color:#ffffff;font-size: 2em;"> Register Here As an organization </span>
+            <span style="color:#eb5310;font-size: 2em;"> Register Here As an organization </span>
         </div>
         
     </div>
@@ -33,12 +33,12 @@ include 'includes/header.inc';
                 <?php
 
                 if($user_found != ''){?>
-                    <div class="alert alert-danger">
+                    <div class="alert" style="color:#ff0000">
                         Username Not available <br>
                         Kindly Choose Other Username
                     </div>
                 <?php } if($email_found != ''){ ?>
-                    <div class="alert alert-danger">
+                    <div class="alert" style="color:#ff0000">
                         Email already Taken <br>
                         Kindly Choose Other Email Address
                     </div>
@@ -46,8 +46,8 @@ include 'includes/header.inc';
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label">Username</label>
-                            <input class="form-control" minlength="4" required placeholder="Enter your Name" value="<?php if($_POST){ echo $_POST['username']; } ?>" type="text" name="username">
+                            <label class="control-label" style="color:#ffffff">Username</label>
+                            <input class="form-control" minlength="4" required placeholder="Enter your User Name" value="<?php if($_POST){ echo $_POST['username']; } ?>" type="text" name="username">
                             <span style="color:#ff0000" ><?php if (form_error('username') ) { echo form_error('username'); } ?></span>
 
                         </div>
@@ -55,7 +55,7 @@ include 'includes/header.inc';
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label">Email Address</label>
+                            <label class="control-label" style="color:#ffffff">Email Address</label>
 
                             <input class="form-control" required type="email" placeholder = "Someone@example.com" value="<?php if($_POST){ echo $_POST['emailadress']; } ?>" name="emailadress"/>
                             <span style="color:#ff0000"><?php if (form_error('emailadress') ) { echo form_error('emailadress'); } ?></span>
@@ -67,7 +67,7 @@ include 'includes/header.inc';
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label">Password</label>
+                            <label class="control-label" style="color:#ffffff">Password</label>
 
                             <input class="form-control" minlength="6" required placeholder="Password" type="password" value="<?php if($_POST){ echo $_POST['password']; } ?>" name="password">
 
@@ -78,7 +78,7 @@ include 'includes/header.inc';
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label">Contact Number</label>
+                            <label class="control-label" style="color:#ffffff">Contact Number</label>
 
                             <input class="form-control" minlength="8" required placeholder="+92-333-1234567" type="number"  value="<?php if($_POST){ echo $_POST['contact']; } ?>" name="contact">
                             <span style="color:#ff0000"><?php if (form_error('contact') ) { echo form_error('contact'); } ?></span>
@@ -86,13 +86,13 @@ include 'includes/header.inc';
                         </div>
                     </div>
                 </div>
-                <h2 style="color:white">Add Bank Account</h2>
+                <h2 style="color:#eb5310">Add Bank Account</h2>
                 <div id="bnk">
                     <div class="row">
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Bank Account Number</label>
+                                <label class="control-label" style="color:#ffffff">Bank Account Number</label>
 
                                 <input class="form-control" placeholder="" type="number"  value="<?php if($_POST){ echo $_POST['bnk_num']; } ?>" name="bnk_num">
 
@@ -100,7 +100,7 @@ include 'includes/header.inc';
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Bank Account Title</label>
+                                <label class="control-label" style="color:#ffffff">Bank Account Title</label>
 
                                 <input class="form-control"  placeholder="" type="text"  value="<?php if($_POST){ echo $_POST['bnk_title']; } ?>" name="bnk_title">
 
@@ -108,7 +108,7 @@ include 'includes/header.inc';
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Bank Name</label>
+                                <label class="control-label" style="color:#ffffff">Bank Name</label>
 
                                 <input class="form-control"  placeholder="" type="text" value="<?php if($_POST){ echo $_POST['bnk_name']; } ?>" name="bnk_name">
 
@@ -118,7 +118,7 @@ include 'includes/header.inc';
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Branch Code</label>
+                                <label class="control-label" style="color:#ffffff">Branch Code</label>
 
                                 <input class="form-control" placeholder="" type="number" value="<?php if($_POST){ echo $_POST['bnk_code']; } ?>" name="bnk_code">
 
@@ -126,7 +126,7 @@ include 'includes/header.inc';
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Branch Address</label>
+                                <label class="control-label" style="color:#ffffff">Branch Address</label>
 
                                 <input class="form-control"  placeholder="" type="text" value="<?php if($_POST){ echo $_POST['bnk_address']; } ?>" name="bnk_address">
 
@@ -134,7 +134,7 @@ include 'includes/header.inc';
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="control-label">Swift Code</label>
+                                <label class="control-label" style="color:#ffffff">Swift Code</label>
 
                                 <input class="form-control"  placeholder="" type="text" value="<?php if($_POST){ echo $_POST['bnk_swift']; } ?>" name="bnk_swift">
 
