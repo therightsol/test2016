@@ -60,6 +60,12 @@ class MY_Model extends CI_Model {
         return $query->result_array();
 
     }
+    public function getLimit($limit){
+        $this->db->limit($limit);
+        $query = $this->db->get($this::DB_TableName);
+        return $query->result_array();
+
+    }
     public function getPaginated($limit = false, $limitTo,  $like = false, $join_where = false) {
         if($like){
             $this->db->like($like);
@@ -255,7 +261,27 @@ class MY_Model extends CI_Model {
         return $query->result_array();
     }
 
-    public function sql_join_multi($where_value = false, $array){
+    public function sql_join_multi($where_value = false, $array = false, $limit = false, $limitTo = false){
+        $this->db->select('*');
+        if($limit){
+            $this->db->limit($limit, $limitTo);
+        }
+        $this->db->from($this::DB_TableName);
+
+        if($array){
+            foreach($array as $key => $value){
+                $this->db->join($key, $value, 'inner');
+            }
+        }
+
+        if($where_value){
+            $this->db->where($where_value);
+        }
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function sql_join_count($where_value = false, $array = false, $limit = false, $limitTo = false){
         $this->db->select('*');
 
         $this->db->from($this::DB_TableName);
@@ -267,8 +293,10 @@ class MY_Model extends CI_Model {
         if($where_value){
             $this->db->where($where_value);
         }
-        $query = $this->db->get();
-        return $query->result_array();
+        if($limitTo){
+            $this->db->limit($limit, $limitTo);
+        }
+        return $this->db->count_all_results();
     }
     public function sql_join_left($where_value, $second_table, $join_where){
         $this->db->select('*');

@@ -22,9 +22,8 @@
     </section>
       
       <!-- page title end -->
-      <div class="row">
+      <div class="">
           <div class="container">
-              <div class="col-sm-7 col-sm-offset-3">
                           <br />
                            <br /> <br />
                           <?php if($data_saved == 'yes'){?>
@@ -33,10 +32,9 @@
                            
                         </div> 
         <?php  }else{ ?>
-                  <h1 style="color:#eb5310;font-weight:bold;">
+                  <h1 class="text-center" style="color:#eb5310;font-weight:bold;">
                       Add New Cause Here
                   </h1>
-              </div>
               <div class="col-sm-6 col-sm-offset-3">
                     <div class="portlet-body form">
         <!-- BEGIN FORM-->
@@ -147,14 +145,12 @@
         </form>
        
 </div>
+</div>
+</div>
                                          <?php } }else{?>
             
-            
-             </div>
-                  
-              </div>
-          </div>
-      </div>
+
+
       <div class="col-sm-6 col-sm-offset-3">
             <div class="alert" style="text-align: center;color:#ff0000">
                 
@@ -168,6 +164,10 @@
    
       <br />
       <br /><br />
+          </div>
+<br>
+<br>
+<br>
     <?php
     include 'includes/footer.inc';
     ?>

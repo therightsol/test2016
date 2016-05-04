@@ -35,7 +35,7 @@
                             <div class="cause-title"><?php echo $value['campaign_title']; ?></div>
                         </figure>
                         <div class="content-box">
-                        	
+
                             <div class="text"><?php echo $value['campaign_short_description']; ?></div>
                             <a href="<?php echo $root; ?>Campaign_update/update/<?php echo $value['campaign_id']; ?>" class="theme-btn btn-style-two" style=";color:#eb5310 !important">Update</a>
                             <br />
@@ -54,18 +54,12 @@
 
             <!-- Styled Pagination -->
             <div class="styled-pagination text-center margin-bott-40">
-                <ul>
-                    <li><a class="prev" href="#"><span class="fa fa-angle-left"></span>&ensp;Prev</a></li>
-                    <li><a href="#" class="active">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">....</a></li>
-                    <li><a href="#">10</a></li>
-                    <li><a href="#">11</a></li>
-                    <li><a href="#">12</a></li>
-                    <li><a class="next" href="#">Next&ensp;<span class="fa fa-angle-right"></span></a></li>
-                </ul>
-            </div>
+            <ul>
+                <?php foreach ($links as $link) { ?>
+                    <?php echo  $link; ?>
+                <?php } ?>
+            </ul>
+        </div>
                     
         </div>
     </section>

@@ -36,9 +36,21 @@
                                     </div>
                                     
                                     <ul class="contact-info">
-                                    	<li><span class="icon fa fa-map-marker"></span> 60 Grant Ave. Carteret NJ 0708</li>
-                                        <li><span class="icon fa fa-phone"></span> (880) 1723801729</li>
-                                        <li><span class="icon fa fa-envelope-o"></span> example@gmail.com</li>
+                                    	<li><span class="icon fa fa-map-marker"></span>
+                                            <span class="com_address"></span>
+                                        </li>
+                                        <li><span class="icon fa fa-phone"></span>
+                                            <span id="company_phone3">
+                                              (880) 1723801729
+                                            </span>
+
+                                        </li>
+                                        <li><span class="icon fa fa-envelope-o"></span>
+                                            <span id="com_mail2">
+                                                 example@gmail.com
+                                            </span>
+
+                                        </li>
                                     </ul>
                                     
                                     <div class="social-links-two clearfix">
@@ -133,6 +145,7 @@
         dataType: 'json',
         cache:true,
         success: function(result){
+            console.log(result);
             var logo = result[0]['company_logo_header'];
             var base_url = "<?php echo $root; ?>";
             $('.logo img').attr('src', base_url+logo);
@@ -141,9 +154,12 @@
             $('.twitter').attr('href',result[0]['twitter_url_header']);
             $('.google-plus').attr('href',result[0]['gplus_url_header']);
             $('.linkedin').attr('href',result[0]['linkedin_url_header']);
-            $('#com_address').html(result[0]['company_address']);
+            $('.com_address').html(result[0]['company_address']);
+            $('#company_phone1').html(result[0]['company_phone1']);
+            $('#company_phone3').html(result[0]['company_phone3']);
             $('#com_phone').html(result[0]['company_phone1']+', '+result[0]['company_phone2']+', '+result[0]['company_phone3']);
             $('#com_mail').html(result[0]['company_email_1']+', '+result[0]['company_email_2']);
+            $('#com_mail2').html(result[0]['company_email_2']);
             $('#des').html(result[0]['company_short_description']);
     }});
 </script>

@@ -3,7 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Campaign_update extends CI_Controller{
     public function index (){
-         $data['pagename'] = 'campupdate';
+
+        
+    }
+
+    public function view()
+    {
+        $data['pagename'] = 'campupdate';
         $this->load->model('campaign_meta');
         $username = $this->session->userdata('username');
         $join_wher = array(
@@ -14,10 +20,55 @@ class Campaign_update extends CI_Controller{
             'cmp_key' => 'username',
             'cmp_value' => $username
         );
-        $data['viewcamp'] = $this->campaign_meta->sql_join_multi($where, $join_wher);
+
+
+        $this->load->library('pagination');
+        $config = array();
+        $config["base_url"] = base_url() . "causes/view";
+        $total_row = $this->campaign_meta->sql_join_count($where, $join_wher);
+        $config["total_rows"] = $total_row;
+        $config["per_page"] = 2;
+        $config['use_page_numbers'] = TRUE;
+        $config['num_links'] = $total_row;
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '<span class="fa fa-angle-left"></span>&ensp;Prev';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = 'Next&ensp;<span class="fa fa-angle-right"></span>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><a class="active" href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+
+
+
+        $this->pagination->initialize($config);
+        if ($this->uri->segment(3)) {
+            $page = ($this->uri->segment(3));
+
+        } else {
+            $page = 0;
+        }
+
+        $data["viewcamp"] = $this->campaign_meta->sql_join_multi($where, $join_wher, $config["per_page"], $page);
+
+        $str_links = $this->pagination->create_links();
+        $data["links"] = explode('&nbsp;', $str_links);
+
+
         $this->load->view('Campaign_update' , $data);
-        
     }
+
     public function update($id = '') {
         $data['pagename'] = 'update_camp'; 
         $data['data_saved'] = '';

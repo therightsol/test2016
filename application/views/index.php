@@ -92,12 +92,12 @@ include 'includes/header.inc';
     <section class="urgent-cause" style="background-image:url(<?php echo $root; ?>assets/images/parallax/image-1.jpg);">
         <div class="auto-container">
             <div class="row clearfix">
-                 <?php 
-            foreach($viewdon as $key => $value) 
+                 <?php
+            foreach($viewdon as $key => $value)
             foreach($viewcause as $key => $value)
                 ?>
                 <!--Column-->
-                <div class="column col-lg-6 col-md-6 col-xs-12">
+                <div class="column col-lg-4 col-md-6 col-xs-12">
                     <article class="inner-box">
                         <h2 class="text-uppercase">Urgent <span class="normal-font">Cause</span></h2>
                         <h3 class="theme_color">Donate $45 now to <?php echo $value['cause_title']; ?></h3>
@@ -106,13 +106,13 @@ include 'includes/header.inc';
                         <a href="<?php echo $root ; ?>Causes" class="theme-btn btn-style-two">View More Causes</a>
                     </article>
                 </div>
-        
+
                 <!--Column-->
                 <div class="column circular-graph col-lg-3 col-md-6 col-xs-12">
                     <div class="inner-box">
                         <div class="graph-outer">
                               <?php $a =$value['total_required_amount'];
-                           
+
                                   $b =$value['amount_collected'];
                                    $c = 100;
                                     $completed = ($b*$c)/$a;
@@ -127,7 +127,7 @@ include 'includes/header.inc';
                 <div class="column col-lg-3 col-md-12 col-xs-12">
                     <div class="inner-box">
                         <ul class="cause-list">
-           
+
                             <li class="clearfix"><span class="pull-left">Cash -</span> <strong class="pull-right">$45,800</strong></li>
                             <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right"><?php echo $value['amount_in_progress']; ?></strong></li>
                             <li class="clearfix"><span class="pull-left">Sponsor -</span> <strong class="pull-right">$85,000</strong></li>
@@ -159,9 +159,9 @@ include 'includes/header.inc';
                 </div>
 
                 <!--Column-->
-                
+
                 <!--Column-->
-                
+
 
             </div>
         </div>
@@ -169,7 +169,7 @@ include 'includes/header.inc';
 
 
     <!--Default Section-->
-    
+
 
 
     <!--Causes Section-->
@@ -179,7 +179,7 @@ include 'includes/header.inc';
             <div class="sec-title clearfix">
                 <div class="pull-left">
                     <h2>RECENT <span class="normal-font">Causes</span></h2>
-                    
+
                 </div>
                 <div class="pull-right padd-top-20">
                     <a href="<?php echo $root ?>Causes" class="theme-btn btn-style-two">See all causes</a>
@@ -188,7 +188,7 @@ include 'includes/header.inc';
             <div class="row clearfix">
 
                 <!--Cause Column-->
-                <?php 
+                <?php
         foreach($viewcause as $key => $value){ ?>
                 <div class="column cause-column col-md-3 col-sm-6 col-xs-12 wow zoomInStable" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <article class="inner-box text-center hvr-bounce-in">
@@ -213,8 +213,8 @@ include 'includes/header.inc';
 
                <?php } ?>
 
-                
-                
+
+
 
             </div>
         </div>
@@ -227,15 +227,15 @@ include 'includes/header.inc';
         	<div class="row clearfix">
             	<!--Column-->
                 <div class="column col-md-9 col-sm-12 col-xs-12">
-                	
+
                    <p style="margin-left:200px;">
-                   It's not how much we give but how much love we put into giving.” 
+                   It's not how much we give but how much love we put into giving.”
                    <h3 style="margin-left:200px;">― Mother Teresa </h3></p>
-                 
+
                 </div>
                 <!--Column-->
                 <div class="column col-md-3 col-sm-12 col-xs-12">
-                	
+
                 </div>
             </div>
         </div>
@@ -319,24 +319,24 @@ include 'includes/header.inc';
                         <div class="icon-box">
                             <div class="icon"><span class="flaticon-technology-1"></span></div>
                             <div class="lower-box">
-                                <h4>$<span class="count-text" data-stop="7845910" data-speed="1500">7,845,910</span></h4>
-                                <span class="title">Raised</span>
+                                <h4>$<span class="count-text" data-stop="7845910" data-speed="1500"><?php echo $total_Donations ?></span></h4>
+                                <span class="title">Donation Ads</span>
                             </div>
                         </div>
 
                         <div class="icon-box">
                             <div class="icon"><span class="flaticon-sheet"></span></div>
                             <div class="lower-box">
-                                <h4>$<span class="count-text" data-stop="13360" data-speed="1500">13,360</span></h4>
-                                <span class="title">Projects</span>
+                                <h4>$<span class="count-text" data-stop="13360" data-speed="1500"><?php echo $total_causes ?></span></h4>
+                                <span class="title">Total Causes</span>
                             </div>
                         </div>
 
                         <div class="icon-box">
                             <div class="icon"><span class="flaticon-favorite"></span></div>
                             <div class="lower-box">
-                                <h4>$<span class="count-text" data-stop="78459" data-speed="1500">78,459</span></h4>
-                                <span class="title">Donations</span>
+                                <h4>$<span class="count-text" data-stop="78459" data-speed="1500"><?php echo $total_campaigns ?></span></h4>
+                                <span class="title">Campaigns Ads</span>
                             </div>
                         </div>
                     </div>
@@ -369,19 +369,20 @@ include 'includes/header.inc';
 
             <div class="sec-title text-center">
                 <h2 style="color:#fa6628">Latest <span class="normal-font">Campaign Ads</span></h2>
-                 <?php 
-            foreach($viewcamp as $key => $value) 
-            {
-                ?>
-                
+                <div class="text" style="color:#ffffff" >Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
             </div>
             <div class="row clearfix">
+                <?php
+            foreach($viewcamp as $key => $value)
+            {
+                ?>
+
 
                 <!--Cause Column-->
-                <div class="column blog-news-column col-lg-4 col-md-6 col-sm-6 col-xs-12" style="text-align:center">
+                <div class="column blog-news-column col-lg-3 col-md-3 col-sm-4 col-xs-12" style="text-align:center">
                     <article class="inner-box">
                         <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root.$value['campaign_image_path']; ?>" alt=""></a>
+                            <a href="#"><img class="img-responsive" style="height: 200px;" src="<?php echo $root.$value['campaign_image_path']; ?>" alt=""></a>
                         </figure>
                         <div class="content-box">
                             <div class="post-info clearfix">
@@ -400,9 +401,9 @@ include 'includes/header.inc';
                     </article>
                 </div>
 <?php } ?>
-                
-          
-               
+
+
+
 
             </div>
         </div>
@@ -413,22 +414,22 @@ include 'includes/header.inc';
     <?php
     $loggedInUser = $this->session->userdata('loggedInUser');
     ?>
-   
-    
-    
+
+
+
     <!--Contact Section-->
-    <section class="contact-section extended" style="background-image:url(images/background/map-image.jpg);">
+    <section class="contact-section extended" style="background-image:url(assets/images/background/map-image.jpg);">
     	<div class="auto-container">
-            
+
 			<div class="inner-container">
-                    	
+
                 <h1 style="text-align:center;font-weight:bold;">Contact <span>us</span></h1>
-                
-          
+
+
                 <div class="sec-title text-center">
                     <div class="text">Lorem ipsum dolor sit amet, quas elitr voluptaria ei eos. Quo eu decore nusquam iudicabit, eos an aliquam maiorum. Ei eum simul integre, no eum quem fabellas, duo phaedrum consequat efficiantur ex. Ne vis nusquam. </div>
                 </div>
-                
+
                 <!--Contact Info-->
                 <div class="contact-info row clearfix">
                 	<!--Info COlumn-->
@@ -436,31 +437,37 @@ include 'includes/header.inc';
                     	<div class="inner-box">
                         	<div class="icon"><span class="flaticon-location"></span></div>
                             <h4>ADDRESS</h4>
-                            Mirpur New Bazar Road,<br> 
+                            <span class="com_address">
+                              Mirpur New Bazar Road,<br>
                             Block-c, Dhaka-1210
+                            </span>
+
                         </div>
                     </div>
-                    
+
                     <!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
                     	<div class="inner-box">
                         	<div class="icon"><span class="flaticon-technology"></span></div>
                             <h4>Phone</h4>
-                            (732) 803-01 03, (732) 806-01 04, (880)172380129
+                            <span id="com_phone">
+                                (732) 803-01 03, (732) 806-01 04, (880)172380129
+                            </span>
                         </div>
                     </div>
-                    
+
                     <!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
                     	<div class="inner-box">
                         	<div class="icon"><span class="flaticon-interface"></span></div>
                             <h4>Email</h4>
-                            <a href="mailto:info@companyname.com">info@companyname.com</a>,
-                            <a href="mailto:otheremail@gmail.com">otheremail@gmail.com</a>
+                            <span id="com_mail">
+
+                            </span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!--Form Container-->
                 <div class="contact-form-container wow zoomInStable" data-wow-delay="0ms" data-wow-duration="2500ms">
                 <?php if ($success == ''){ ?>
@@ -471,7 +478,7 @@ include 'includes/header.inc';
                         </div>
                     <?php } ?>
                     <form method="post" action="<?php echo $root; ?>contact" id="contact-form">
-                        
+
                         <div class="row clearfix">
                             <div class="column col-md-6 col-sm-12 col-xs-12">
                             	<div class="form-group">
@@ -482,24 +489,24 @@ include 'includes/header.inc';
                                     <input type="email" name="email" required value="" placeholder="Email">
                                     <span style="color:#ff0000"><?php if($_POST){ if(form_error('email') ) { echo form_error('email'); } } ?></span>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <input type="text" name="number" value="" placeholder="Phone">
                                     <span style="color:#ff0000"><?php if($_POST){ if(form_error('number') ) { echo form_error('number'); } } ?></span>
                                 </div>
                             </div>
-                            
+
                             <div class="column col-md-6 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <textarea name="message" required placeholder="Your Message"></textarea>
                                     <span style="color:#ff0000"><?php if($_POST){ if(form_error('message') ) { echo form_error('message'); } } ?></span>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group col-md-12 col-xs-12">
                                 <div style="color:#ff0000"><button type="submit" name="submit" class="theme-btn btn-style-two">SEND Message</button></div>
                             </div>
-                        
+
                         </div>
                         <?php }else{ ?>
                             <div class="alert alert-success">
@@ -508,7 +515,7 @@ include 'includes/header.inc';
                         <?php } ?>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </section>

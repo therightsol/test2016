@@ -763,6 +763,7 @@ class Dashboard extends CI_Controller {
                 $this->Donation->total_required_amount = $amount;
                 $this->Donation->donation_last_date = $fdate;
                 $this->Donation->donation_insert_date = $cdate;
+                $this->Donation->is_approved = 1;
                 $success = $this->Donation->insertRecord();
 
                 $username = $this->session->userdata('username');

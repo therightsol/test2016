@@ -8,7 +8,7 @@ include 'includes/header.inc';
 ?>
 
 <!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/page-title-bg.jpg);">
+    <section class="page-title" style="background-image:url(assets/images/background/page-title-bg.jpg);">
     	<div class="auto-container">
         	<div class="sec-title">
                 <h1>Contact <span class="normal-font">us</span></h1>
@@ -31,30 +31,36 @@ include 'includes/header.inc';
                 <div class="contact-info row clearfix">
                 	<!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
-                    	<div class="inner-box">
-                        	<div class="icon"><span class="flaticon-location"></span></div>
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-location"></span></div>
                             <h4>ADDRESS</h4>
-                            Mirpur New Bazar Road,<br> 
+                            <span class="com_address">
+                              Mirpur New Bazar Road,<br>
                             Block-c, Dhaka-1210
+                            </span>
+
                         </div>
                     </div>
-                    
+
                     <!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
-                    	<div class="inner-box">
-                        	<div class="icon"><span class="flaticon-technology"></span></div>
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-technology"></span></div>
                             <h4>Phone</h4>
-                            (732) 803-01 03, (732) 806-01 04, (880)172380129
+                            <span id="com_phone">
+                                (732) 803-01 03, (732) 806-01 04, (880)172380129
+                            </span>
                         </div>
                     </div>
-                    
+
                     <!--Info COlumn-->
                     <div class="info-column col-lg-4 col-md-6 col-xs-12">
-                    	<div class="inner-box">
-                        	<div class="icon"><span class="flaticon-interface"></span></div>
+                        <div class="inner-box">
+                            <div class="icon"><span class="flaticon-interface"></span></div>
                             <h4>Email</h4>
-                            <a href="mailto:info@companyname.com">info@companyname.com</a>,
-                            <a href="mailto:otheremail@gmail.com">otheremail@gmail.com</a>
+                            <span id="com_mail">
+
+                            </span>
                         </div>
                     </div>
                 </div>

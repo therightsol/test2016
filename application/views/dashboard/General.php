@@ -179,7 +179,7 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <table class="table table-striped table-bordered table-hover" id="content">
+                            <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
                                     <th style="width1:8px;">
@@ -384,10 +384,7 @@
                                         <td>
                                             company short description
                                         </td>
-                                        <td>
-                                            <a class="con" data-type="textaera" data-name="company_short_description" data-pk="<?php echo $generals[0]['gid']; ?>" >
-                                                <?php echo $generals[0]['company_short_description'] ?>
-                                            </a>
+                                        <td><a class="con"  data-type="textarea" data-name="company_short_description" data-pk="<?php echo $generals[0]['gid']; ?>" ><?php echo $generals[0]['company_short_description'] ?></a>
 
                                         </td>
                                     </tr>
@@ -564,11 +561,11 @@
 <script>
 	jQuery(document).ready(function() {
 		App.init();
-		TableAdvanced.init();
 	});
 </script>
 <script>
 	$(document).ready(function(){
+
 		$('#Form').validate();
         $('#image').picEdit();
         $('#logo_td').hover(function(){
@@ -596,8 +593,6 @@
 			}
 
 		});
-
-        $('#content').dataTable();
 
 		$('#button').click(function(){
 			$('.add_new').toggle("slow");
