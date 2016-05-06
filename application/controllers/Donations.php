@@ -17,7 +17,7 @@ class Donations extends CI_Controller{
         $config["base_url"] = base_url() . "donations/all";
         $total_row = $this->Donation->record_count(false, array('is_approved' => 1));
         $config["total_rows"] = $total_row;
-        $config["per_page"] = 2;
+        $config["per_page"] = 3;
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = $total_row;
         $config['full_tag_open'] = '<ul class="pagination">';

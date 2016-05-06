@@ -18,7 +18,7 @@ class Add_Causes extends CI_Controller{
                  array(
                     'field' => 'shdescription',
                     'label' => 'Short Description',
-                    'rules' => 'required|max_length[100]'
+                    'rules' => 'required|max_length[300]'
                 ),
                  array(
                     'field' => 'lgdescription',

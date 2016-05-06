@@ -93,7 +93,7 @@ include 'includes/header.inc';
         <div class="auto-container">
             <div class="row clearfix">
                  <?php
-            foreach($viewdon as $key => $value)
+           // foreach($viewdon as $key => $value)
             foreach($viewcause as $key => $value)
                 ?>
                 <!--Column-->
@@ -118,7 +118,7 @@ include 'includes/header.inc';
                                     $completed = ($b*$c)/$a;
                             ?>
                             <input type="text" class="dial" data-fgColor="#fb5e1c" data-bgColor="none" data-width="220" data-height="220" data-linecap="round"  value="<?php echo $completed ?>">
-                            <div class="inner-text"><span class="exbold-font">92</span><sub>%</sub><br><span class="status">Completed</span></div>
+                            <div class="inner-text"><span class="exbold-font"></span><sub></sub><br><span class="status">Completed</span></div>
                         </div>
                     </div>
                 </div>

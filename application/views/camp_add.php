@@ -136,11 +136,7 @@
 </div>
                                          
         <!-- END FORM-->
-    </div>
-                  
-              </div>
-          </div>
-      
+    
 
      <?php } }else{?>
       <br /><br />
@@ -154,6 +150,12 @@
             <br /><br />
                   <?php }?>
             <br /><br /><br />
+     
+</div>
+                  
+              </div>
+          </div>
+       </div>
     <?php
     include 'includes/footer.inc';
     ?>

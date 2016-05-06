@@ -30,6 +30,8 @@
                             you Can redirect to campaign view page within 3 seconds
                             
                         </div> 
+                       
+          
         <?php  }else{ ?>
         
                   <h1 style="color:#eb5310;font-weight:bold;">
@@ -122,13 +124,15 @@
                 
             </div>
             </div>
+                
+      
             
          
 
          
         </form>
        
-</div>
+   </div>
                 
         <!-- END FORM-->
     
@@ -141,6 +145,7 @@
       
       <br />
       <br /><br />
+   
     <?php
     include 'includes/footer.inc';
     ?>

@@ -18,7 +18,7 @@ class Causes extends CI_Controller
         $config["base_url"] = base_url() . "causes/view";
         $total_row = $this->cause->record_count();
         $config["total_rows"] = $total_row;
-        $config["per_page"] = 2;
+        $config["per_page"] = 4;
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = $total_row;
         $config['full_tag_open'] = '<ul class="pagination">';
