@@ -23,4 +23,21 @@ class Mobile extends CI_Controller{
         echo $record;
 
     }
+
+    public function get_single_campaignDetail($id = null){
+
+        if(! $id)
+            return false;
+
+        $this->load->model('campaign');
+        $record = $this->campaign->getRecord($id, 'campaign_id');
+
+        $record = (array) $record; // changing to array
+
+        $record = json_encode($record);
+
+        //print_r($record);
+        echo $record;
+
+    }
 }
