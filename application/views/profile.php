@@ -124,6 +124,7 @@ include 'includes/header.inc';
                                                         <li class="active"><a data-toggle="pill"  href="#profile">Profile</a></li>
                                                         <li><a data-toggle="pill"  href="#history">Bank account</a></li>
                                                         <li><a data-toggle="pill"  href="#iqama">Add Bank account</a></li>
+                                                        <li><a data-toggle="pill"  href="#stripeaccount">Add Stripe Account</a></li>
                                                     </ul>
                                                 </div>
 
@@ -173,6 +174,7 @@ include 'includes/header.inc';
                                                                     <tbody>
                                                                     <?php
                                                                     $i = 1;
+                                                                    //var_export($bank_rec); //exit;
                                                                     foreach($bank_rec as $key => $value){ ?>
                                                                     <?php if($value['um_title'] == 'bank_title'){ ?>
                                                                         <tr>
@@ -263,6 +265,36 @@ include 'includes/header.inc';
                                                                 <hr style="color: white;">
                                                             </div>
                                                         </form>
+                                                    </div>
+                                                    <div id="stripeaccount" class="tab-pane fade">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <form class="form-horizontal" action="<?php echo $root; ?>profile/add_stripe_account" method="post" role="form">
+                                                                        <div class="form-group">
+                                                                            <?php if($emptyAPI == 'true'): ?>
+                                                                                <div class="alert alert-danger">
+                                                                                    API key is empty. <br />
+                                                                                    Please enter API key.
+                                                                                </div>
+                                                                            <?php endif; ?>
+
+                                                                            <label class="sr-only" for="email">Stripe API key: (Live Secret Key)</label>
+                                                                            <input value="<?php if ($API){ echo $API; }?>" placeholder="Stripe Live Secret Key" type="text" class="form-control" name="stripe_api" id="stripe_api">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <a style="float: left;"  data-toggle="tooltip" href="#" data-placement="bottom" title="You need to enter this key in order to get money from user straight into your stripe account. You need to create stripe account and connect your bank account with Stripe.">Why I need this ?</a>
+                                                                            <a style="float: right;"  data-toggle="tooltip" href="#" data-placement="bottom" title="You can get Stripe Secret API key under your Stripe Account. https://dashboard.stripe.com">How can I get Stripe Secret Live API key ?</a>
+
+                                                                        </div>
+                                                                        <button style="clear: both;" type="submit" class="btn btn-primary btn-block">Save</button>
+                                                                    </form>
+
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 

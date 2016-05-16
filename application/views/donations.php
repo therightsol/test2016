@@ -23,7 +23,7 @@
     <section class="donation-section">
     	<div class="auto-container">
         	<div class="donation-form-outer">
-            	<form method="post" action="<?php echo $root; ?>donation_form/donate">
+            	<form method="post" action="<?php echo $root . 'donation_form/donation/' . $id; ?>">
                 	
                     <!--Form Portlet-->
                     <div class="form-portlet">

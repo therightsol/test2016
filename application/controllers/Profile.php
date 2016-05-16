@@ -4,11 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Profile extends CI_Controller {
     public function index(){
         $data['pagename'] = '';
+        $data['emptyAPI'] = '';
         $data['activeMenu'] = 'profile';
         $this->load->model('user');
         $data['record_not_inserted'] = '';
         $session_user = $this->session->userdata('username');
         $loggedInUser = $this->session->userdata('loggedInUser');
+        $data['API'] = '';
+
 
         if($loggedInUser == 'is_member'){
             $rec = array('username' => $session_user);
@@ -20,6 +23,13 @@ class Profile extends CI_Controller {
             $user_id = $data['profile_record'][0]['uid'];
             $this->load->model('user_meta');
             $data['bank_rec'] = $this->user_meta->getRecord($user_id, 'fk_uid', true);
+
+            $metaRec = $this->user_meta->get_conditon_record(array('fk_uid' => $user_id, 'um_key' => 'stripe_secret_live_api_key'));
+
+            //var_export($metaRec);exit;
+            if(is_array($metaRec) && !empty($metaRec)){
+                $data['API'] =  $metaRec[0]['um_value'];
+            }
 
         }else{
             die('you are not allowed');
@@ -87,5 +97,85 @@ class Profile extends CI_Controller {
 //            $asso['name'] = $res['username'];
 //            $asso['bank_detail'][$res['um_key']] = $res['um_title'];
 //        }
+    }
+
+
+
+    public function add_stripe_account (){
+        $data['bank_rec'] = array();
+        $data['pagename'] = '';
+        $data['activeMenu'] = 'profile';
+        $this->load->model('user');
+        $this->load->model('user_meta');
+        $data['record_not_inserted'] = '';
+        $session_user = $this->session->userdata('username');
+        $loggedInUser = $this->session->userdata('loggedInUser');
+        $rec = array('username' => $session_user, 'is_organization' => 1);
+        $data['profile_record'] = $this->user->getSpecificColumnRec(false, $rec);
+        $user_id = $data['profile_record'][0]['uid'];
+
+        $data['emptyAPI'] = '';
+        $data['API'] = '';
+
+        $metaRec = $this->user_meta->get_conditon_record(array('fk_uid' => $user_id, 'um_key' => 'stripe_secret_live_api_key'));
+
+        if(is_array($metaRec)  && !empty($metaRec)){
+            $data['API'] =  $metaRec[0]['um_value'];
+        }
+
+
+        if(!empty($session_user)){
+            if(filter_input_array(INPUT_POST)){
+
+                //var_export($_POST);exit;
+
+                $apikey = $this->input->post('stripe_api', true);
+
+                if(!empty($apikey)){
+
+
+
+
+
+
+                    $rec = $this->user_meta->get_conditon_record(array('fk_uid' => $user_id, 'um_key' => 'stripe_secret_live_api_key'));
+
+                    //var_export($rec); exit;
+
+                    $this->user_meta->fk_uid = $user_id;
+                    $this->user_meta->um_key = 'stripe_secret_live_api_key';
+                    $this->user_meta->um_title =  'stripe';
+                    $this->user_meta->um_value = $apikey;
+
+                    if(empty($rec)){
+                        // it means ; the same user has not already Stripe Key.So, we need to insert.
+                        // Inserting Record.
+
+                        $this->user_meta->insertRecord();
+                    }else {
+                        // Updating Record
+                        $updateRec = array(
+                            'um_value'        =>      $apikey
+                        );
+                        $this->user_meta->updateRecord('fk_uid', $updateRec, $user_id);
+                    }
+
+                    $data['API'] = $apikey;
+                    //$this->load->view('profile', $data);
+                    redirect('./profile');
+
+                }else {
+                    // Error. API key is not available.
+                    $data['emptyAPI'] = 'true';
+                    $this->load->view('profile' , $data);
+                }
+            }else{
+                // Not POSTED
+                $this->load->view('profile' , $data);
+            }
+        }else {
+            // user is not logged in
+            die('Please login. You are not allowed to access this page.');
+        }
     }
 }

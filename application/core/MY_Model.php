@@ -214,6 +214,23 @@ class MY_Model extends CI_Model {
 
     }
 
+    /*
+     * This function will use for Join Operations
+     */
+    public function ci_join($columns = '*', $from = false, $to = false, $condition = false, $wherecolumn = false, $wherevalue = false ){
+        if($wherecolumn && $wherevalue){
+            $this->db->where($wherecolumn, $wherevalue);
+        }
+        $this->db->select($columns);
+        $this->db->from($from);
+        $this->db->join($to, $condition);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
+
     /**
      * This function will tell how many rows are there in a table.
      * This function take a string type argument that have table name.
