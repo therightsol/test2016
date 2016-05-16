@@ -12,9 +12,9 @@ class Mobile extends CI_Controller{
     }
 
 
-    public function get_all_campaigns_jsonArr(){
-        $this->load->model('campaign');
-        $record = $this->campaign->getRecord();
+    public function get_all_causes_jsonArr(){
+        $this->load->model('cause');
+        $record = $this->cause->getRecord();
         $record = (array) $record; // changing to array
 
         $record = json_encode($record);
@@ -24,13 +24,13 @@ class Mobile extends CI_Controller{
 
     }
 
-    public function get_single_campaignDetail($id = null){
+    public function get_single_causeDetail($id = null){
 
         if(! $id)
             return false;
 
-        $this->load->model('campaign');
-        $record = $this->campaign->getRecord($id, 'campaign_id');
+        $this->load->model('cause');
+        $record = $this->cause->getRecord($id, 'cause_id');
 
         $record = (array) $record; // changing to array
 
