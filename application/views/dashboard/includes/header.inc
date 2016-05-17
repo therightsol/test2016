@@ -10,8 +10,8 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8"/>
-    <title>My Elaaj | Admin Dashboard</title>
-    <title>My Elaaj | Admin Dashboard</title>
+    <title>Save A Soul | Admin Dashboard</title>
+   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>

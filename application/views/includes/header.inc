@@ -90,9 +90,9 @@
 
                                 <li><a href="<?php echo $root; ?>Contact">Contact Us</a></li>
 
-                                  <li <?php if (!empty($username)) { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>campaigns_view/all">Campaign</a>
+                                  <li <?php if (!empty($username) && $loggedInUser == 'is_organization') { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>campaigns_view/all">Campaign</a>
                                     <?php $username = $this->session->userdata('username');
-                                         if (!empty($username)) { ?>
+                                         if (!empty($username) && $loggedInUser == 'is_organization') { ?>
                                       <ul class="submenu-dropdown">
                                         <li><a href="<?php echo $root; ?>Campaign_add">Add new Campaign</a></li>
                                         
@@ -101,19 +101,19 @@
                                     <?php } ?>
                                 </li>
                                 
-                                <li <?php if (!empty($username)) { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>Causes/view">Cause</a>
-                                    <?php $username = $this->session->userdata('username');
-                                         if (!empty($username)) { ?>
+                               <!-- <li <?php// if (!empty($username)) { ?> class="dropdown" <?php// } ?> ><a href="<?php //echo $root; ?>Causes/view">Cause</a>
+                                    <?php //$username = $this->session->userdata('username');
+                                         //if (!empty($username)) { ?>
                                     <ul class="submenu-dropdown">
-                                        <li><a href="<?php echo $root; ?>Causes/view">Cause View</a></li>
-                                        <li><a href="<?php echo $root; ?>Add_Causes">Add new Cause</a></li>
-                                        <li><a href="<?php echo $root; ?>Cause_update/view">Update/Delete Cause</a></li>
+                                        <li><a href="<?php// echo $root; ?>Causes/view">Cause View</a></li>
+                                        <li><a href="<?php //echo $root; ?>Add_Causes">Add new Cause</a></li>
+                                        <li><a href="<?php //echo $root; ?>Cause_update/view">Update/Delete Cause</a></li>
                                     </ul>
-                                         <?php } ?>
-                                </li>
-                                <li <?php if (!empty($username)) { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>Donations/all">Donation</a>
+                                         <?php //} ?>
+                                </li> -->
+                                <li <?php if (!empty($username) && $loggedInUser == 'is_organization') { ?> class="dropdown" <?php } ?> ><a href="<?php echo $root; ?>Donations/all">Donation</a>
                                  <?php $username = $this->session->userdata('username');
-                                 if (!empty($username)) { ?>
+                                 if (!empty($username) && $loggedInUser == 'is_organization') { ?>
                                     <ul class="submenu-dropdown">
                                         <li><a href="<?php echo $root; ?>Donation_adds">Add Donations Ads</a></li>
                                         <li><a href="<?php echo $root; ?>Donation_update/view">Update/Delete My donation Ads</a></li>

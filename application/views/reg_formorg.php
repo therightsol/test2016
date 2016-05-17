@@ -39,7 +39,7 @@ include 'includes/header.inc';
                     </div>
                 <?php } if($email_found != ''){ ?>
                     <div class="alert" style="color:#ff0000">
-                        Email already Taken <br>
+                        Email already Exists <br>
                         Kindly Choose Other Email Address
                     </div>
                 <?php } ?>
@@ -80,7 +80,7 @@ include 'includes/header.inc';
                         <div class="form-group">
                             <label class="control-label" style="color:#ffffff">Contact Number</label>
 
-                            <input class="form-control" minlength="8" required placeholder="+92-333-1234567" type="number"  value="<?php if($_POST){ echo $_POST['contact']; } ?>" name="contact">
+                            <input class="form-control" minlength="8" required placeholder=03331234567" type="number"  value="<?php if($_POST){ echo $_POST['contact']; } ?>" name="contact">
                             <span style="color:#ff0000"><?php if (form_error('contact') ) { echo form_error('contact'); } ?></span>
 
                         </div>

@@ -35,12 +35,12 @@ include 'includes/header.inc';
                     if($user_found != ''){?>
                         <div class="alert" style="color:#ff0000">
                             Username Not available <br>
-                            Kindly Chose Other Username
+                            Kindly Choose Other Username
                         </div>
                     <?php } if($email_found != ''){ ?>
                     <div class="alert" style="color:#ff0000" >
-                        Email already Token <br>
-                        Kindly Chose Other Email Address
+                        Email already Exists <br>
+                        Kindly Choose Other Email Address
                     </div>
                  <?php } ?>
                 <div class="form-group  <?php if($_POST){ if (form_error('username') != '') { ?> has-error <?php } } ?> ">
@@ -70,7 +70,7 @@ include 'includes/header.inc';
                 <div class="form-group  <?php if($_POST){ if (form_error('contact') != '' ) { ?> has-error <?php } } ?> ">
                     <label class="control-label" style="color:#ffffff">Contact Number</label>
                     
-                        <input class="form-control" minlength="8" required placeholder="+92-333-1234567" type="nu" value="<?php if($_POST){ echo $_POST['contact']; } ?>" name="contact">
+                        <input class="form-control" minlength="8" required placeholder="03331234567" type="nu" value="<?php if($_POST){ echo $_POST['contact']; } ?>" name="contact">
                     <span style="color:#ff0000"><?php if (form_error('contact') ) { echo form_error('contact'); } ?></span>
                 </div>
                 <!--<div class="form-group">

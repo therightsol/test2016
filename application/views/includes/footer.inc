@@ -32,7 +32,7 @@
                                 <div class="footer-widget about-widget">
                                     <div class="logo"><a href="<?php echo $root; ?>Home"><img src="<?php echo $root; ?>assets/images/project_logo.png" class="img-responsive" alt=""></a></div>
                                     <div class="text">
-                                        <p id="des">Lorem ipsum dolor sit amet, eu me seo <br>laboramus, iudico dummy  text.</p>
+                                        <p id="des"></p>
                                     </div>
                                     
                                     <ul class="contact-info">
@@ -47,7 +47,7 @@
                                         </li>
                                         <li><span class="icon fa fa-envelope-o"></span>
                                             <span id="com_mail2">
-                                                 example@gmail.com
+                                                
                                             </span>
 
                                         </li>
@@ -82,9 +82,7 @@
                         	<div class="col-lg-7 col-sm-12 col-xs-12 column" style="padding-top: 40px;">
                                     <h2> Our Mission </h2>
                                      <p>
-                                    Lorem ipsum dolor sit amet, eu me seo 
-                                        laboramus, iudico dummy text.Lorem ipsum dolor sit amet, eu me seo 
-                                            laboramus, iudico dummy text.
+                                   Our mission is simple,By providing a community with safe drinking water, disease rates can drop by up to 88% virtually overnight! Child mortality rates can drop up to 90%- overnight! Clean water also plays an incredibly critical role in effectively treating and managing HIV/AIDS in rural communities
                                 </p>
                             </div>
                                
@@ -96,7 +94,7 @@
                                     <ul>
                                         <li><a href="<?php echo $root ; ?>Donations">Donation Ads</a></li>
                                         <li><a href="<?php echo $root ; ?>Campaigns_view">Campaign Ads</a></li>
-                                        <li><a href="<?php echo $root ; ?>Causes">Latest Causes</a></li>
+                                    
                                         
                                         <li><a href="<?php echo $root ; ?>Contact">Contact US</a></li>
                                     </ul>

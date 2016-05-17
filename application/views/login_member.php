@@ -49,7 +49,7 @@ include 'includes/header.inc';
                 elseif ($is_admin_approved != '') { ?>
                     <div class="alert alert-info">
                         Sorry! Your account is not active <br>
-                        Kindly wait for admin approval <strong>or</strong> send us email
+                        Kindly wait for Admin approval <strong>or</strong> send us email
                         <a href="<?php echo $root; ?>contact">here</a>
                     </div>
                 <?php }?>

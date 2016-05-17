@@ -39,7 +39,7 @@ include 'includes/header.inc';
 
                             if ($is_banned != '') { ?>
                                 <div class="alert " style="color:#ff0000">
-                                    You are banned by admin
+                                    You are banned by Admin
                                 </div>
                             <?php }elseif ($is_email_approved != '') { ?>
                                 <div class="alert alert-info">
@@ -50,7 +50,7 @@ include 'includes/header.inc';
                             elseif ($is_admin_approved != '') { ?>
                                 <div class="alert alert-info">
                                     Sorry! Your account is not active <br>
-                                    Kindly wait for admin approval <strong>or</strong> send us email
+                                    Kindly wait for Admin approval <strong>or</strong> send us email
                                     <a href="<?php echo $root; ?>contact">here</a>
                                 </div>
                             <?php } ?>

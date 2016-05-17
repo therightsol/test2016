@@ -29,7 +29,7 @@
                            <br /> <br />
                           <?php if($data_saved == 'yes'){?>
              <div class="alert alert-success" style="text-align:center">
-                            You have successfully Add Your Campaing <br />
+                            You have successfully Added Your Campaing <br />
                             
                            
                         </div> 

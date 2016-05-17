@@ -30,7 +30,7 @@ include 'includes/header.inc';
                                  data-endelementdelay="0.3"
                                  data-endspeed="1200"
                                  data-endeasing="Power4.easeIn"
-                                 style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;"><h3 class="bg-theme">Helping childrean by donate us!!</h3></div>
+                                 style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;"><h3 class="bg-theme">Helping children by donate us!!</h3></div>
 
                             <div class="tp-caption sfr sfb tp-resizeme"
                                  data-x="left" data-hoffset="15"
@@ -72,7 +72,7 @@ include 'includes/header.inc';
                                  data-endelementdelay="0.3"
                                  data-endspeed="1200"
                                  data-endeasing="Power4.easeIn"
-                                 style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;"><a href="#" class="theme-btn rounded-btn">Donate Now</a></div>
+                                 style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;"> <!--<a href="#" class="theme-btn rounded-btn">Donate Now</a> --></div>
 
 
                         </li>
@@ -91,31 +91,31 @@ include 'includes/header.inc';
     <!--Urgent Cause Section-->
     <section class="urgent-cause" style="background-image:url(<?php echo $root; ?>assets/images/parallax/image-1.jpg);">
         <div class="auto-container">
-            <div class="row clearfix">
+           <!-- <div class="row clearfix">
                  <?php
            // foreach($viewdon as $key => $value)
-            foreach($viewcause as $key => $value)
+            //foreach($viewcause as $key => $value)
                 ?>
-                <!--Column-->
+                
                 <div class="column col-lg-4 col-md-6 col-xs-12">
                     <article class="inner-box">
                         <h2 class="text-uppercase">Urgent <span class="normal-font">Cause</span></h2>
-                        <h3 class="theme_color">Donate $45 now to <?php echo $value['cause_title']; ?></h3>
-                        <p><?php echo $value['cause_short_description']; ?></p>
-                        <a href="<?php echo $root; ?>Donation_form/donation/<?php echo $value['cause_id']; ?>" class="theme-btn btn-style-one">Donate</a>
-                        <a href="<?php echo $root ; ?>Causes" class="theme-btn btn-style-two">View More Causes</a>
+                        <h3 class="theme_color">Donate $45 now to <?php //echo $value['cause_title']; ?></h3>
+                        <p><?php //echo $value['cause_short_description']; ?></p>
+                        <a href="<?php //echo $root; ?>Donation_form/donation/<?php //echo $value['cause_id']; ?>" class="theme-btn btn-style-one">Donate</a>
+                        <a href="<?php //echo $root ; ?>Causes" class="theme-btn btn-style-two">View More Causes</a>
                     </article>
                 </div>
 
-                <!--Column-->
+              
                 <div class="column circular-graph col-lg-3 col-md-6 col-xs-12">
                     <div class="inner-box">
                         <div class="graph-outer">
-                              <?php $a =$value['total_required_amount'];
+                              <?php// $a =$value['total_required_amount'];
 
-                                  $b =$value['amount_collected'];
-                                   $c = 100;
-                                    $completed = ($b*$c)/$a;
+                                  //$b =$value['amount_collected'];
+                                  // $c = 100;
+                                   // $completed = ($b*$c)/$a;
                             ?>
                             <input type="text" class="dial" data-fgColor="#fb5e1c" data-bgColor="none" data-width="220" data-height="220" data-linecap="round"  value="<?php echo $completed ?>">
                             <div class="inner-text"><span class="exbold-font"></span><sub></sub><br><span class="status">Completed</span></div>
@@ -123,23 +123,23 @@ include 'includes/header.inc';
                     </div>
                 </div>
 
-                <!--Column-->
+               
                 <div class="column col-lg-3 col-md-12 col-xs-12">
                     <div class="inner-box">
                         <ul class="cause-list">
 
                             <li class="clearfix"><span class="pull-left">Cash -</span> <strong class="pull-right">$45,800</strong></li>
-                            <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right"><?php echo $value['amount_in_progress']; ?></strong></li>
+                            <li class="clearfix"><span class="pull-left">In Progress -</span> <strong class="pull-right"><?php //echo $value['amount_in_progress']; ?></strong></li>
                             <li class="clearfix"><span class="pull-left">Sponsor -</span> <strong class="pull-right">$85,000</strong></li>
                         </ul>
-                        <div class="total-collected">$<?php echo $value['amount_collected']; ?> <sub>Collected</sub></div>
+                        <div class="total-collected">$<?php //echo $value['amount_collected']; ?> <sub>Collected</sub></div>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
-
+-->
 
     <!--Default Section-->
     <section class="default-section">
@@ -151,7 +151,7 @@ include 'includes/header.inc';
                     <article class="inner-box">
                         <div class="icon"><img src="<?php echo $root; ?>assets/images/icons/icon-1.png" alt=""></div>
                         <h3 style="color:#fa6628">Donator</h3>
-                        <p style="color:#ffffff">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
+                        <p style="color:#000">Lorem ipsum dolor sit amet et siu amet audiam copiosaei mei purto timeam mea ne Ei justo.</p>
                       <div class="form-actions">
                           <a href="<?php echo $root; ?>All_organization" class="btn pull-right" style="background-color:#eb5310!important;color:#FFFFFF;padding-left:20px;padding-right:20px;font-weight:bold;">Click To Donate</a>
                             </div>
@@ -172,7 +172,7 @@ include 'includes/header.inc';
 
 
 
-    <!--Causes Section-->
+    <!--Causes Section
     <section class="causes-section grid-view bg-light-grey">
         <div class="auto-container">
 
@@ -182,45 +182,47 @@ include 'includes/header.inc';
 
                 </div>
                 <div class="pull-right padd-top-20">
-                    <a href="<?php echo $root ?>Causes" class="theme-btn btn-style-two">See all causes</a>
+                    <a href="<?php //echo $root ?>Causes" class="theme-btn btn-style-two">See all causes</a>
                 </div>
             </div>
             <div class="row clearfix">
 
-                <!--Cause Column-->
+                
                 <?php
-        foreach($viewcause as $key => $value){ ?>
+       // foreach($viewcause as $key => $value){ ?>
                 <div class="column cause-column col-md-3 col-sm-6 col-xs-12 wow zoomInStable" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <article class="inner-box text-center hvr-bounce-in">
                         <figure class="image-box">
-                            <a href="#"><img src="<?php echo $root.$value['cause_image_path']; ?>" alt=""></a>
-                            <div class="cause-title"><?php echo $value['cause_title']; ?></div>
+                            <a href="#"><img src="<?php// echo $root.$value['cause_image_path']; ?>" alt=""></a>
+                            <div class="cause-title"><?php //echo $value['cause_title']; ?></div>
                         </figure>
                         <div class="content-box">
                             <div class="donation-progress-box">
                                 <div class="donation-values">
-                                    Donation :  <span class="value">$<?php echo $value['amount_collected']; ?></span> / <span class="value">$<?php echo $value['total_required_amount']; ?></span>
+                                    Donation :  <span class="value">$<?php //echo $value['amount_collected']; ?></span> / <span class="value">$<?php echo $value['total_required_amount']; ?></span>
                                 </div>
                                 <div class="donation-progress-bar">
-                                    <div class="inner-bar" data-value-collected="<?php echo $value['amount_collected']; ?>" data-value-total="<?php echo $value['total_required_amount']; ?>"></div>
+                                    <div class="inner-bar" data-value-collected="<?php //echo $value['amount_collected']; ?>" data-value-total="<?php echo $value['total_required_amount']; ?>"></div>
                                 </div>
                             </div>
-                            <div class="text"><?php echo $value['cause_short_description']; ?></div>
-                            <a href="<?php echo $root; ?>Donation_form/donation/<?php echo $value['cause_id']; ?>" class="theme-btn btn-style-two">Donate</a>
+                            <div class="text"><?php// echo $value['cause_short_description']; ?></div>
+                            <a href="<?php// echo $root; ?>Donation_form/donation/<?php //echo $value['cause_id']; ?>" class="theme-btn btn-style-two">Donate</a>
                         </div>
                     </article>
                 </div>
 
-               <?php } ?>
+           
+-->
 
 
 
-
-            </div>
+           
+        
+<?php// } ?>
+                 </div>
         </div>
+</div>
     </section>
-
-
 <!--Intro Section-->
 <section class="subscribe-intro">
     	<div class="auto-container">
@@ -363,44 +365,44 @@ include 'includes/header.inc';
     </section>
 
 
-    <!--Blog News Section-->
+    <!--Blog News Section
     <section class="blog-news-section latest-news">
         <div class="auto-container">
 
             <div class="sec-title text-center">
                 <h2 style="color:#fa6628">Latest <span class="normal-font">Campaign Ads</span></h2>
-                <div class="text" style="color:#ffffff" >Lorem ipsum dolor sit amet, cum at inani interesset, nisl fugit munere ad mel,vix an omnium </div>
+                <div class="text" style="color:#ffffff" > </div>
             </div>
             <div class="row clearfix">
                 <?php
-            foreach($viewcamp as $key => $value)
-            {
+            //foreach($viewcamp as $key => $value)
+            //{
                 ?>
 
 
-                <!--Cause Column-->
+                
                 <div class="column blog-news-column col-lg-3 col-md-3 col-sm-4 col-xs-12" style="text-align:center">
                     <article class="inner-box">
                         <figure class="image-box">
-                            <a href="#"><img class="img-responsive" style="height: 200px;" src="<?php echo $root.$value['campaign_image_path']; ?>" alt=""></a>
+                            <a href="#"><img class="img-responsive" style="height: 200px;" src="<?php// echo $root.$value['campaign_image_path']; ?>" alt=""></a>
                         </figure>
                         <div class="content-box">
                             <div class="post-info clearfix">
-                                <div class="post-time" style="font-weight:bold;margin-left:20px;"><?php echo $value['campaign_insert_date']; ?></div>
+                                <div class="post-time" style="font-weight:bold;margin-left:20px;"><?php //echo $value['campaign_insert_date']; ?></div>
                                 <div class="post-options clearfix">
                                     <a href="#" class="comments-count" ><span class="icon flaticon-interface-1"></span> 6</a>
                                     <a href="#" class="fav-count" style="margin-right:20px;"><span class="icon flaticon-favorite"></span> 14</a>
                                 </div>
                             </div>
-                            <h3><a href="<?php echo $root; ?>Campaigns_view"><?php echo $value['campaign_title']; ?></a></h3>
-                            <div class="text"><?php echo $value['campaign_short_description']; ?></div>
-                            <a href="<?php echo $root; ?>Campaigns_view/view/<?php echo $value['campaign_id']; ?>" class="theme-btn btn-style-two">Read More</a>
+                            <h3><a href="<?php// echo $root; ?>Campaigns_view"><?php// echo $value['campaign_title']; ?></a></h3>
+                            <div class="text"><?php// echo $value['campaign_short_description']; ?></div>
+                            <a href="<?php// echo $root; ?>Campaigns_view/view/<?php //echo $value['campaign_id']; ?>" class="theme-btn btn-style-two">Read More</a>
                             <br />
                             <br />
                         </div>
                     </article>
                 </div>
-<?php } ?>
+<?php //} ?>
 
 
 
@@ -408,7 +410,7 @@ include 'includes/header.inc';
             </div>
         </div>
     </section>
-
+-->
 
     <!--Contact Section-->
     <?php

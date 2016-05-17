@@ -30,7 +30,7 @@
                            <br /> <br />
                            <?php if($data_saved == 'yes'){ ?>
                             <div class="alert alert-info" style="color:#eb5310;font-weight:bold;text-align: center">
-                      "you have successfully add Your Donation Ad <br/> PLEASE WAIT FOR THE ADMIN APPROVAL"
+                      "you Ad is successfully added <br/> PLEASE WAIT FOR THE ADMIN APPROVAL"
                             </div>
                            <?php }else{ ?>     
                   <h1 style="color:#eb5310;font-weight:bold;">
@@ -83,7 +83,7 @@
                 <div class="form-group ">
                     <label class="control-label" style="color:#ffffff">Long Description</label>
                     <br />
-                    <textarea cols="75" rows="10" name="lgdescription"></textarea>
+                    <textarea cols="75" rows="10" name="lgdescription" style="resize:none"></textarea>
                         
                   
                 </div>
@@ -117,7 +117,7 @@
                 <div class="form-group">
                     <label class="control-label" style="color:#ffffff">End Date</label>
                     
-                    <input name="date"   type="date" class="form-control">
+                    <input type="date" name="date"  class="form-control" placeholder="mm/dd/yyyy">
                 </div>
                 <div>
                 
