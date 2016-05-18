@@ -24,7 +24,18 @@
     	<div class="auto-container">
         	<div class="donation-form-outer">
             	<form method="post" action="<?php echo $root . 'donation_form/donation/' . $id; ?>">
-                	
+                	<?php if(isset($response)){
+                        if($response == 'success'){ ?>
+                    <div class="alert alert-success">
+                        Thank you - your payment received successfully.
+                    </div>
+                    <?php }else{ ?>
+                            <div class="alert alert-danger">
+                                <?php echo $response; ?>
+                            </div>
+                       <?php }
+                    } ?>
+
                     <!--Form Portlet-->
                     <div class="form-portlet">
                     	<h3>How Much Would you like to Donate?</h3>

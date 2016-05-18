@@ -247,8 +247,12 @@
 	
 	$(window).on('load', function() {
 		handlePreloader();
+		$('.date').datepicker({
+			format: 'd MM yyyy',
+			autoclose: true
+		});
 	});
 
-	
+
 
 })(window.jQuery);

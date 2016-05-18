@@ -117,7 +117,7 @@
                 <div class="form-group">
                     <label class="control-label" style="color:#ffffff">End Date</label>
                     
-                    <input type="date" name="date"  class="form-control" placeholder="mm/dd/yyyy">
+                    <input type="text" name="date"  class="form-control date" placeholder="mm/dd/yyyy">
                 </div>
                 <div>
                 

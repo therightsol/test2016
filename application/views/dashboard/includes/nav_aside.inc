@@ -5,17 +5,7 @@
         </div>
         <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
     </li>
-    <li class="sidebar-search-wrapper">
-        <form class="sidebar-search" action="http://www.keenthemes.com/preview/metronic_admin/extra_search.html" method="POST">
-            <div class="form-container">
-                <div class="input-box">
-                    <a href="javascript:;" class="remove"></a>
-                    <input type="text" placeholder="Search..."/>
-                    <input type="button" class="submit" value=" "/>
-                </div>
-            </div>
-        </form>
-    </li>
+
     <li class="start ">
         <a href="#">
             <i class="fa fa-home"></i>

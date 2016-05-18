@@ -115,7 +115,7 @@
                 <div class="form-group">
                     <label class="control-label" style="color:#ffffff">Cause End Date</label>
                     
-                    <input name="date"   type="date" class="form-control" value="<?php echo $rec['donation_last_date']; ?>" >
+                    <input name="date"   type="text" class="form-control date" value="<?php echo $rec['donation_last_date']; ?>" >
                 </div>
                  <?php
                     if($_POST){

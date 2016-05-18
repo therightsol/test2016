@@ -52,6 +52,7 @@ include 'includes/header.inc';
 
 
                     $i = 1;
+                    $c = 1;
                     //echo '<pre>' . var_export($bank_rec, true) . '</pre>'; exit;
                     foreach($bank_rec as $value){
 
@@ -61,7 +62,7 @@ include 'includes/header.inc';
                         ?>
 
 
-                            <td><?php echo $i; ?></td>
+                            <td><?php echo $c; ?></td>
 
 
                             <?php } if($value['um_title'] == 'bank_title') { ?>
@@ -104,10 +105,10 @@ include 'includes/header.inc';
                             <?php }
 
                             if( ($i ) % 7 == 0 || $i == 1 ){
-                                $i++;
+                                $c++;
 
                             }
-
+                       $i++;
                             if( ($i ) % 7 == 0 ){
                                 echo '</tr>';
 

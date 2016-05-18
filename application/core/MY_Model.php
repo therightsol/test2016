@@ -315,10 +315,12 @@ class MY_Model extends CI_Model {
         }
         return $this->db->count_all_results();
     }
-    public function sql_join_left($where_value, $second_table, $join_where){
-        $this->db->select('*');
+    public function join($select = '*',$where_value = false, $array, $type = 'inner'){
+        $this->db->select($select);
         $this->db->from($this::DB_TableName);
-        $this->db->join($second_table, $join_where, 'left');
+        foreach($array as $key => $value){
+            $this->db->join($key, $value, $type);
+        }
 
         if($where_value){
             $this->db->where($where_value);

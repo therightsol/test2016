@@ -82,7 +82,7 @@
 <!-- END LOGIN -->
 <!-- BEGIN COPYRIGHT -->
 <div class="copyright">
-    2016 &copy; MyElaaj. Admin Dashboard Develop by <a href="techplusintl.com" >TechPlusintl</a> .
+    2016 &copy; Save a soul. Admin Dashboard Develop by <a href="#" >Trsolutions</a> .
 </div>
 <?php include 'includes/footer_files.inc'; ?>
 <script>

@@ -193,7 +193,6 @@
 									<p class="text-center">Error! </p>
 								</div>
 							<?php } ?>
-							<form action="<?php echo base_url(); ?>dashboard/approve_donation" role="form" method="post">
 							<table class="table table-striped table-bordered table-hover" id="content">
                                 <thead>
                                 <tr>
@@ -274,12 +273,11 @@
                                         </td>
 
 
-										<td class="center">
-											<?php if($value['is_approved'] == 1){ ?>
-												Approved
-											<?php }else{ ?>
-												<input type="checkbox" name="donation_id[]" value="<?php echo $value['donation_id']; ?>" />
-											<?php } ?>
+										<td>
+											<a style="color: #006dcc;" href="#" class="status" data-type="select" data-source="[{value: '1', text: 'approved'},{value: '2', text: 'unapproved'},{value: 'not_set', text: 'not set'}]" data-name="is_approved" data-pk="<?php echo $value['dm_id']; ?>"
+											   data-value="<?php if($value['is_approved'] == 1){ echo '1'; }elseif($value['is_approved'] == 2){ echo '2'; }else{ echo 'not_set'; } ?>" data-original-title="Status">
+												<?php if($value['is_approved'] == 1){ echo 'approved'; }elseif($value['is_approved'] == 2){ echo 'unapproved'; }else{ echo 'not set'; } ?>
+											</a>
 										</td>
 										<td>
 											<a class="delete" data-id="<?php echo $value['donation_id']; ?>" data-column="donation_id" href="#"><i class="fa fa-close"></i> </a>
@@ -292,8 +290,6 @@
                                 } ?>
                                 </tbody>
                             </table>
-							<input type="submit" value="Approve" class="btn btn-primary btn-block" />
-							</form>
                         </div>
 
                     </div>
@@ -304,6 +300,23 @@
 		</div>
 	</div>
 	<!-- END CONTENT -->
+</div>
+<div class="modal fade notification_email" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog " style="width: 300px">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Notification</h4>
+			</div>
+			<div class="modal-body">
+				Do you want to sent notification to user?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" id="sent_notification" class="btn btn-primary">Sent</button>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
@@ -357,6 +370,34 @@
 				});
 			}
 
+		});
+		$('.status').editable({
+			url: '<?php echo $root; ?>dashboard/editable_notification/donation/donation_id',
+			success: function(response, newValue){
+				if(response.status == 'error'){
+					return response.msg;
+				}
+				else{
+                    if(response != 'not_set'){
+                        $('.notification_email').modal('show');
+                        $('.modal-body').html('Do you want to sent notification to user?');
+                        $('#sent_notification').click(function(){
+                            $('.modal-body').html('Please Wait <i class="fa fa-spin fa-spinner"></i>');
+                            $.ajax({
+                                url:  "<?php echo $root; ?>dashboard/send_notification",
+                                type: 'post',
+                                data: {'value': response}, //for example {id:id,name:name}
+                                success : function(resp){
+                                    $('.modal-body').html(resp);
+                                },
+                                error : function(resp){}
+                            });
+                        });
+                    }
+
+				}
+
+			}
 		});
 
 	});

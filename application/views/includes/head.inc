@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>assets/css/picedit.min.css" />
     <link href="<?php echo $root; ?>admin_assets/css/xeditable.min.css" rel="stylesheet">
     <link href="<?php echo $root; ?>assets/css/revolution-slider.css" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css" rel="stylesheet">
 <!-- END THEME STYLES -->
 
 </head>

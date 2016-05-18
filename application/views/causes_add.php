@@ -115,7 +115,7 @@
                 <div class="form-group">
                     <label class="control-label" style="color:#ffffff">Cause End Date</label>
                     
-                    <input name="date"   type="date" class="form-control">
+                    <input name="date"   type="text" class="form-control date">
                 </div>
                 <div>
                 <?php

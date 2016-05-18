@@ -298,8 +298,13 @@
             type: 'text',
             url: '<?php echo $root; ?>dashboard/editable/user/uid',
             success: function(response, newValue){
-                if(response.status == 'error') return response.msg;
-                location.reload();
+                if(response.status == 'error'){
+					return response.msg;
+				}
+				else{
+
+				}
+
             }
         });
         $("a[rel^='prettyPhoto']").prettyPhoto();

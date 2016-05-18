@@ -21,7 +21,7 @@
         	<div class="row clearfix" >
             	
                 <!--Content Side-->	
-                <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
                     
                     <!--Causes Details Section-->
                     <section class="causes-section cause-details no-padd-bottom no-padd-top">
