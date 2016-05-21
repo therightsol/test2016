@@ -89,6 +89,22 @@ class Dashboard extends CI_Controller {
 
 
     }
+     public function update()
+    {
+        if(empty($this->session->userdata('admin_dashboard'))){
+            redirect('dashboard/login');exit;
+
+        }
+         $data['activeMenu'] = '';
+         $this->load->model('user');
+          //$record = $this->user->getRecord($id, 'uid'); 
+         // $data['uid'] = $id;
+                 //   $record = (array) $record; // changing to array
+                   // $data['rec'] = $record;
+         
+         $this->load->view('dashboard/updateprofile' , $data);
+         
+    }
     public function bank($id, $status = ''){
         $data['id'] = $id;
         $data['status'] = $status;
@@ -600,6 +616,8 @@ class Dashboard extends CI_Controller {
                     if ($admin_data[0]['username'] == $username and password_verify($plain_pass, $admin_data[0]['password'])) {
                         $this->session->set_userdata('admin_dashboard', 'approve');
                         $this->session->set_userdata('username', $username);
+                         $this->session->set_userdata('email', $email);
+                         $this->session->set_userdata('number', $phone_number);
                         $this->session->set_userdata('loggedInUser', 'admin');
                         redirect('dashboard/general');
                     } else {

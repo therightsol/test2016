@@ -13,6 +13,12 @@
 						Dashboard
 					</span>
         </a>
+         <a href="<?php echo $root; ?>dashboard/update">
+            <i class="fa fa-edit"></i>
+					<span class="title">
+						Update Profile
+					</span>
+        </a>
     </li>
     <li class="">
         <a href="<?php echo $root; ?>dashboard/general">
@@ -107,28 +113,7 @@
 					</span>
         </a>
     </li>
-    <li class="">
-        <a  href="javascript:;" >
-            <i class="fa fa-reddit-alien"></i>
-					<span class="title">
-						Causes
-					</span>
-            <span class="arrow ">
-					</span>
-        </a>
-        <ul class="sub-menu">
-            <li>
-                <a href="<?php echo $root; ?>dashboard/causes">
-                    Update / Delte
-                </a>
-            </li>
-            <li>
-                <a href="<?php echo $root; ?>dashboard/add_causes">
-                    Add
-                </a>
-            </li>
-        </ul>
-    </li>
+ 
     <li class="">
         <a  href="javascript:;" >
             <i class="fa fa-venus-double"></i>

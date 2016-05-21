@@ -1,6 +1,6 @@
 <?php include 'includes/header.inc'; ?>
 <!-- BEGIN BODY -->
-<body class="login">
+<body class="login" style="background-color: #c0c0c0 !important">
 <!-- BEGIN LOGO -->
 <div class="logo">
 	<img src="<?php echo $root; ?>admin_assets/img/logo-big.png" alt=""/>
@@ -71,7 +71,7 @@
 		<div class="form-actions">
 			<button type="button" id="back-btn" class="btn">
 			<i class="m-icon-swapleft"></i> Back </button>
-			<button type="submit" class="btn green pull-right">
+			<button type="submit" class="btn  pull-right" style="background-color:#eb5310">
 			Submit <i class="m-icon-swapright m-icon-white"></i>
 			</button>
 		</div>
