@@ -4,11 +4,11 @@ $config['useragent']        = 'PHPMailer';              // Mail engine switcher:
 $config['protocol']         = 'mail';                   // 'mail', 'sendmail', or 'smtp'
 $config['mailpath']         = '/usr/sbin/sendmail';
 $config['smtp_host']        = '';
-$config['smtp_user']        = '';
-$config['smtp_pass']        = '';
-$config['smtp_port']        = '';
+$config['smtp_user']        = 'donotreplythisemail11@gmail.com';
+$config['smtp_pass']        = 'saveasoul123';
+$config['smtp_port']        = '465';
 $config['smtp_timeout']     = 30;                       // (in seconds)
-$config['smtp_crypto']      = '';                       // '' or 'tls' or 'ssl'
+$config['smtp_crypto']      = 'ssl';                       // '' or 'tls' or 'ssl'
 $config['smtp_debug']       = 0;                        // PHPMailer's SMTP debug info level: 0 = off, 1 = commands, 2 = commands and data, 3 = as 2 plus connection status, 4 = low level data output.
 $config['smtp_auto_tls']    = true;                     // Whether to enable TLS encryption automatically if a server supports it, even if `smtp_crypto` is not set to 'tls'.
 $config['smtp_conn_options'] = array();                 // SMTP connection options, an array passed to the function stream_context_create() when connecting via SMTP.
