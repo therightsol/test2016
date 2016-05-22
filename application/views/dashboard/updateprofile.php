@@ -46,7 +46,7 @@ $username = $this->session->userdata('username');
 			</div>
                        
                
-            <div class="row">
+            <div class="row" style="margin-top: 8%;">
 				<div class="col-md-12">
 					<table id="user" class="table table-bordered table-striped">
 					<tbody>
@@ -56,40 +56,41 @@ $username = $this->session->userdata('username');
 						</td>
 						<td style="width:50%">
                                                     
-							<a href="#" id="username" data-type="text" data-pk="1" data-original-title="Enter username"><?php echo $username ?></a>
+							<a class="admin_edit" data-name="username" href="#" id="username" data-type="text" data-pk="<?php echo $admin_data[0]['uid']; ?>" data-original-title="Enter username" data-value="<?php echo $admin_data[0]['username']; ?>"><?php echo $admin_data[0]['username']; ?></a>
 						</td>
 						
 					</tr>
-					
+
 					<tr>
 						<td>
 							Email
 						</td>
 						<td>
-							<a href="#"  data-type="text" data-pk="1" data-value="" ></a>
+							<a class="admin" href="#" data-name="email" data-type="text" data-pk="<?php echo $admin_data[0]['uid']; ?>" data-value="<?php echo $admin_data[0]['email']; ?>" ><?php echo $admin_data[0]['email']; ?></a>
 						</td>
-						
+
+					</tr>
+					<tr>
+						<td>
+							Password
+						</td>
+						<td>
+							<a class="admin_edit" href="#" data-name="password"  data-type="text" data-pk="<?php echo $admin_data[0]['uid']; ?>" data-value="" >******</a>
+						</td>
+
 					</tr>
 					<tr>
 						<td>
 							Phone Number
 						</td>
 						<td>
-                                                    
-							<a href="#" id="group" data-type="select" data-pk="1" data-value="5" data-source="/groups" data-original-title="Select group"></a>
+
+							<a class="admin" href="#" data-name="phone_number" data-type="text" data-pk="<?php echo $admin_data[0]['uid']; ?>" data-value="<?php echo $admin_data[0]['phone_number']; ?>" ><?php echo $admin_data[0]['phone_number']; ?></a>
+
 						</td>
 						
 					</tr>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+
 					
 					</tbody>
 					</table>
@@ -113,6 +114,16 @@ $username = $this->session->userdata('username');
 </script>
 
 <script>
+    $('.admin').editable({
+        url: '<?php echo $root; ?>dashboard/editable/user/uid',
+        success: function(response, newValue){
+        }
+    });
+    $('.admin_edit').editable({
+        url: '<?php echo $root; ?>dashboard/update',
+        success: function(response, newValue){
+        }
+    });
 	$('#reg').validate();
 </script>
                       

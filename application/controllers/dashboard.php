@@ -95,14 +95,38 @@ class Dashboard extends CI_Controller {
             redirect('dashboard/login');exit;
 
         }
+
+        $this->load->model('user');
+        $username = $this->session->userdata('username');
          $data['activeMenu'] = '';
-         $this->load->model('user');
-          //$record = $this->user->getRecord($id, 'uid'); 
-         // $data['uid'] = $id;
-                 //   $record = (array) $record; // changing to array
-                   // $data['rec'] = $record;
-         
-         $this->load->view('dashboard/updateprofile' , $data);
+         if($_POST){
+             $input_name = $this->input->post('name', true);
+             $value = $this->input->post('value', true);
+             $pk = $this->input->post('pk', true);
+
+
+             if($input_name == 'username'){
+                 $updating_data = array($input_name => $value);
+                 $success = $this->user->updateRecord('uid', $updating_data, $pk);
+                 $this->session->set_userdata('username', $value);
+             }elseif($input_name == 'password'){
+                 $options = [
+                     'cost' => 10
+                 ];
+                 $hashedPassword = password_hash($value, PASSWORD_BCRYPT, $options);
+                 $updating_data = array($input_name => $hashedPassword);
+                 $success = $this->user->updateRecord('uid', $updating_data, $pk);
+                 header("HTTP/1.1 200 OK");
+
+             }
+         }else{
+
+             $where = array('is_admin' => '1', 'username' => $username);
+             $data['admin_data'] = $this->user->getSpecificColumnRec(false, $where);
+             $this->load->view('dashboard/updateprofile' , $data);
+         }
+        //echo '<pre>'.var_export($data['admin_data'], true).'</pre>';exit;
+
          
     }
     public function bank($id, $status = ''){
@@ -616,8 +640,6 @@ class Dashboard extends CI_Controller {
                     if ($admin_data[0]['username'] == $username and password_verify($plain_pass, $admin_data[0]['password'])) {
                         $this->session->set_userdata('admin_dashboard', 'approve');
                         $this->session->set_userdata('username', $username);
-                         $this->session->set_userdata('email', $email);
-                         $this->session->set_userdata('number', $phone_number);
                         $this->session->set_userdata('loggedInUser', 'admin');
                         redirect('dashboard/general');
                     } else {
@@ -676,6 +698,47 @@ class Dashboard extends CI_Controller {
 
         }
     }
+    public function editable_notification($model, $id){
+
+        if (filter_input_array(INPUT_POST)) {
+
+            //echo '<pre>'.var_export($_POST, true).'</pre>';exit;
+            $input_name = $this->input->post('name', true);
+            $pk = $this->input->post('pk', true);
+            $this->load->model($model);
+            $this->load->helper('security');
+            $rules = array(
+                array('field' => 'value',
+                    'label' => 'Value',
+                    'rules' => 'required|max_length[255]|xss_clean|encode_php_tags|trim'
+                )
+
+            );
+            //validation run
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($rules);
+            $this->form_validation->set_error_delimiters('', '');
+
+            if (!$this->form_validation->run($rules) == FALSE) {
+                $value = $this->input->post('value', true);
+                $updating_data = array($input_name => $value);
+                $success = $this->$model->updateRecord($id, $updating_data, $pk);
+                if($success){
+                    echo $pk.'|'.$value;
+                    header("HTTP/1.1 200 OK");
+                    //echo 'updated';
+                }else{
+                    header('HTTP/1.0 400 Bad Request', true, 400);
+                    echo 'Error! try again';
+                }
+            }else{
+                echo validation_errors();
+                header('HTTP/1.0 400 Bad Request', true, 400);
+
+            }
+
+        }
+    }
 
     public function approve_donation (){
         $data['pagename'] = '';
@@ -693,7 +756,7 @@ class Dashboard extends CI_Controller {
         );
         $data['donation'] = $this->donations_meta->sql_join_multi($where, $join_wher);
 
-        //echo '<pre>'.var_export($data['viewdonation'], true).' </pre>';exit;
+        //echo '<pre>'.var_export($data['donation'], true).' </pre>';exit;
         if (isset($_POST['donation_id'])) {
 
             $id = $this->input->post('donation_id', true);
@@ -1119,10 +1182,47 @@ class Dashboard extends CI_Controller {
 
     }
 
-    private function send_email($userEmail, $message){
+    private function send_email($userEmail, $message, $subject = 'Verify_email'){
         $this->load->library('email');
         $this->load->model('Send_email');
-        return $this->Send_email->send($userEmail, $message, 'Verify_email');
+        return $this->Send_email->send($userEmail, $message, $subject);
+    }
+    public function send_notification(){
+        $value = $this->input->post('value', true);
+
+        $explod = explode('|', $value);
+        $id = $explod[0];
+        $status = $explod[0];
+
+        $this->load->model('donation');
+        $join_wher = array(
+            'donations_meta' => 'donations_meta.donation_id = donation_ads.donation_id'
+        );
+
+        $where = array(
+            'dm_key' => 'username',
+            'donation_ads.donation_id' => $id,
+
+        );
+        $donation_rec = $this->donation->sql_join_multi($where, $join_wher);
+        $username = $donation_rec[0]['dm_value'];
+
+        $this->load->model('user');
+        $user_rec = $this->user->getRecord($username,'username');
+        $email = $user_rec->email;
+
+        if($status == 1){
+            $message = 'Your Donation Approved';
+        }else{
+            $message = 'Your Donation Un Approved';
+        }
+
+        $success = $this->send_email($email, $message, 'Donation Ads');
+        if($success){
+            echo 'Notification successfully sent';
+        }else{
+            echo 'Error! during sending email';
+        }
     }
     public function image_upload() {
         $config = array(
