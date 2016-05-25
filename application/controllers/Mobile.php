@@ -31,9 +31,12 @@ class Mobile extends CI_Controller{
 
     public function get_single_donationAd($id = null){
         $apiKey = $this->getApikey($id);
+        //echo $id; exit;
 
         if(! $id)
             return false;
+
+
 
         $record = $this->donation->getRecord($id, 'donation_id');
 
@@ -53,76 +56,7 @@ class Mobile extends CI_Controller{
 
 
     public function donation_form_data($data = false){
-        /*
-                if(isset($_GET['amount']))
-                    $amount     = $_GET['amount'];
-                else
-                    $amount = "";
 
-
-                if(isset($_GET['name']))
-                    $name       = $_GET['name'];
-                else
-                    $name = "";
-
-
-
-                if(isset($_GET['email']))
-                    $email      = $_GET['email'];
-                else
-                    $email = "";
-
-
-                if(isset($_GET['phone']))
-                    $phone      = $_GET['phone'];
-                else
-                    $phone = "";
-
-
-                if(isset($_GET['address']))
-                    $address    = $_GET['address'];
-                else
-                    $address = "";
-
-
-                if(isset($_GET['cardNumber']))
-                    $cardNumber = $_GET['cardNumber'];
-                else
-                    $cardNumber = "";
-
-
-                if(isset($_GET['cardHolderName']))
-                    $cardHolderName = $_GET['cardHolderName'];
-                else
-                    $cardHolderName = "";
-
-
-
-                if(isset($_GET['expiryMonth']))
-                    $expiryMonth    = $_GET['expiryMonth'];
-                else
-                    $expiryMonth = "";
-
-
-                if(isset($_GET['expiryYear']))
-                    $expiryYear     = $_GET['expiryYear'];
-                else
-                    $expiryYear = "";
-
-
-
-                if(isset($_GET['cvv']))
-                    $cvv            = $_GET['cvv'];
-                else
-                    $cvv = "";
-
-
-                if(isset($_GET['id']))
-                    $id            = $_GET['id'];
-                else
-                    $id = "";
-
-        */
 
         $json = json_decode($_GET['json'], true);
         //echo $json;
@@ -152,21 +86,25 @@ class Mobile extends CI_Controller{
     }
 
 
+    public function getBankDetails($donationID = false){
 
+        //echo $donationID;
+        if($donationID){
 
+            $this->load->model('Donation');
+            $where_join = array(
+                'donations_meta' => 'donations_meta.donation_id = donation_ads.donation_id'
+            );
+            $where_value = array(
+                'donation_ads.donation_id' => $donationID
+            );
+            //$select = 'causes.cause_id, causes_meta.cm_value, causes_meta.cm_key';
+            $rec = $this->Donation->join('*',$where_value, $where_join);
 
-
-
-    public function getBankDetails($cause_id = false){
-
-        if($cause_id){
-            $this->load->model('causes_meta');
-            $rec = $this->causes_meta->ci_join('causes.cause_id, causes_meta.cm_value, causes_meta.cm_key', 'causes', 'causes_meta',
-                'causes.cause_id = causes_meta.cause_id', 'causes.cause_id', $cause_id);
-
-            if (isset($rec[0])) {
+            //echo '<pre>'.var_export($rec, true).'</pre>';exit;
+            if(isset($rec[0])) {
                 // $rec has record
-                $username = $rec[0]['cm_value'];
+                $username = $rec[0]['dm_value'];
 
                 $this->load->model('user');
                 $rec = $this->user->getRecord($username, 'username');
@@ -180,15 +118,23 @@ class Mobile extends CI_Controller{
 
                 $uid = $rec->uid;
 
+                // fetch all Bank Accounts of this organization and display.
+
                 $this->load->model('user_meta');
-                $bankrec = '';
-                if ($uid)
-                    $bankrec = $this->user_meta->getRecord($uid, 'fk_uid', true);
+                $data['bank_rec'] = $this->user_meta->getRecord($uid, 'fk_uid', true);
+
+                $bnkrec = json_encode($data['bank_rec']);
+
+                echo $bnkrec;
+
+                //var_export($data['bank_rec']);exit;
+                //$this->load->view('bankdetails', $data);
+                //return;
 
 
-                $bankrec = json_encode($bankrec);
 
-                echo $bankrec;
+
+
             }
         }
     }
@@ -197,7 +143,6 @@ class Mobile extends CI_Controller{
     /*
      * Private Functions
      */
-
     private function do_donate($apiKey = false, $data){
 
         // API Fallback
@@ -301,12 +246,24 @@ class Mobile extends CI_Controller{
                 $rec = $this->user->ci_join('users_meta.um_key, users_meta.um_title, users_meta.um_value',
                     'users', 'users_meta', 'users.uid = users_meta.fk_uid', 'users.uid', $uid);
 
-                if (isset($rec[0]['um_value'])) {
-                    $apiKey = $rec[0]['um_value'];
+                //echo '<tt><pre>' . var_export($rec, true) . '</pre></tt>'; exit;
+
+                if(is_array($rec) && !empty($rec)){
+                    foreach($rec as $key => $value){
+                        if(is_array($value) && isset($value['um_key'])){
+
+                            if($value['um_key'] === 'stripe_secret_live_api_key'){
+                                $apiKey = $value['um_value'];
+                            }
+
+                        }
+                    }
                 }
             }else {
                 // DB Record not found
                 //print_r(json_encode($rec));
+
+                $apiKey = false;
             }
         }
 
