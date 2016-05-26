@@ -1183,6 +1183,7 @@ class Dashboard extends CI_Controller {
     }
 
     private function send_email($userEmail, $message, $subject = 'Verify_email'){
+        //echo $userEmail . '   ' . $message . '   ' . $subject;
         $this->load->library('email');
         $this->load->model('Send_email');
         return $this->Send_email->send($userEmail, $message, $subject);
@@ -1192,7 +1193,9 @@ class Dashboard extends CI_Controller {
 
         $explod = explode('|', $value);
         $id = $explod[0];
-        $status = $explod[0];
+        $status = $explod[1];
+
+        //var_export($explod);exit;
 
         $this->load->model('donation');
         $join_wher = array(
@@ -1205,19 +1208,25 @@ class Dashboard extends CI_Controller {
 
         );
         $donation_rec = $this->donation->sql_join_multi($where, $join_wher);
+
+        //echo var_export($donation_rec); exit;
+
+
         $username = $donation_rec[0]['dm_value'];
 
         $this->load->model('user');
         $user_rec = $this->user->getRecord($username,'username');
+        //echo var_export($user_rec); exit;
         $email = $user_rec->email;
 
         if($status == 1){
-            $message = 'Your Donation Approved';
+            $message = "Your Donation ad with title \"{$donation_rec[0]['donation_title']}\" is Approved";
         }else{
-            $message = 'Your Donation Un Approved';
+            $message = "Sorry your donation ad with title \"{$donation_rec[0]['donation_title']}\" is inappropriate, it is unapproved";
         }
 
         $success = $this->send_email($email, $message, 'Donation Ads');
+        //echo var_export($success); exit;
         if($success){
             echo 'Notification successfully sent';
         }else{

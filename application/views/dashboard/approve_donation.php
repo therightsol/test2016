@@ -290,6 +290,7 @@
                         $('.modal-body').html('Do you want to sent notification to user?');
                         $('#sent_notification').click(function(){
                             $('.modal-body').html('Please Wait <i class="fa fa-spin fa-spinner"></i>');
+							//console.log(response);
                             $.ajax({
                                 url:  "<?php echo $root; ?>dashboard/send_notification",
                                 type: 'post',
