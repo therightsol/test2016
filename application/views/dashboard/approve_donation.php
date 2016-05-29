@@ -219,7 +219,7 @@
 				Do you want to sent notification to user?
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" id="close" class="btn btn-default" data-dismiss="modal">Close</button>
 				<button type="button" id="sent_notification" class="btn btn-primary">Sent</button>
 			</div>
 		</div>
@@ -286,14 +286,16 @@
 				}
 				else{
                     if(response != 'not_set'){
+						console.log(response);
                         $('.notification_email').modal('show');
                         $('.modal-body').html('Do you want to sent notification to user?');
-                        $('#sent_notification').click(function(){
+                        $('.notification_email').off('click.confirm').on('click.confirm','#sent_notification',function(){
                             $('.modal-body').html('Please Wait <i class="fa fa-spin fa-spinner"></i>');
 							//console.log(response);
                             $.ajax({
                                 url:  "<?php echo $root; ?>dashboard/send_notification",
                                 type: 'post',
+                                cache: false,
                                 data: {'value': response}, //for example {id:id,name:name}
                                 success : function(resp){
                                     $('.modal-body').html(resp);
@@ -301,6 +303,8 @@
                                 error : function(resp){}
                             });
                         });
+                        $( "#close" ).off('click');
+
                     }
 
 				}

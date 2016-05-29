@@ -1216,22 +1216,27 @@ class Dashboard extends CI_Controller {
 
         $this->load->model('user');
         $user_rec = $this->user->getRecord($username,'username');
-        //echo var_export($user_rec); exit;
-        $email = $user_rec->email;
+        if($user_rec){
+            //echo var_export($user_rec); exit;
+            $email = $user_rec->email;
 
-        if($status == 1){
-            $message = "Your Donation ad with title \"{$donation_rec[0]['donation_title']}\" is Approved";
+            if($status == 1){
+                $message = "Your Donation ad with title \"{$donation_rec[0]['donation_title']}\" is Approved";
+            }else{
+                $message = "Sorry your donation ad with title \"{$donation_rec[0]['donation_title']}\" is inappropriate, it is unapproved";
+            }
+
+            $success = $this->send_email($email, $message, 'Donation Ads');
+            //echo var_export($success); exit;
+            if($success){
+                echo 'Notification successfully sent';
+            }else{
+                echo 'Error! during sending email';
+            }
         }else{
-            $message = "Sorry your donation ad with title \"{$donation_rec[0]['donation_title']}\" is inappropriate, it is unapproved";
+            echo 'username not found';
         }
 
-        $success = $this->send_email($email, $message, 'Donation Ads');
-        //echo var_export($success); exit;
-        if($success){
-            echo 'Notification successfully sent';
-        }else{
-            echo 'Error! during sending email';
-        }
     }
     public function image_upload() {
         $config = array(
